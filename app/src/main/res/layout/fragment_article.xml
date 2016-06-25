@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/fragment_article_category_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"/>
+    <ListView
+        android:id="@+id/fragment_article_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </ListView>
 
 </RelativeLayout>
