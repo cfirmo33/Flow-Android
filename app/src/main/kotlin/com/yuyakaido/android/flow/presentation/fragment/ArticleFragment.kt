@@ -1,6 +1,8 @@
 package com.yuyakaido.android.flow.presentation.fragment
 
+import android.net.Uri
 import android.os.Bundle
+import android.support.customtabs.CustomTabsIntent
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -45,6 +47,9 @@ class ArticleFragment : Fragment() {
 
         val listView = view?.findViewById(R.id.fragment_article_list_view) as ListView
         listView.adapter = adapter
+        listView.setOnItemClickListener {
+            adapterView, view, i, l -> startWebBrowser(adapter!!.getItem(i))
+        }
 
         fetchArticles()
     }
@@ -59,6 +64,11 @@ class ArticleFragment : Fragment() {
     private fun initListView(articles: List<MenthasArticle>) {
         adapter?.addAll(articles)
         adapter?.notifyDataSetChanged()
+    }
+
+    private fun startWebBrowser(article: MenthasArticle) {
+        val intent = CustomTabsIntent.Builder().build()
+        intent.launchUrl(activity, Uri.parse(article.url))
     }
 
 }
