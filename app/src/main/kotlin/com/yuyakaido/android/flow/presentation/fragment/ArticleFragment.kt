@@ -13,6 +13,7 @@ import com.yuyakaido.android.flow.domain.MenthasArticle
 import com.yuyakaido.android.flow.domain.MenthasCategory
 import com.yuyakaido.android.flow.infra.repository.MenthasRepository
 import com.yuyakaido.android.flow.presentation.adapter.ArticleListAdapter
+import com.yuyakaido.android.flow.util.ErrorHandler
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
 
@@ -58,7 +59,9 @@ class ArticleFragment : Fragment() {
         MenthasRepository.getArticles(category!!)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe { articles -> initListView(articles) }
+                .subscribe(
+                        { initListView(it) },
+                        { ErrorHandler.handle(it) })
     }
 
     private fun initListView(articles: List<MenthasArticle>) {
