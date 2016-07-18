@@ -3,7 +3,6 @@ package com.yuyakaido.android.flow.presentation.activity
 import android.os.Bundle
 import android.support.design.widget.TabLayout
 import android.support.v4.view.ViewPager
-import android.support.v7.app.AppCompatActivity
 import com.yuyakaido.android.flow.R
 import com.yuyakaido.android.flow.domain.MenthasCategory
 import com.yuyakaido.android.flow.infra.repository.MenthasRepository
@@ -12,7 +11,7 @@ import com.yuyakaido.android.flow.util.ErrorHandler
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

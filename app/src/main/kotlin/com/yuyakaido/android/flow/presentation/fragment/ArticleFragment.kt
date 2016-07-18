@@ -20,7 +20,7 @@ import rx.schedulers.Schedulers
 /**
  * Created by yuyakaido on 6/20/16.
  */
-class ArticleFragment : Fragment() {
+class ArticleFragment : BaseFragment() {
 
     private var category: MenthasCategory? = null
     private var adapter: ArticleListAdapter? = null
