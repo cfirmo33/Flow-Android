@@ -10,8 +10,11 @@ import com.yuyakaido.android.flow.presentation.adapter.ArticlePagerAdapter
 import com.yuyakaido.android.flow.util.ErrorHandler
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
+import rx.subscriptions.CompositeSubscription
 
 class MainActivity : BaseActivity() {
+
+    val subscriptions: CompositeSubscription = CompositeSubscription()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,13 +22,18 @@ class MainActivity : BaseActivity() {
         fetchCategories()
     }
 
+    override fun onDestroy() {
+        subscriptions.unsubscribe()
+        super.onDestroy()
+    }
+
     private fun fetchCategories() {
-        MenthasRepository.getCategories()
+        subscriptions.add(MenthasRepository.getCategories()
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                         { initViewPager(it) },
-                        { ErrorHandler.handle(it) })
+                        { ErrorHandler.handle(it) }))
     }
 
     private fun initViewPager(categories: List<MenthasCategory>) {
