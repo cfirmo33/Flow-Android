@@ -16,11 +16,14 @@ import com.yuyakaido.android.flow.presentation.adapter.ArticleListAdapter
 import com.yuyakaido.android.flow.util.ErrorHandler
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
+import rx.subscriptions.CompositeSubscription
 
 /**
  * Created by yuyakaido on 6/20/16.
  */
 class ArticleFragment : BaseFragment() {
+
+    private val subscriptions: CompositeSubscription = CompositeSubscription()
 
     private var category: MenthasCategory? = null
     private var adapter: ArticleListAdapter? = null
@@ -56,12 +59,12 @@ class ArticleFragment : BaseFragment() {
     }
 
     private fun fetchArticles() {
-        MenthasRepository.getArticles(category!!)
+        subscriptions.add(MenthasRepository.getArticles(category!!)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                         { initListView(it) },
-                        { ErrorHandler.handle(it) })
+                        { ErrorHandler.handle(it) }))
     }
 
     private fun initListView(articles: List<MenthasArticle>) {
