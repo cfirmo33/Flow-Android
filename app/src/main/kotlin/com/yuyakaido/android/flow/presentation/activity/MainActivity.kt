@@ -14,7 +14,7 @@ import rx.subscriptions.CompositeSubscription
 
 class MainActivity : BaseActivity() {
 
-    val subscriptions: CompositeSubscription = CompositeSubscription()
+    private val subscriptions: CompositeSubscription = CompositeSubscription()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
