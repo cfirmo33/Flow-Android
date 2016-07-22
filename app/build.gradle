@@ -28,7 +28,7 @@ repositories {
 }
 
 ext {
-    supportLibVersion = '24.0.0'
+    supportLibVersion = '24.1.1'
     retrofitVersion = '2.1.0'
     okhttpVersion = '3.4.1'
 }
