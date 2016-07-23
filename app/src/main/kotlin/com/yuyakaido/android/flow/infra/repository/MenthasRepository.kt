@@ -17,7 +17,7 @@ class MenthasRepository {
         }
 
         fun getArticles(category: MenthasCategory) : Single<List<MenthasArticle>> {
-            return MenthasClient.getArticles(category);
+            return MenthasClient.getArticles(category)
         }
 
     }

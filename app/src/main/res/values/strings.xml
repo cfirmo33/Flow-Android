@@ -2,4 +2,7 @@
 
 <resources>
     <string name="app_name">Flow</string>
+
+    <string name="common_menthas">Menthas</string>
+    <string name="common_qiita">Qiita</string>
 </resources>

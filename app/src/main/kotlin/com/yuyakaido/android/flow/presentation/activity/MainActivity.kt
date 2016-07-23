@@ -1,47 +1,68 @@
 package com.yuyakaido.android.flow.presentation.activity
 
+import android.content.res.Configuration
 import android.os.Bundle
-import android.support.design.widget.TabLayout
-import android.support.v4.view.ViewPager
+import android.support.design.widget.NavigationView
+import android.support.v4.widget.DrawerLayout
+import android.support.v7.app.ActionBarDrawerToggle
+import android.view.Gravity
 import com.yuyakaido.android.flow.R
-import com.yuyakaido.android.flow.domain.MenthasCategory
-import com.yuyakaido.android.flow.infra.repository.MenthasRepository
-import com.yuyakaido.android.flow.presentation.adapter.ArticlePagerAdapter
-import com.yuyakaido.android.flow.util.ErrorHandler
-import rx.android.schedulers.AndroidSchedulers
-import rx.schedulers.Schedulers
-import rx.subscriptions.CompositeSubscription
+import com.yuyakaido.android.flow.presentation.item.NavigationItem
 
 class MainActivity : BaseActivity() {
 
-    private val subscriptions: CompositeSubscription = CompositeSubscription()
+    lateinit var drawerLayout: DrawerLayout
+    lateinit var navigationView: NavigationView
+    lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        fetchCategories()
+
+        drawerLayout = findViewById(R.id.activity_main_drawer_layout) as DrawerLayout
+        navigationView = findViewById(R.id.activity_main_navigation_view) as NavigationView
+    }
+
+    override fun onPostCreate(savedInstanceState: Bundle?) {
+        super.onPostCreate(savedInstanceState)
+
+        actionBarDrawerToggle = ActionBarDrawerToggle(this, drawerLayout, getToolbar(), R.string.app_name, R.string.app_name)
+        actionBarDrawerToggle.syncState()
+
+        drawerLayout.addDrawerListener(actionBarDrawerToggle)
+
+        navigationView.setNavigationItemSelectedListener {
+            drawerLayout.closeDrawer(Gravity.START)
+            it.isChecked = true
+            replaceFragment(NavigationItem.fromMenuId(it.itemId))
+            false
+        }
+
+        replaceFragment(NavigationItem.Menthas)
     }
 
     override fun onDestroy() {
-        subscriptions.unsubscribe()
+        drawerLayout.removeDrawerListener(actionBarDrawerToggle)
         super.onDestroy()
     }
 
-    private fun fetchCategories() {
-        subscriptions.add(MenthasRepository.getCategories()
-                .subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(
-                        { initViewPager(it) },
-                        { ErrorHandler.handle(it) }))
+    override fun onConfigurationChanged(newConfig: Configuration?) {
+        super.onConfigurationChanged(newConfig)
+        actionBarDrawerToggle.onConfigurationChanged(newConfig)
     }
 
-    private fun initViewPager(categories: List<MenthasCategory>) {
-        val viewPager = findViewById(R.id.activity_main_view_pager) as ViewPager
-        viewPager.adapter = ArticlePagerAdapter(supportFragmentManager, categories)
+    override fun onBackPressed() {
+        if (drawerLayout.isDrawerOpen(Gravity.START)) {
+            drawerLayout.closeDrawer(Gravity.START)
+        } else {
+            super.onBackPressed()
+        }
+    }
 
-        val tabLayout = findViewById(R.id.activity_main_tab_layout) as TabLayout
-        tabLayout.setupWithViewPager(viewPager)
+    private fun replaceFragment(item: NavigationItem) {
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.activity_main_fragment_container, item.fragment())
+        transaction.commit()
     }
 
 }
