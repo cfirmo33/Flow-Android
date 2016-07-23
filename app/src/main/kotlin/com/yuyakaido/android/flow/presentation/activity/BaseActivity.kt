@@ -22,7 +22,7 @@ open class BaseActivity : AppCompatActivity() {
         }
     }
 
-    fun getToolbar() : Toolbar? {
+    fun getToolbar(): Toolbar? {
         return findViewById(R.id.toolbar) as Toolbar
     }
 

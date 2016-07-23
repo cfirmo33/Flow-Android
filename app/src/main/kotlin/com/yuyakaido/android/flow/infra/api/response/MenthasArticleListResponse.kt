@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 /**
  * Created by yuyakaido on 6/25/16.
  */
-data class MenthasListResponse(@SerializedName("items") val items: List<Item>) {
+data class MenthasArticleListResponse(@SerializedName("items") val items: List<Item>) {
 
     data class Item(@SerializedName("page") val page: Page)
 

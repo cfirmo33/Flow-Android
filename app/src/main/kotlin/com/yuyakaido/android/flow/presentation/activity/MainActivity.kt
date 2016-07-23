@@ -21,6 +21,8 @@ class MainActivity : BaseActivity() {
 
         drawerLayout = findViewById(R.id.activity_main_drawer_layout) as DrawerLayout
         navigationView = findViewById(R.id.activity_main_navigation_view) as NavigationView
+
+        replaceFragment(NavigationItem.Menthas)
     }
 
     override fun onPostCreate(savedInstanceState: Bundle?) {
@@ -37,8 +39,6 @@ class MainActivity : BaseActivity() {
             replaceFragment(NavigationItem.fromMenuId(it.itemId))
             false
         }
-
-        replaceFragment(NavigationItem.Menthas)
     }
 
     override fun onDestroy() {

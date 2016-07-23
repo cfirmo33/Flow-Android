@@ -21,7 +21,7 @@ enum class NavigationItem(val menuId: Int) {
     companion object {
         val DEFAULT = Menthas
 
-        fun fromMenuId(menuId: Int) : NavigationItem {
+        fun fromMenuId(menuId: Int): NavigationItem {
             for (item in values()) {
                 if (item.menuId == menuId) {
                     return item

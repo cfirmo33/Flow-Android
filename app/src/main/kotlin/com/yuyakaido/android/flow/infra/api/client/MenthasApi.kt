@@ -1,7 +1,7 @@
 package com.yuyakaido.android.flow.infra.api.client
 
-import com.yuyakaido.android.flow.infra.api.response.MenthasCategoryResponse
-import com.yuyakaido.android.flow.infra.api.response.MenthasListResponse
+import com.yuyakaido.android.flow.infra.api.response.MenthasCategoryListResponse
+import com.yuyakaido.android.flow.infra.api.response.MenthasArticleListResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 import rx.Single
@@ -12,9 +12,9 @@ import rx.Single
 interface MenthasApi {
 
     @GET("top/params")
-    fun getCategories(): Single<MenthasCategoryResponse>
+    fun categories(): Single<MenthasCategoryListResponse>
 
     @GET("{category}/list")
-    fun getArticles(@Path("category") category: String): Single<MenthasListResponse>
+    fun articles(@Path("category") category: String): Single<MenthasArticleListResponse>
 
 }

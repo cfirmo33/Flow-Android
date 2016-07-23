@@ -8,12 +8,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.yuyakaido.android.flow.R
-import com.yuyakaido.android.flow.domain.MenthasArticle
+import com.yuyakaido.android.flow.domain.Article
 
 /**
  * Created by yuyakaido on 6/25/16.
  */
-class ArticleListAdapter(context: Context, val articles: List<MenthasArticle>) : ArrayAdapter<MenthasArticle>(context, 0, articles) {
+class ArticleListAdapter(context: Context, val articles: List<Article>) : ArrayAdapter<Article>(context, 0, articles) {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View? {
         var view = convertView
@@ -29,8 +29,8 @@ class ArticleListAdapter(context: Context, val articles: List<MenthasArticle>) :
 
         val item = getItem(position)
 
-        holder.title.text = item.title
-        Glide.with(context).load(item.thumbnail).into(holder.thumbnail)
+        holder.title.text = item.title()
+        Glide.with(context).load(item.thumbnail()).into(holder.thumbnail)
 
         return view
     }
@@ -39,7 +39,7 @@ class ArticleListAdapter(context: Context, val articles: List<MenthasArticle>) :
         return articles.count()
     }
 
-    override fun getItem(position: Int): MenthasArticle {
+    override fun getItem(position: Int): Article {
         return articles[position]
     }
 

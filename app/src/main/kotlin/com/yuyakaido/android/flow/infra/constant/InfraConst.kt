@@ -8,6 +8,7 @@ class InfraConst {
     companion object {
 
         val MENTHAS_BASE_URL = "http://menthas.com"
+        val QIITA_BASE_URL = "https://qiita.com"
 
     }
 

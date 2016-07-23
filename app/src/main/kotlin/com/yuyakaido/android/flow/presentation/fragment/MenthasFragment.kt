@@ -8,9 +8,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.yuyakaido.android.flow.R
-import com.yuyakaido.android.flow.domain.MenthasCategory
+import com.yuyakaido.android.flow.domain.Category
+import com.yuyakaido.android.flow.domain.Site
 import com.yuyakaido.android.flow.infra.repository.MenthasRepository
-import com.yuyakaido.android.flow.presentation.adapter.ArticlePagerAdapter
+import com.yuyakaido.android.flow.presentation.adapter.CategoryPagerAdapter
 import com.yuyakaido.android.flow.util.ErrorHandler
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
@@ -54,10 +55,10 @@ class MenthasFragment : BaseFragment() {
                         { ErrorHandler.handle(it) }))
     }
 
-    private fun initViewPager(categories: List<MenthasCategory>) {
+    private fun initViewPager(categories: List<Category>) {
         view?.let {
             val viewPager = it.findViewById(R.id.fragment_menthas_view_pager) as ViewPager
-            viewPager.adapter = ArticlePagerAdapter(childFragmentManager, categories)
+            viewPager.adapter = CategoryPagerAdapter(childFragmentManager, Site.Menthas, categories)
 
             val tabLayout = it.findViewById(R.id.fragment_menthas_tab_layout) as TabLayout
             tabLayout.setupWithViewPager(viewPager)
