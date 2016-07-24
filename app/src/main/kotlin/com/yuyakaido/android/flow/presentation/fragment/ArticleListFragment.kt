@@ -25,13 +25,13 @@ class ArticleListFragment : BaseFragment() {
 
     private val subscriptions: CompositeSubscription = CompositeSubscription()
 
-    private lateinit var site: Site
-    private lateinit var category: Category
+    private val site: Site by lazy { arguments.getSerializable(ARGS_SITE) as Site }
+    private val category: Category by lazy { arguments.getSerializable(ARGS_CATEGORY) as Category }
     private lateinit var adapter: ArticleListAdapter
 
     companion object {
-        val ARGS_SITE = "ARGS_SITE"
-        val ARGS_CATEGORY = "ARGS_CATEGORY"
+        private val ARGS_SITE = "ARGS_SITE"
+        private val ARGS_CATEGORY = "ARGS_CATEGORY"
 
         fun newInstance(site: Site, category: Category): Fragment {
             val args = Bundle()
@@ -50,8 +50,6 @@ class ArticleListFragment : BaseFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        site = arguments.getSerializable(ARGS_SITE) as Site
-        category = arguments.getSerializable(ARGS_CATEGORY) as Category
         adapter = ArticleListAdapter(context, mutableListOf())
 
         val listView = view?.findViewById(R.id.fragment_article_list_list_view) as ListView
