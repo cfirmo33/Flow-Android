@@ -8,9 +8,9 @@ import rx.Single
 /**
  * Created by yuyakaido on 7/23/16.
  */
-class QiitaRepository(private val client: QiitaClient) {
+open class QiitaRepository(private val client: QiitaClient) {
 
-    fun getArticles(category: Category): Single<List<Article>> {
+    open fun getArticles(category: Category): Single<List<Article>> {
         return client.getArticles(category)
     }
 

@@ -8,9 +8,9 @@ import rx.Single
 /**
  * Created by yuyakaido on 7/23/16.
  */
-class QiitaClient(private val api: QiitaApi) {
+open class QiitaClient(private val api: QiitaApi) {
 
-    fun getArticles(category: Category): Single<List<Article>> {
+    open fun getArticles(category: Category): Single<List<Article>> {
         return api.articles(category.name()).map { QiitaArticleConverter.convert(it) }
     }
 
