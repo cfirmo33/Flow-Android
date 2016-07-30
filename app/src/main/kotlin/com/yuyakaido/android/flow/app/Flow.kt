@@ -13,7 +13,7 @@ open class Flow : Application() {
     companion object {
 
         fun getAppComponent(context: Context): AppComponent {
-            return (context.applicationContext as Flow).appComponent;
+            return (context.applicationContext as Flow).appComponent
         }
 
     }
@@ -26,7 +26,7 @@ open class Flow : Application() {
     }
 
     open fun initializeDagger() {
-        appComponent = ComponentUtil.get(this)
+        appComponent = ComponentUtil.get()
     }
 
 }
