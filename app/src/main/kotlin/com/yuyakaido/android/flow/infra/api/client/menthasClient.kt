@@ -9,13 +9,13 @@ import rx.Single
 /**
  * Created by yuyakaido on 6/25/16.
  */
-class MenthasClient(private val api: MenthasApi) {
+open class MenthasClient(private val api: MenthasApi) {
 
-    fun getCategories(): Single<List<Category>> {
+    open fun getCategories(): Single<List<Category>> {
         return api.categories().map { MenthasCategoryConverter.convert(it) }
     }
 
-    fun getArticles(category: Category): Single<List<Article>> {
+    open fun getArticles(category: Category): Single<List<Article>> {
         return api.articles(category.name()).map { MenthasArticleConverter.convert(it) }
     }
 

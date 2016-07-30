@@ -20,7 +20,6 @@ class MenthasClientTest : FlowTest() {
     @Test
     fun getCategoriesTest() {
         val file = File("src/test/assets/json/menthas_category.json")
-
         val server = MockWebServer()
         server.enqueue(ResponseUtil.createMockResponse(file))
         server.start()
@@ -34,8 +33,9 @@ class MenthasClientTest : FlowTest() {
         subscriber.assertNoErrors()
         subscriber.onNextEvents.size.should be 1
         subscriber.assertCompleted()
-
         subscriber.onNextEvents[0].size.should be 17
+
+        server.shutdown()
     }
 
 }

@@ -18,8 +18,8 @@ class GetCategoryUseCaseTest {
     fun getCategoriesTest() {
         val repository = mock<MenthasRepository>()
         repository.getCategories().invoked.thenReturn(Single.just(arrayListOf()))
-
         val useCase = GetCategoryUseCase(repository)
+
         val subscriber = TestSubscriber<List<Category>>()
         useCase.getCategories().subscribe(subscriber)
 
