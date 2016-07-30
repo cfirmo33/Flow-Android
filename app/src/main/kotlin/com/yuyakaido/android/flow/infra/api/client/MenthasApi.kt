@@ -1,7 +1,7 @@
 package com.yuyakaido.android.flow.infra.api.client
 
-import com.yuyakaido.android.flow.infra.api.response.MenthasCategoryListResponse
 import com.yuyakaido.android.flow.infra.api.response.MenthasArticleListResponse
+import com.yuyakaido.android.flow.infra.api.response.MenthasCategoryListResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 import rx.Single

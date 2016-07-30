@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.yuyakaido.android.flow.R
-import com.yuyakaido.android.flow.domain.QiitaCategory
-import com.yuyakaido.android.flow.domain.Site
+import com.yuyakaido.android.flow.domain.entity.QiitaCategory
+import com.yuyakaido.android.flow.domain.entity.Site
 
 /**
  * Created by yuyakaido on 7/23/16.

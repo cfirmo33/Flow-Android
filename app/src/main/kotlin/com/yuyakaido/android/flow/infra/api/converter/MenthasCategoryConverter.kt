@@ -1,7 +1,7 @@
 package com.yuyakaido.android.flow.infra.api.converter
 
-import com.yuyakaido.android.flow.domain.Category
-import com.yuyakaido.android.flow.domain.MenthasCategory
+import com.yuyakaido.android.flow.domain.entity.Category
+import com.yuyakaido.android.flow.domain.entity.MenthasCategory
 import com.yuyakaido.android.flow.infra.api.response.MenthasCategoryListResponse
 
 /**

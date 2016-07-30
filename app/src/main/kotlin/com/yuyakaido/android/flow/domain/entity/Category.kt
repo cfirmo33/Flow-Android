@@ -1,4 +1,4 @@
-package com.yuyakaido.android.flow.domain
+package com.yuyakaido.android.flow.domain.entity
 
 import java.io.Serializable
 

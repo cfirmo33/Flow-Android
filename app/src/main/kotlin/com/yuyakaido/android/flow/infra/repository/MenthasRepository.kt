@@ -1,25 +1,21 @@
 package com.yuyakaido.android.flow.infra.repository
 
-import com.yuyakaido.android.flow.domain.Article
-import com.yuyakaido.android.flow.domain.Category
+import com.yuyakaido.android.flow.domain.entity.Article
+import com.yuyakaido.android.flow.domain.entity.Category
 import com.yuyakaido.android.flow.infra.api.client.MenthasClient
 import rx.Single
 
 /**
  * Created by yuyakaido on 6/25/16.
  */
-class MenthasRepository {
+class MenthasRepository(private val client: MenthasClient) : SiteRepository {
 
-    companion object {
+    fun getCategories(): Single<List<Category>> {
+        return client.getCategories()
+    }
 
-        fun getCategories(): Single<List<Category>> {
-            return MenthasClient.getCategories()
-        }
-
-        fun getArticles(category: Category): Single<List<Article>> {
-            return MenthasClient.getArticles(category)
-        }
-
+    override fun getArticles(category: Category): Single<List<Article>> {
+        return client.getArticles(category)
     }
 
 }

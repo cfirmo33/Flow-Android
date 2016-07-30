@@ -1,11 +1,12 @@
-package com.yuyakaido.android.flow.domain
+package com.yuyakaido.android.flow.domain.entity
 
 /**
- * Created by yuyakaido on 7/23/16.
+ * Created by yuyakaido on 6/25/16.
  */
-data class QiitaArticle(
+data class MenthasArticle(
         val title: String,
-        val url: String) : Article {
+        val url: String,
+        val thumbnail: String?): Article {
 
     override fun title(): String {
         return title
@@ -16,7 +17,7 @@ data class QiitaArticle(
     }
 
     override fun thumbnail(): String? {
-        return null
+        return thumbnail
     }
 
 }

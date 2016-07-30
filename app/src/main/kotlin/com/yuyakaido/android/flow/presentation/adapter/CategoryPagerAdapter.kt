@@ -3,8 +3,8 @@ package com.yuyakaido.android.flow.presentation.adapter
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
-import com.yuyakaido.android.flow.domain.Category
-import com.yuyakaido.android.flow.domain.Site
+import com.yuyakaido.android.flow.domain.entity.Category
+import com.yuyakaido.android.flow.domain.entity.Site
 import com.yuyakaido.android.flow.presentation.fragment.ArticleListFragment
 
 /**

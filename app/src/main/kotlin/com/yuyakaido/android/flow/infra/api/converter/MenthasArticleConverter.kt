@@ -1,7 +1,7 @@
 package com.yuyakaido.android.flow.infra.api.converter
 
-import com.yuyakaido.android.flow.domain.Article
-import com.yuyakaido.android.flow.domain.MenthasArticle
+import com.yuyakaido.android.flow.domain.entity.Article
+import com.yuyakaido.android.flow.domain.entity.MenthasArticle
 import com.yuyakaido.android.flow.infra.api.response.MenthasArticleListResponse
 
 /**

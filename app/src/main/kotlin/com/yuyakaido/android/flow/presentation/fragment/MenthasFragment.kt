@@ -8,14 +8,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.yuyakaido.android.flow.R
-import com.yuyakaido.android.flow.domain.Category
-import com.yuyakaido.android.flow.domain.Site
+import com.yuyakaido.android.flow.app.Flow
+import com.yuyakaido.android.flow.domain.entity.Category
+import com.yuyakaido.android.flow.domain.entity.Site
 import com.yuyakaido.android.flow.infra.repository.MenthasRepository
 import com.yuyakaido.android.flow.presentation.adapter.CategoryPagerAdapter
 import com.yuyakaido.android.flow.util.ErrorHandler
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
 import rx.subscriptions.CompositeSubscription
+import javax.inject.Inject
 
 /**
  * Created by yuyakaido on 7/23/16.
@@ -32,6 +34,14 @@ class MenthasFragment : BaseFragment() {
 
     private val subscriptions = CompositeSubscription()
 
+    @Inject
+    lateinit var repository: MenthasRepository
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Flow.getAppComponent(context).inject(this)
+    }
+
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater?.inflate(R.layout.fragment_menthas, container, false)
     }
@@ -47,7 +57,7 @@ class MenthasFragment : BaseFragment() {
     }
 
     private fun fetchCategories() {
-        subscriptions.add(MenthasRepository.getCategories()
+        subscriptions.add(repository.getCategories()
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(

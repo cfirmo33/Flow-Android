@@ -8,7 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.yuyakaido.android.flow.R
-import com.yuyakaido.android.flow.domain.Article
+import com.yuyakaido.android.flow.domain.entity.Article
 
 /**
  * Created by yuyakaido on 6/25/16.

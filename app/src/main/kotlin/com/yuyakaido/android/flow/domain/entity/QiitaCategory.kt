@@ -1,4 +1,4 @@
-package com.yuyakaido.android.flow.domain
+package com.yuyakaido.android.flow.domain.entity
 
 /**
  * Created by yuyakaido on 7/23/16.

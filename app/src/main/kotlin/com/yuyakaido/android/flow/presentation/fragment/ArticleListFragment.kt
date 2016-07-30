@@ -9,14 +9,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ListView
 import com.yuyakaido.android.flow.R
-import com.yuyakaido.android.flow.domain.Article
-import com.yuyakaido.android.flow.domain.Category
-import com.yuyakaido.android.flow.domain.Site
+import com.yuyakaido.android.flow.app.Flow
+import com.yuyakaido.android.flow.domain.entity.Article
+import com.yuyakaido.android.flow.domain.entity.Category
+import com.yuyakaido.android.flow.domain.entity.Site
+import com.yuyakaido.android.flow.domain.usecase.GetArticleUseCase
 import com.yuyakaido.android.flow.presentation.adapter.ArticleListAdapter
 import com.yuyakaido.android.flow.util.ErrorHandler
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
 import rx.subscriptions.CompositeSubscription
+import javax.inject.Inject
 
 /**
  * Created by yuyakaido on 6/20/16.
@@ -28,6 +31,9 @@ class ArticleListFragment : BaseFragment() {
     private val site: Site by lazy { arguments.getSerializable(ARGS_SITE) as Site }
     private val category: Category by lazy { arguments.getSerializable(ARGS_CATEGORY) as Category }
     private lateinit var adapter: ArticleListAdapter
+
+    @Inject
+    lateinit var getArticleUseCase: GetArticleUseCase
 
     companion object {
         private val ARGS_SITE = "ARGS_SITE"
@@ -41,6 +47,19 @@ class ArticleListFragment : BaseFragment() {
             fragment.arguments = args
             return fragment
         }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Flow.getAppComponent(context)
+                .newPresentationComponent()
+                .newArticleListComponent()
+                .inject(this)
+    }
+
+    override fun onDestroy() {
+        subscriptions.unsubscribe()
+        super.onDestroy()
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -62,7 +81,7 @@ class ArticleListFragment : BaseFragment() {
     }
 
     private fun fetchArticles() {
-        subscriptions.add(site.articles(category)
+        subscriptions.add(getArticleUseCase.getArticles(site, category)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
