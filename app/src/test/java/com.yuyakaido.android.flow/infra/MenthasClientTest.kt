@@ -31,9 +31,9 @@ class MenthasClientTest : FlowTest() {
         val subscriber = TestSubscriber<List<Category>>()
         client.getCategories().subscribe(subscriber)
 
-        subscriber.onErrorEvents.size.should be 0
+        subscriber.assertNoErrors()
         subscriber.onNextEvents.size.should be 1
-        subscriber.completions.should be 1
+        subscriber.assertCompleted()
 
         subscriber.onNextEvents[0].size.should be 17
     }

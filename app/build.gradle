@@ -27,6 +27,7 @@ android {
 repositories {
     mavenCentral()
     maven { url 'http://dl.bintray.com/ngsw-taro/maven' }
+    maven { url "https://jitpack.io" }
 }
 
 ext {
@@ -36,6 +37,12 @@ ext {
 }
 
 dependencies {
+    configurations.all {
+        resolutionStrategy {
+            force "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+        }
+    }
+
     // Kotlin
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
@@ -69,6 +76,7 @@ dependencies {
     // Testing
     testCompile 'junit:junit:4.12'
     testCompile 'com.taroid.knit:knit:0.1.2'
+    testCompile 'com.github.sys1yagi:kmockito:0.1.1'
     testCompile "com.squareup.okhttp3:mockwebserver:$okhttpVersion"
     testCompile 'org.robolectric:robolectric:3.1.1'
 }

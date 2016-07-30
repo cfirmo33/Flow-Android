@@ -8,9 +8,9 @@ import rx.Single
 /**
  * Created by yuyakaido on 6/25/16.
  */
-class MenthasRepository(private val client: MenthasClient) : SiteRepository {
+open class MenthasRepository(private val client: MenthasClient) : SiteRepository {
 
-    fun getCategories(): Single<List<Category>> {
+    open fun getCategories(): Single<List<Category>> {
         return client.getCategories()
     }
 
