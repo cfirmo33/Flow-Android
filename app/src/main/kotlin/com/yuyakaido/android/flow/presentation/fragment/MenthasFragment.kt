@@ -11,7 +11,7 @@ import com.yuyakaido.android.flow.R
 import com.yuyakaido.android.flow.app.Flow
 import com.yuyakaido.android.flow.domain.entity.Category
 import com.yuyakaido.android.flow.domain.entity.Site
-import com.yuyakaido.android.flow.infra.repository.MenthasRepository
+import com.yuyakaido.android.flow.domain.usecase.GetCategoryUseCase
 import com.yuyakaido.android.flow.presentation.adapter.CategoryPagerAdapter
 import com.yuyakaido.android.flow.util.ErrorHandler
 import rx.android.schedulers.AndroidSchedulers
@@ -35,11 +35,14 @@ class MenthasFragment : BaseFragment() {
     private val subscriptions = CompositeSubscription()
 
     @Inject
-    lateinit var repository: MenthasRepository
+    lateinit var getCategoryUseCase: GetCategoryUseCase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Flow.getAppComponent(context).inject(this)
+        Flow.getAppComponent(context)
+                .newPresentationComponent()
+                .newMenthasCategoryComponent()
+                .inject(this)
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -57,7 +60,7 @@ class MenthasFragment : BaseFragment() {
     }
 
     private fun fetchCategories() {
-        subscriptions.add(repository.getCategories()
+        subscriptions.add(getCategoryUseCase.getCategories()
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(

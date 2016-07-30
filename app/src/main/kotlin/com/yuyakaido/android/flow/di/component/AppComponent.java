@@ -4,7 +4,6 @@ import com.yuyakaido.android.flow.di.module.AppModule;
 import com.yuyakaido.android.flow.di.module.MenthasModule;
 import com.yuyakaido.android.flow.domain.di.component.DomainComponent;
 import com.yuyakaido.android.flow.presentation.di.PresentationComponent;
-import com.yuyakaido.android.flow.presentation.fragment.MenthasFragment;
 
 import javax.inject.Singleton;
 
@@ -18,8 +17,6 @@ import dagger.Component;
         AppModule.class,
         MenthasModule.class})
 public interface AppComponent {
-    void inject(MenthasFragment menthasFragment);
-
     DomainComponent newDomainComponent();
     PresentationComponent newPresentationComponent();
 }

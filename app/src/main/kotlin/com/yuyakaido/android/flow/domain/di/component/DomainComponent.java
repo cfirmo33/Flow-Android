@@ -11,4 +11,5 @@ import dagger.Subcomponent;
 @Subcomponent
 public interface DomainComponent {
     GetArticleComponent newGetArticleComponent();
+    GetCategoryComponent newGetCategoryComponent();
 }
