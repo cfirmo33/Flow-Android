@@ -26,6 +26,7 @@ android {
 
 repositories {
     mavenCentral()
+    maven { url 'http://dl.bintray.com/ngsw-taro/maven' }
 }
 
 ext {
@@ -64,4 +65,5 @@ dependencies {
 
     // Testing
     testCompile 'junit:junit:4.12'
+    testCompile 'com.taroid.knit:knit:0.1.2'
 }
