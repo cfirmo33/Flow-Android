@@ -1,4 +1,4 @@
-package com.yuyakaido.android.flow.infra
+package com.yuyakaido.android.flow.infra.api
 
 import com.taroid.knit.should
 import com.yuyakaido.android.flow.domain.entity.Category

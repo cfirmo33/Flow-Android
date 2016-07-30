@@ -1,4 +1,4 @@
-package com.yuyakaido.android.flow.infra
+package com.yuyakaido.android.flow.infra.repository
 
 import com.sys1yagi.kmockito.invoked
 import com.sys1yagi.kmockito.mock
@@ -7,7 +7,6 @@ import com.yuyakaido.android.flow.domain.entity.Article
 import com.yuyakaido.android.flow.domain.entity.Category
 import com.yuyakaido.android.flow.domain.entity.MenthasCategory
 import com.yuyakaido.android.flow.infra.api.client.MenthasClient
-import com.yuyakaido.android.flow.infra.repository.MenthasRepository
 import com.yuyakaido.android.flow.misc.FlowTest
 import org.junit.Test
 import rx.Single
