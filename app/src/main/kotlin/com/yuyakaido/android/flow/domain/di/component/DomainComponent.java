@@ -1,4 +1,4 @@
-package com.yuyakaido.android.flow.domain.di;
+package com.yuyakaido.android.flow.domain.di.component;
 
 import com.yuyakaido.android.flow.di.scope.DomainScope;
 

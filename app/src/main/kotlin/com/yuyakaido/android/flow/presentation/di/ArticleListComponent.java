@@ -1,6 +1,6 @@
 package com.yuyakaido.android.flow.presentation.di;
 
-import com.yuyakaido.android.flow.di.module.GetArticleModule;
+import com.yuyakaido.android.flow.domain.di.module.GetArticleModule;
 import com.yuyakaido.android.flow.di.scope.ModuleScope;
 import com.yuyakaido.android.flow.presentation.fragment.ArticleListFragment;
 

@@ -1,7 +1,7 @@
-package com.yuyakaido.android.flow.domain.di;
+package com.yuyakaido.android.flow.domain.di.component;
 
-import com.yuyakaido.android.flow.di.module.GetArticleModule;
 import com.yuyakaido.android.flow.di.scope.ModuleScope;
+import com.yuyakaido.android.flow.domain.di.module.GetArticleModule;
 import com.yuyakaido.android.flow.domain.usecase.GetArticleUseCase;
 
 import dagger.Subcomponent;

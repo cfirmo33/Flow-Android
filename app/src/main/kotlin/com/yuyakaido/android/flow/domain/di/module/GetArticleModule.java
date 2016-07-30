@@ -1,7 +1,9 @@
-package com.yuyakaido.android.flow.di.module;
+package com.yuyakaido.android.flow.domain.di.module;
 
 import android.content.Context;
 
+import com.yuyakaido.android.flow.di.module.MenthasModule;
+import com.yuyakaido.android.flow.di.module.QiitaModule;
 import com.yuyakaido.android.flow.domain.usecase.GetArticleUseCase;
 
 import dagger.Module;
