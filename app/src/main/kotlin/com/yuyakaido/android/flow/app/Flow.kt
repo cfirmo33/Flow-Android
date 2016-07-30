@@ -8,7 +8,7 @@ import com.yuyakaido.android.flow.di.component.ComponentUtil
 /**
  * Created by yuyakaido on 7/30/16.
  */
-class Flow : Application() {
+open class Flow : Application() {
 
     companion object {
 
@@ -25,7 +25,7 @@ class Flow : Application() {
         initializeDagger()
     }
 
-    private fun initializeDagger() {
+    open fun initializeDagger() {
         appComponent = ComponentUtil.get(this)
     }
 
