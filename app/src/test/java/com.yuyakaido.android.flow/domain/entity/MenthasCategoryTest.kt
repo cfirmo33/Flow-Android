@@ -1,7 +1,6 @@
-package com.yuyakaido.android.flow.domain
+package com.yuyakaido.android.flow.domain.entity
 
 import com.taroid.knit.should
-import com.yuyakaido.android.flow.domain.entity.MenthasCategory
 import com.yuyakaido.android.flow.misc.FlowTest
 import org.junit.Test
 

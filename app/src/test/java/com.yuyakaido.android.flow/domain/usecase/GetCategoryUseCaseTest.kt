@@ -1,10 +1,9 @@
-package com.yuyakaido.android.flow.infra
+package com.yuyakaido.android.flow.domain.usecase
 
 import com.sys1yagi.kmockito.invoked
 import com.sys1yagi.kmockito.mock
 import com.taroid.knit.should
 import com.yuyakaido.android.flow.domain.entity.Category
-import com.yuyakaido.android.flow.domain.usecase.GetCategoryUseCase
 import com.yuyakaido.android.flow.infra.repository.MenthasRepository
 import org.junit.Test
 import rx.Single
