@@ -2,7 +2,7 @@ package com.yuyakaido.android.flow.presentation.di;
 
 import com.yuyakaido.android.flow.di.module.MenthasModule;
 import com.yuyakaido.android.flow.di.scope.PresentationScope;
-import com.yuyakaido.android.flow.presentation.fragment.MenthasCategoryFragment;
+import com.yuyakaido.android.flow.presentation.presenter.MenthasCategoryPresenter;
 
 import dagger.Subcomponent;
 
@@ -12,5 +12,5 @@ import dagger.Subcomponent;
 @PresentationScope
 @Subcomponent(modules = {MenthasModule.class})
 public interface MenthasCategoryComponent {
-    void inject(MenthasCategoryFragment menthasCategoryFragment);
+    void inject(MenthasCategoryPresenter menthasCategoryPresenter);
 }
