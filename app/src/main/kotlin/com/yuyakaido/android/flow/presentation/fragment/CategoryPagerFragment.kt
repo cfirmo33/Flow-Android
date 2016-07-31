@@ -17,18 +17,28 @@ import com.yuyakaido.android.flow.presentation.presenter.MenthasCategoryPresente
 /**
  * Created by yuyakaido on 7/23/16.
  */
-class MenthasCategoryFragment : BaseFragment() {
+class CategoryPagerFragment : BaseFragment() {
 
     companion object {
-        fun newInstance() : Fragment {
-            return MenthasCategoryFragment()
+
+        private val ARGS_SITE = "ARGS_SITE"
+
+        fun newInstance(site: Site) : Fragment {
+            val args = Bundle()
+            args.putSerializable(ARGS_SITE, site)
+            val fragment = CategoryPagerFragment()
+            fragment.arguments = args
+            return fragment
         }
+
     }
+
+    private val site by lazy { arguments.getSerializable(ARGS_SITE) as Site }
 
     lateinit var presenter: MenthasCategoryPresenter
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater?.inflate(R.layout.fragment_menthas_category, container, false)
+        return inflater?.inflate(R.layout.fragment_category_pager, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -44,20 +54,20 @@ class MenthasCategoryFragment : BaseFragment() {
     }
 
     fun setCategories(categories: List<Category>) {
-        val viewPager = view?.findViewById(R.id.fragment_menthas_category_view_pager) as ViewPager
-        viewPager.adapter = CategoryPagerAdapter(childFragmentManager, Site.Menthas, categories)
+        val viewPager = view?.findViewById(R.id.fragment_category_pager_view_pager) as ViewPager
+        viewPager.adapter = CategoryPagerAdapter(childFragmentManager, site, categories)
 
-        val tabLayout = view?.findViewById(R.id.fragment_menthas_category_tab_layout) as TabLayout
+        val tabLayout = view?.findViewById(R.id.fragment_category_pager_tab_layout) as TabLayout
         tabLayout.setupWithViewPager(viewPager)
     }
 
     fun showProgressBar() {
-        val progressBar = view?.findViewById(R.id.fragment_menthas_category_progress_bar) as ProgressBar
+        val progressBar = view?.findViewById(R.id.fragment_category_pager_progress_bar) as ProgressBar
         progressBar.visibility = View.VISIBLE
     }
 
     fun hideProgressBar() {
-        val progressBar = view?.findViewById(R.id.fragment_menthas_category_progress_bar) as ProgressBar
+        val progressBar = view?.findViewById(R.id.fragment_category_pager_progress_bar) as ProgressBar
         progressBar.visibility = View.GONE
     }
 
