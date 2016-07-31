@@ -11,6 +11,6 @@ import rx.Single
 interface QiitaApi {
 
     @GET("api/v2/items")
-    fun articles(@Query("query") query: String): Single<List<QiitaArticleResponse>>
+    fun articles(@Query("query") query: String, @Query("page") page: Int): Single<List<QiitaArticleResponse>>
 
 }

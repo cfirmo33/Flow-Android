@@ -9,6 +9,6 @@ import rx.Single
  */
 interface SiteRepository {
 
-    fun getArticles(category: Category): Single<List<Article>>
+    fun getArticles(category: Category, page: Int): Single<List<Article>>
 
 }

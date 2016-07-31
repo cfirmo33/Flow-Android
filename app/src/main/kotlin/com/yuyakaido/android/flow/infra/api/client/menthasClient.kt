@@ -15,8 +15,8 @@ open class MenthasClient(private val api: MenthasApi) {
         return api.categories().map { MenthasCategoryConverter.convert(it) }
     }
 
-    open fun getArticles(category: Category): Single<List<Article>> {
-        return api.articles(category.name()).map { MenthasArticleConverter.convert(it) }
+    open fun getArticles(category: Category, offset: Int): Single<List<Article>> {
+        return api.articles(category.name(), offset).map { MenthasArticleConverter.convert(it) }
     }
 
 }

@@ -14,8 +14,8 @@ open class MenthasRepository(private val client: MenthasClient) : SiteRepository
         return client.getCategories()
     }
 
-    override fun getArticles(category: Category): Single<List<Article>> {
-        return client.getArticles(category)
+    override fun getArticles(category: Category, page: Int): Single<List<Article>> {
+        return client.getArticles(category, page)
     }
 
 }

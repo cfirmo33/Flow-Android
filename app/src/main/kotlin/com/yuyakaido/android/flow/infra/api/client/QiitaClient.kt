@@ -10,8 +10,8 @@ import rx.Single
  */
 open class QiitaClient(private val api: QiitaApi) {
 
-    open fun getArticles(category: Category): Single<List<Article>> {
-        return api.articles(category.name()).map { QiitaArticleConverter.convert(it) }
+    open fun getArticles(category: Category, page: Int): Single<List<Article>> {
+        return api.articles(category.name(), page).map { QiitaArticleConverter.convert(it) }
     }
 
 }

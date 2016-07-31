@@ -10,8 +10,8 @@ import rx.Single
  */
 open class QiitaRepository(private val client: QiitaClient) {
 
-    open fun getArticles(category: Category): Single<List<Article>> {
-        return client.getArticles(category)
+    open fun getArticles(category: Category, page: Int): Single<List<Article>> {
+        return client.getArticles(category, page)
     }
 
 }

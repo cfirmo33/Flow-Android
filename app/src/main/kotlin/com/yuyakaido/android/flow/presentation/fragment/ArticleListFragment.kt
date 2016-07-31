@@ -4,10 +4,12 @@ import android.net.Uri
 import android.os.Bundle
 import android.support.customtabs.CustomTabsIntent
 import android.support.v4.app.Fragment
+import android.support.v4.widget.SwipeRefreshLayout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ListView
+import com.jakewharton.rxbinding.widget.RxAbsListView
 import com.yuyakaido.android.flow.R
 import com.yuyakaido.android.flow.domain.entity.Article
 import com.yuyakaido.android.flow.domain.entity.Category
@@ -22,9 +24,9 @@ class ArticleListFragment : BaseFragment() {
 
     private val site by lazy { arguments.getSerializable(ARGS_SITE) as Site }
     private val category by lazy { arguments.getSerializable(ARGS_CATEGORY) as Category }
-    private lateinit var adapter: ArticleListAdapter
 
     private lateinit var presenter: ArticleListPresenter
+    private lateinit var adapter: ArticleListAdapter
 
     companion object {
         private val ARGS_SITE = "ARGS_SITE"
@@ -59,11 +61,21 @@ class ArticleListFragment : BaseFragment() {
     fun initialize() {
         adapter = ArticleListAdapter(context, mutableListOf())
 
+        val swipeRefreshLayout = view?.findViewById(R.id.fragment_article_list_swipe_refresh_layout) as SwipeRefreshLayout
+        swipeRefreshLayout.setOnRefreshListener { presenter.refresh() }
+
         val listView = view?.findViewById(R.id.fragment_article_list_list_view) as ListView
         listView.adapter = adapter
         listView.setOnItemClickListener {
             adapterView, view, i, l -> startWebBrowser(adapter.getItem(i))
         }
+
+        presenter.registerScrollEvent(listView)
+    }
+
+    fun clearArticles() {
+        adapter.clear()
+        adapter.notifyDataSetChanged()
     }
 
     fun addArticles(articles: List<Article>) {
@@ -74,6 +86,16 @@ class ArticleListFragment : BaseFragment() {
     fun startWebBrowser(article: Article) {
         val intent = CustomTabsIntent.Builder().build()
         intent.launchUrl(activity, Uri.parse(article.url()))
+    }
+
+    fun showProgressBar() {
+        val swipeRefreshLayout = view?.findViewById(R.id.fragment_article_list_swipe_refresh_layout) as SwipeRefreshLayout
+        swipeRefreshLayout.isRefreshing = true
+    }
+
+    fun hideProgressBar() {
+        val swipeRefreshLayout = view?.findViewById(R.id.fragment_article_list_swipe_refresh_layout) as SwipeRefreshLayout
+        swipeRefreshLayout.isRefreshing = false
     }
 
 }
