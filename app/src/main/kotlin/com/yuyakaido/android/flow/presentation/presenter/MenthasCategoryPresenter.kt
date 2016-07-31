@@ -38,6 +38,8 @@ class MenthasCategoryPresenter(val fragment: MenthasCategoryFragment) : Presente
         subscriptions.add(getCategoryUseCase.getCategories()
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
+                .doOnSubscribe { fragment.showProgressBar() }
+                .doOnUnsubscribe { fragment.hideProgressBar() }
                 .subscribe(
                         { fragment.setCategories(it) },
                         { ErrorHandler.handle(it) }))
