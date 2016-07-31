@@ -2,7 +2,7 @@ package com.yuyakaido.android.flow.presentation.item
 
 import android.support.v4.app.Fragment
 import com.yuyakaido.android.flow.R
-import com.yuyakaido.android.flow.presentation.fragment.MenthasFragment
+import com.yuyakaido.android.flow.presentation.fragment.MenthasCategoryFragment
 import com.yuyakaido.android.flow.presentation.fragment.QiitaFragment
 
 /**
@@ -10,7 +10,7 @@ import com.yuyakaido.android.flow.presentation.fragment.QiitaFragment
  */
 enum class NavigationItem(val menuId: Int) {
     Menthas(R.id.menu_main_menthas) {
-        override fun fragment() = MenthasFragment.newInstance()
+        override fun fragment() = MenthasCategoryFragment.newInstance()
     },
     Qiita(R.id.menu_main_qiita) {
         override fun fragment() = QiitaFragment.newInstance()

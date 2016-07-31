@@ -22,12 +22,12 @@ import javax.inject.Inject
 /**
  * Created by yuyakaido on 7/23/16.
  */
-class MenthasFragment : BaseFragment() {
+class MenthasCategoryFragment : BaseFragment() {
 
     companion object {
 
         fun newInstance() : Fragment {
-            return MenthasFragment()
+            return MenthasCategoryFragment()
         }
 
     }
@@ -46,7 +46,7 @@ class MenthasFragment : BaseFragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater?.inflate(R.layout.fragment_menthas, container, false)
+        return inflater?.inflate(R.layout.fragment_menthas_category, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -70,10 +70,10 @@ class MenthasFragment : BaseFragment() {
 
     private fun initViewPager(categories: List<Category>) {
         view?.let {
-            val viewPager = it.findViewById(R.id.fragment_menthas_view_pager) as ViewPager
+            val viewPager = it.findViewById(R.id.fragment_menthas_category_view_pager) as ViewPager
             viewPager.adapter = CategoryPagerAdapter(childFragmentManager, Site.Menthas, categories)
 
-            val tabLayout = it.findViewById(R.id.fragment_menthas_tab_layout) as TabLayout
+            val tabLayout = it.findViewById(R.id.fragment_menthas_category_tab_layout) as TabLayout
             tabLayout.setupWithViewPager(viewPager)
         }
     }
