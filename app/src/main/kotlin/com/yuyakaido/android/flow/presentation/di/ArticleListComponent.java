@@ -3,7 +3,7 @@ package com.yuyakaido.android.flow.presentation.di;
 import com.yuyakaido.android.flow.di.module.MenthasModule;
 import com.yuyakaido.android.flow.di.module.QiitaModule;
 import com.yuyakaido.android.flow.di.scope.PresentationScope;
-import com.yuyakaido.android.flow.presentation.fragment.ArticleListFragment;
+import com.yuyakaido.android.flow.presentation.presenter.ArticleListPresenter;
 
 import dagger.Subcomponent;
 
@@ -15,5 +15,5 @@ import dagger.Subcomponent;
         MenthasModule.class,
         QiitaModule.class})
 public interface ArticleListComponent {
-    void inject(ArticleListFragment articleListFragment);
+    void inject(ArticleListPresenter articleListPresenter);
 }

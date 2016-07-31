@@ -9,31 +9,22 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ListView
 import com.yuyakaido.android.flow.R
-import com.yuyakaido.android.flow.app.Flow
 import com.yuyakaido.android.flow.domain.entity.Article
 import com.yuyakaido.android.flow.domain.entity.Category
 import com.yuyakaido.android.flow.domain.entity.Site
-import com.yuyakaido.android.flow.domain.usecase.GetArticleUseCase
 import com.yuyakaido.android.flow.presentation.adapter.ArticleListAdapter
-import com.yuyakaido.android.flow.util.ErrorHandler
-import rx.android.schedulers.AndroidSchedulers
-import rx.schedulers.Schedulers
-import rx.subscriptions.CompositeSubscription
-import javax.inject.Inject
+import com.yuyakaido.android.flow.presentation.presenter.ArticleListPresenter
 
 /**
  * Created by yuyakaido on 6/20/16.
  */
 class ArticleListFragment : BaseFragment() {
 
-    private val subscriptions: CompositeSubscription = CompositeSubscription()
-
-    private val site: Site by lazy { arguments.getSerializable(ARGS_SITE) as Site }
-    private val category: Category by lazy { arguments.getSerializable(ARGS_CATEGORY) as Category }
+    private val site by lazy { arguments.getSerializable(ARGS_SITE) as Site }
+    private val category by lazy { arguments.getSerializable(ARGS_CATEGORY) as Category }
     private lateinit var adapter: ArticleListAdapter
 
-    @Inject
-    lateinit var getArticleUseCase: GetArticleUseCase
+    private lateinit var presenter: ArticleListPresenter
 
     companion object {
         private val ARGS_SITE = "ARGS_SITE"
@@ -49,16 +40,8 @@ class ArticleListFragment : BaseFragment() {
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        Flow.getAppComponent(context)
-                .newPresentationComponent()
-                .newArticleListComponent()
-                .inject(this)
-    }
-
     override fun onDestroy() {
-        subscriptions.unsubscribe()
+        presenter.onDestroy()
         super.onDestroy()
     }
 
@@ -69,6 +52,11 @@ class ArticleListFragment : BaseFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        presenter = ArticleListPresenter(this, site, category)
+        presenter.onCreate()
+    }
+
+    fun initialize() {
         adapter = ArticleListAdapter(context, mutableListOf())
 
         val listView = view?.findViewById(R.id.fragment_article_list_list_view) as ListView
@@ -76,25 +64,14 @@ class ArticleListFragment : BaseFragment() {
         listView.setOnItemClickListener {
             adapterView, view, i, l -> startWebBrowser(adapter.getItem(i))
         }
-
-        fetchArticles()
     }
 
-    private fun fetchArticles() {
-        subscriptions.add(getArticleUseCase.getArticles(site, category)
-                .subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(
-                        { initListView(it) },
-                        { ErrorHandler.handle(it) }))
-    }
-
-    private fun initListView(articles: List<Article>) {
+    fun addArticles(articles: List<Article>) {
         adapter.addAll(articles)
         adapter.notifyDataSetChanged()
     }
 
-    private fun startWebBrowser(article: Article) {
+    fun startWebBrowser(article: Article) {
         val intent = CustomTabsIntent.Builder().build()
         intent.launchUrl(activity, Uri.parse(article.url()))
     }
