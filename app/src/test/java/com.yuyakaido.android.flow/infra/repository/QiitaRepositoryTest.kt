@@ -20,11 +20,11 @@ class QiitaRepositoryTest : FlowTest() {
     fun getArticlesTest() {
         val category = QiitaCategory("android")
         val client = mock<QiitaClient>()
-        client.getArticles(category).invoked.thenReturn(Single.just(arrayListOf()))
+        client.getArticles(category, 0).invoked.thenReturn(Single.just(arrayListOf()))
         val repository = QiitaRepository(client)
 
         val subscriber = TestSubscriber<List<Article>>()
-        repository.getArticles(category).subscribe(subscriber)
+        repository.getArticles(category, 0).subscribe(subscriber)
 
         subscriber.assertNoErrors()
         subscriber.onNextEvents.size.should be 1

@@ -30,7 +30,7 @@ class QiitaClientTest : FlowTest() {
         val client = QiitaClient(api)
 
         val subscriber = TestSubscriber<List<Article>>()
-        client.getArticles(category).subscribe(subscriber)
+        client.getArticles(category, 0).subscribe(subscriber)
 
         subscriber.assertNoErrors()
         subscriber.onNextEvents.size.should be 1

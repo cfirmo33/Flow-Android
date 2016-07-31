@@ -22,13 +22,13 @@ class MenthasRepositoryTest : FlowTest() {
         val category = MenthasCategory("category")
         val client = mock<MenthasClient>()
         client.getCategories().invoked.thenReturn(Single.just(arrayListOf()))
-        client.getArticles(category).invoked.thenReturn(Single.just(arrayListOf()))
+        client.getArticles(category, 0).invoked.thenReturn(Single.just(arrayListOf()))
         val repository = MenthasRepository(client)
 
         val categorySubscriber = TestSubscriber<List<Category>>()
         val articleSubscriber = TestSubscriber<List<Article>>()
         repository.getCategories().subscribe(categorySubscriber)
-        repository.getArticles(category).subscribe(articleSubscriber)
+        repository.getArticles(category, 0).subscribe(articleSubscriber)
 
         categorySubscriber.assertNoErrors()
         categorySubscriber.onNextEvents.size.should be 1
