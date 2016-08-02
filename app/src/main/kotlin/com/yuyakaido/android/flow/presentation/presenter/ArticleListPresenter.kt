@@ -67,7 +67,7 @@ class ArticleListPresenter(val fragment: ArticleListFragment, val site: Site, va
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe { fragment.showProgressBar() }
-                .doAfterTerminate{ fragment.hideProgressBar() }
+                .doAfterTerminate { fragment.hideProgressBar() }
                 .subscribe(
                         { fragment.addArticles(it) },
                         { ErrorHandler.handle(it) }))

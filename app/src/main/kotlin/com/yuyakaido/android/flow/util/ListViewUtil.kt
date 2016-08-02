@@ -15,8 +15,7 @@ class ListViewUtil {
         }
 
         fun shouldPaginate(event: AbsListViewScrollEvent): Boolean {
-            return event.totalItemCount() > 0
-                    && event.firstVisibleItem() + event.visibleItemCount() == event.totalItemCount()
+            return event.firstVisibleItem() + event.visibleItemCount() == event.totalItemCount()
         }
 
     }
