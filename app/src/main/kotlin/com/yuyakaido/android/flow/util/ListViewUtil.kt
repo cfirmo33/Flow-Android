@@ -10,7 +10,7 @@ class ListViewUtil {
 
     companion object {
 
-        fun  shouldPaginate(): Func1<AbsListViewScrollEvent, Boolean> {
+        fun shouldPaginate(): Func1<AbsListViewScrollEvent, Boolean> {
             return Func1 { shouldPaginate(it) }
         }
 
