@@ -1,5 +1,6 @@
 package com.yuyakaido.android.flow.presentation.di;
 
+import com.yuyakaido.android.flow.di.module.GetArticleModule;
 import com.yuyakaido.android.flow.di.module.HatenaModule;
 import com.yuyakaido.android.flow.di.module.MenthasModule;
 import com.yuyakaido.android.flow.di.module.QiitaModule;
@@ -15,7 +16,8 @@ import dagger.Subcomponent;
 @Subcomponent(modules = {
         MenthasModule.class,
         QiitaModule.class,
-        HatenaModule.class})
+        HatenaModule.class,
+        GetArticleModule.class})
 public interface ArticleListComponent {
     void inject(ArticleListPresenter articleListPresenter);
 }

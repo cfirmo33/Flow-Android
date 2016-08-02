@@ -12,7 +12,7 @@ import com.yuyakaido.android.flow.R
 import com.yuyakaido.android.flow.domain.entity.Category
 import com.yuyakaido.android.flow.domain.entity.Site
 import com.yuyakaido.android.flow.presentation.adapter.CategoryPagerAdapter
-import com.yuyakaido.android.flow.presentation.presenter.MenthasCategoryPresenter
+import com.yuyakaido.android.flow.presentation.presenter.CategoryPagerPresenter
 
 /**
  * Created by yuyakaido on 7/23/16.
@@ -35,7 +35,7 @@ class CategoryPagerFragment : BaseFragment() {
 
     private val site by lazy { arguments.getSerializable(ARGS_SITE) as Site }
 
-    lateinit var presenter: MenthasCategoryPresenter
+    lateinit var presenter: CategoryPagerPresenter
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater?.inflate(R.layout.fragment_category_pager, container, false)
@@ -44,7 +44,7 @@ class CategoryPagerFragment : BaseFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        presenter = MenthasCategoryPresenter(this)
+        presenter = CategoryPagerPresenter(this)
         presenter.onCreate()
     }
 

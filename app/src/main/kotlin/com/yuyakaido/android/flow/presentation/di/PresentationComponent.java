@@ -10,6 +10,6 @@ import dagger.Subcomponent;
 @PresentationScope
 @Subcomponent
 public interface PresentationComponent {
-    MenthasCategoryComponent newMenthasCategoryComponent();
+    CategoryPagerComponent newCategoryPagerComponent();
     ArticleListComponent newArticleListComponent();
 }

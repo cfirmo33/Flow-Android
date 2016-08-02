@@ -12,7 +12,7 @@ import javax.inject.Inject
 /**
  * Created by yuyakaido on 7/31/16.
  */
-class MenthasCategoryPresenter(val pagerFragment: CategoryPagerFragment) : Presenter {
+class CategoryPagerPresenter(val pagerFragment: CategoryPagerFragment) : Presenter {
 
     private val subscriptions = CompositeSubscription()
 
@@ -22,7 +22,7 @@ class MenthasCategoryPresenter(val pagerFragment: CategoryPagerFragment) : Prese
     init {
         Flow.getAppComponent(pagerFragment.context)
                 .newPresentationComponent()
-                .newMenthasCategoryComponent()
+                .newCategoryPagerComponent()
                 .inject(this)
     }
 
