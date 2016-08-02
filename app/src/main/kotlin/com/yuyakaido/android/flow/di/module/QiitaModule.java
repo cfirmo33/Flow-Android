@@ -27,7 +27,7 @@ public class QiitaModule {
 
     @Provides
     public QiitaApi provideQiitaApi() {
-        return ApiClientGenerator.Companion.generate(
+        return ApiClientGenerator.Companion.createJsonClient(
                 QiitaApi.class, InfraConst.Companion.getQIITA_BASE_URL());
     }
 

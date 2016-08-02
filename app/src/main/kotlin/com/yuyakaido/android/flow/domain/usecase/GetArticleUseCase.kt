@@ -2,7 +2,9 @@ package com.yuyakaido.android.flow.domain.usecase
 
 import com.yuyakaido.android.flow.domain.entity.Article
 import com.yuyakaido.android.flow.domain.entity.Category
+import com.yuyakaido.android.flow.domain.entity.HatenaCategory
 import com.yuyakaido.android.flow.domain.entity.Site
+import com.yuyakaido.android.flow.infra.repository.HatenaRepository
 import com.yuyakaido.android.flow.infra.repository.MenthasRepository
 import com.yuyakaido.android.flow.infra.repository.QiitaRepository
 import rx.Observable
@@ -12,12 +14,14 @@ import rx.Observable
  */
 class GetArticleUseCase(
         private val menthasRepository: MenthasRepository,
-        private val qiitaRepository: QiitaRepository) {
+        private val qiitaRepository: QiitaRepository,
+        private val hatenaRepository: HatenaRepository) {
 
     fun getArticleFetcher(site: Site, category: Category): () -> Observable<List<Article>> {
         return when (site) {
             Site.Menthas -> getMenthasArticleFetcher(category)
             Site.Qiita -> getQiitaArticleFetcher(category)
+            Site.Hatena -> getHatenaArticleFetcher()
             else -> {
                 fun () = Observable.empty<List<Article>>()
             }
@@ -44,6 +48,15 @@ class GetArticleUseCase(
                 .flatMap { menthasRepository.getArticles(category, offset).toObservable() }
                 .doOnNext { isFetching = false }
                 .doOnNext { offset += it.size }
+    }
+
+    fun getHatenaArticleFetcher(): () -> Observable<List<Article>> {
+        var isFetching = false
+        return fun () = Observable.just(isFetching)
+                .filter { !isFetching }
+                .doOnNext { isFetching = true }
+                .flatMap { hatenaRepository.getArticles(HatenaCategory("it.rss"), 0).toObservable() }
+                .doOnNext { isFetching = false }
     }
 
 }

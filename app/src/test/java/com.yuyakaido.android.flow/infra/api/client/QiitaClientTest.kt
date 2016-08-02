@@ -26,7 +26,7 @@ class QiitaClientTest : FlowTest() {
         server.start()
 
         val category = QiitaCategory("android")
-        val api = ApiClientGenerator.generate(QiitaApi::class.java, server.url("").toString())
+        val api = ApiClientGenerator.createJsonClient(QiitaApi::class.java, server.url("").toString())
         val client = QiitaClient(api)
 
         val subscriber = TestSubscriber<List<Article>>()

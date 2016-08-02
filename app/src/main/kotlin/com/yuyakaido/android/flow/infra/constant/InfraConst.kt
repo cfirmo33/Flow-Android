@@ -9,6 +9,7 @@ class InfraConst {
 
         val MENTHAS_BASE_URL = "http://menthas.com"
         val QIITA_BASE_URL = "https://qiita.com"
+        val HATENA_BASE_URL = "http://b.hatena.ne.jp"
 
     }
 

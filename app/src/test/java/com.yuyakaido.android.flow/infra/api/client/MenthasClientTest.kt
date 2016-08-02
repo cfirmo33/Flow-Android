@@ -24,7 +24,7 @@ class MenthasClientTest : FlowTest() {
         server.enqueue(ResponseUtil.createMockResponse(file))
         server.start()
 
-        val api = ApiClientGenerator.generate(MenthasApi::class.java, server.url("").toString())
+        val api = ApiClientGenerator.createJsonClient(MenthasApi::class.java, server.url("").toString())
         val client = MenthasClient(api)
 
         val subscriber = TestSubscriber<List<Category>>()

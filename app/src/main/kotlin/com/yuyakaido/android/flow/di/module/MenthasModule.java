@@ -6,6 +6,7 @@ import com.yuyakaido.android.flow.infra.api.client.MenthasApi;
 import com.yuyakaido.android.flow.infra.api.client.MenthasClient;
 import com.yuyakaido.android.flow.infra.api.common.ApiClientGenerator;
 import com.yuyakaido.android.flow.infra.constant.InfraConst;
+import com.yuyakaido.android.flow.infra.repository.HatenaRepository;
 import com.yuyakaido.android.flow.infra.repository.MenthasRepository;
 import com.yuyakaido.android.flow.infra.repository.QiitaRepository;
 
@@ -24,8 +25,11 @@ public class MenthasModule {
     }
 
     @Provides
-    public GetArticleUseCase provideGetArticlesUseCase(MenthasRepository menthasRepository, QiitaRepository qiitaRepository) {
-        return new GetArticleUseCase(menthasRepository, qiitaRepository);
+    public GetArticleUseCase provideGetArticlesUseCase(
+            MenthasRepository menthasRepository,
+            QiitaRepository qiitaRepository,
+            HatenaRepository hatenaRepository) {
+        return new GetArticleUseCase(menthasRepository, qiitaRepository, hatenaRepository);
     }
 
     @Provides
@@ -40,7 +44,7 @@ public class MenthasModule {
 
     @Provides
     public MenthasApi provideMenthasApi() {
-        return ApiClientGenerator.Companion.generate(
+        return ApiClientGenerator.Companion.createJsonClient(
                 MenthasApi.class, InfraConst.Companion.getMENTHAS_BASE_URL());
     }
 

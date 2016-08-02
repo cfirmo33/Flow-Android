@@ -14,6 +14,9 @@ enum class NavigationItem(val menuId: Int) {
     },
     Qiita(R.id.menu_main_qiita) {
         override fun fragment() = CategoryPagerFragment.newInstance(Site.Qiita)
+    },
+    Hatena(R.id.menu_main_hatena) {
+        override fun fragment() = CategoryPagerFragment.newInstance(Site.Hatena)
     };
 
     abstract fun fragment(): Fragment

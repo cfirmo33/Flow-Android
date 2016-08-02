@@ -65,6 +65,11 @@ dependencies {
     compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
     compile "com.squareup.retrofit2:adapter-rxjava:$retrofitVersion"
     compile "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    compile ("com.squareup.retrofit2:converter-simplexml:$retrofitVersion") {
+        exclude module: 'stax'
+        exclude module: 'stax-api'
+        exclude module: 'xpp3'
+    }
     compile "com.squareup.okhttp3:okhttp:$okhttpVersion"
     compile "com.squareup.okhttp3:logging-interceptor:$okhttpVersion"
 
