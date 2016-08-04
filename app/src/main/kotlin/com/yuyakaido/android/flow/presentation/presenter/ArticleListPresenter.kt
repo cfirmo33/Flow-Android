@@ -1,7 +1,7 @@
 package com.yuyakaido.android.flow.presentation.presenter
 
 import android.widget.ListView
-import com.jakewharton.rxbinding.widget.RxAbsListView
+import com.jakewharton.rxbinding.widget.scrollEvents
 import com.yuyakaido.android.flow.app.Flow
 import com.yuyakaido.android.flow.domain.entity.Article
 import com.yuyakaido.android.flow.domain.entity.Category
@@ -54,7 +54,7 @@ class ArticleListPresenter(val fragment: ArticleListFragment, val site: Site, va
     }
 
     fun registerScrollEvent(listView: ListView) {
-        subscriptions.add(RxAbsListView.scrollEvents(listView)
+        subscriptions.add(listView.scrollEvents()
                 .filter(ListViewUtil.shouldPaginate())
                 .distinctUntilChanged { e1, e2 -> e1.totalItemCount() == e2.totalItemCount() }
                 .subscribe(
