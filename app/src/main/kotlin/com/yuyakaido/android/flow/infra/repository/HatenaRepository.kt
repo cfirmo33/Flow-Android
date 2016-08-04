@@ -8,9 +8,9 @@ import rx.Single
 /**
  * Created by yuyakaido on 8/2/16.
  */
-class HatenaRepository(private val client: HatenaClient) : SiteRepository {
+class HatenaRepository(private val client: HatenaClient) {
 
-    override fun getArticles(category: Category, page: Int): Single<List<Article>> {
+    fun getArticles(category: Category): Single<List<Article>> {
         return client.getArticles(category)
     }
 

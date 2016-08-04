@@ -51,12 +51,11 @@ class GetArticleUseCase(
     }
 
     fun getHatenaArticleFetcher(): () -> Observable<List<Article>> {
-        var isFetching = false
-        return fun () = Observable.just(isFetching)
-                .filter { !isFetching }
-                .doOnNext { isFetching = true }
-                .flatMap { hatenaRepository.getArticles(HatenaCategory("it.rss"), 0).toObservable() }
-                .doOnNext { isFetching = false }
+        var isFirstFetch = true
+        return fun () = Observable.just(isFirstFetch)
+                .filter { isFirstFetch }
+                .doOnNext { isFirstFetch = false }
+                .flatMap { hatenaRepository.getArticles(HatenaCategory("it.rss")).toObservable() }
     }
 
 }

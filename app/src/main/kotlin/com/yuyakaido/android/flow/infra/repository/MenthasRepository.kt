@@ -8,14 +8,14 @@ import rx.Single
 /**
  * Created by yuyakaido on 6/25/16.
  */
-open class MenthasRepository(private val client: MenthasClient) : SiteRepository {
+open class MenthasRepository(private val client: MenthasClient) {
 
     open fun getCategories(): Single<List<Category>> {
         return client.getCategories()
     }
 
-    override fun getArticles(category: Category, page: Int): Single<List<Article>> {
-        return client.getArticles(category, page)
+    open fun getArticles(category: Category, offset: Int): Single<List<Article>> {
+        return client.getArticles(category, offset)
     }
 
 }
