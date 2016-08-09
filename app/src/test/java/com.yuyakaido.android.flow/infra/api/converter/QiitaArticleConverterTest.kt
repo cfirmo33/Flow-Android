@@ -21,18 +21,16 @@ class QiitaArticleConverterTest : FlowTest() {
 
     @Test
     fun convertTest() {
-        val responses = mutableListOf<QiitaArticleResponse>()
         val size = 10
-        for (i in 0..size) {
-            responses.add(QiitaArticleResponse(i.toString(), i.toString()))
-        }
-
+        val responses = Array(size) { i -> i.toString() }
+                .map { s -> QiitaArticleResponse(s, s) }
+                .toList()
         val articles = QiitaArticleConverter.convert(responses)
 
         articles.size.should be responses.size
-        for (i in 0..size) {
+        articles.forEachIndexed { i, article ->
             val response = responses[i]
-            val article = articles[i]
+
             article.title().should be response.title
             article.url().should be response.url
             article.thumbnail().should be null

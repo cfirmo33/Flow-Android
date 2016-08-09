@@ -22,18 +22,16 @@ class MenthasArticleConverterTest : FlowTest() {
     @Test
     fun convertTest() {
         val size = 10
-        val items = mutableListOf<MenthasArticleListResponse.Item>()
-        for (i in 0..size) {
-            val page = MenthasArticleListResponse.Page(i.toString(), i.toString(), i.toString())
-            items.add(MenthasArticleListResponse.Item(page))
-        }
+        val items =  Array(size) { i -> i.toString() }
+                .map { s: String ->  MenthasArticleListResponse.Page(s, s, s) }
+                .map { page ->  MenthasArticleListResponse.Item(page) }
+                .toList()
         val response = MenthasArticleListResponse(items)
 
         val articles = MenthasArticleConverter.convert(response)
 
         articles.size.should be response.items.size
-        for (i in 0..size) {
-            val article = articles[i]
+        articles.forEachIndexed { i, article ->
             val page = response.items[i].page
 
             article.title().should be page.title

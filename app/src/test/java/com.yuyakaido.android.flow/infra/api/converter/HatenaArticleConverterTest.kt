@@ -24,21 +24,20 @@ class HatenaArticleConverterTest : FlowTest() {
     @Test
     fun convertTest() {
         val size = 10
-        val items = mutableListOf<HatenaArticleResponse>()
-        for (i in 0..size) {
-            val article = HatenaArticleResponse()
-            article.title = i.toString()
-            article.link = i.toString()
-            items.add(article)
-        }
         val response = HatenaArticleListResponse()
-        response.items = items
+        response.items = Array(size) { i -> i.toString() }
+                .map { s ->
+                    HatenaArticleResponse().apply {
+                        title = s
+                        link = s
+                    }
+                }
+                .toList()
 
         val articles = HatenaArticleConverter.convert(response)
 
         articles.size.should be response.items!!.size
-        for (i in 0..size) {
-            val article = articles[i]
+        articles.forEachIndexed { i, article ->
             val item = response.items!![i]
 
             article.title().should be item.title

@@ -23,19 +23,14 @@ class MenthasCategoryConverterTest : FlowTest() {
     @Test
     fun convertTest() {
         val size = 10
-        val categoryStrings = mutableListOf<String>()
-        for (i in 0..size) {
-            categoryStrings.add(i.toString())
-        }
-        val category = MenthasCategoryListResponse.Category(categoryStrings);
+        val categoryStrings = Array(size) { i -> toString() }.toList()
+        val category = MenthasCategoryListResponse.Category(categoryStrings)
         val response = MenthasCategoryListResponse(category)
 
         val categories = MenthasCategoryConverter.convert(response)
 
         categories.size.should be categoryStrings.size
-        for (i in 0..size) {
-            categories[i].name().should be categoryStrings[i]
-        }
+        categories.forEachIndexed { i, category -> category.name().should be categoryStrings[i] }
     }
 
 }
