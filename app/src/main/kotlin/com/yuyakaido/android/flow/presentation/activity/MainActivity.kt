@@ -63,6 +63,8 @@ class MainActivity : BaseActivity() {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.activity_main_fragment_container, item.fragment())
         transaction.commit()
+
+        setTitle(getString(item.titleResId))
     }
 
 }

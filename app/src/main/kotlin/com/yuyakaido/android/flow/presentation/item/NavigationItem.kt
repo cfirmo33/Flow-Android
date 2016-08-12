@@ -8,14 +8,14 @@ import com.yuyakaido.android.flow.presentation.fragment.CategoryPagerFragment
 /**
  * Created by yuyakaido on 7/23/16.
  */
-enum class NavigationItem(val menuId: Int) {
-    Menthas(R.id.menu_main_menthas) {
+enum class NavigationItem(val menuId: Int, val titleResId: Int) {
+    Menthas(R.id.menu_main_menthas, R.string.common_menthas) {
         override fun fragment() = CategoryPagerFragment.newInstance(Site.Menthas)
     },
-    Qiita(R.id.menu_main_qiita) {
+    Qiita(R.id.menu_main_qiita, R.string.common_qiita) {
         override fun fragment() = CategoryPagerFragment.newInstance(Site.Qiita)
     },
-    Hatena(R.id.menu_main_hatena) {
+    Hatena(R.id.menu_main_hatena, R.string.common_hatena) {
         override fun fragment() = CategoryPagerFragment.newInstance(Site.Hatena)
     };
 

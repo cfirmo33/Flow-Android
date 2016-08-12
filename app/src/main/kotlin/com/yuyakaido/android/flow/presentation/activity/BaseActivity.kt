@@ -22,6 +22,11 @@ open class BaseActivity : AppCompatActivity() {
         }
     }
 
+    fun setTitle(title: String) {
+        val toolbar = getToolbar()
+        toolbar?.title = title
+    }
+
     fun getToolbar(): Toolbar? {
         return findViewById(R.id.toolbar) as Toolbar
     }
