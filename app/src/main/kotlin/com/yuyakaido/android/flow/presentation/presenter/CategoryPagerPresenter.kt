@@ -39,7 +39,8 @@ class CategoryPagerPresenter(val pagerFragment: CategoryPagerFragment) : Present
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe { pagerFragment.showProgressBar() }
-                .doOnUnsubscribe { pagerFragment.hideProgressBar() }
+                .doOnSuccess { pagerFragment.hideProgressBar() }
+                .doOnError { pagerFragment.hideProgressBar()}
                 .subscribe(
                         { pagerFragment.setCategories(it) },
                         { ErrorHandler.handle(it) }))
