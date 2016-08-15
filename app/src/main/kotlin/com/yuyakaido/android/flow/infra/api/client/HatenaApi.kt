@@ -11,6 +11,9 @@ import rx.Single
 interface HatenaApi {
 
     @GET("hotentry/{category}")
-    fun getEntries(@Path("category") category: String): Single<HatenaArticleListResponse>
+    fun getHotEntries(@Path("category") category: String): Single<HatenaArticleListResponse>
+
+    @GET("entrylist/{category}")
+    fun getNewEntries(@Path("category") category: String): Single<HatenaArticleListResponse>
 
 }

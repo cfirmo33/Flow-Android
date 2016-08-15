@@ -34,6 +34,10 @@ class ArticleListFragment : BaseFragment() {
             return newInstance(Component(Site.Qiita, null, qiitaSubscription))
         }
 
+        fun newHatenaInstance(site: Site, category: Category): Fragment {
+            return newInstance(Component(site, category, null))
+        }
+
         fun newInstance(component: Component): Fragment {
             val args = Bundle()
             args.putSerializable(ARGS_COMPONENT, component)

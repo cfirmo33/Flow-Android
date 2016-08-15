@@ -44,7 +44,7 @@ class CategoryPagerFragment : BaseFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        presenter = CategoryPagerPresenter(this)
+        presenter = CategoryPagerPresenter(this, site)
         presenter.onCreate()
     }
 

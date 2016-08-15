@@ -1,6 +1,7 @@
 package com.yuyakaido.android.flow.presentation.presenter
 
 import com.yuyakaido.android.flow.app.Flow
+import com.yuyakaido.android.flow.domain.entity.Site
 import com.yuyakaido.android.flow.domain.usecase.GetCategoryUseCase
 import com.yuyakaido.android.flow.presentation.fragment.CategoryPagerFragment
 import com.yuyakaido.android.flow.util.ErrorHandler
@@ -12,7 +13,7 @@ import javax.inject.Inject
 /**
  * Created by yuyakaido on 7/31/16.
  */
-class CategoryPagerPresenter(val fragment: CategoryPagerFragment) : Presenter {
+class CategoryPagerPresenter(val fragment: CategoryPagerFragment, val site: Site) : Presenter {
 
     private val subscriptions = CompositeSubscription()
 
@@ -35,12 +36,12 @@ class CategoryPagerPresenter(val fragment: CategoryPagerFragment) : Presenter {
     }
 
     override fun refresh() {
-        subscriptions.add(getCategoryUseCase.getCategories()
+        subscriptions.add(getCategoryUseCase.getCategories(site)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe { fragment.showProgressBar() }
-                .doOnSuccess { fragment.hideProgressBar() }
-                .doOnError { fragment.hideProgressBar()}
+                .doOnNext { fragment.hideProgressBar() }
+                .doOnError { fragment.hideProgressBar() }
                 .subscribe(
                         { fragment.setCategories(it) },
                         { ErrorHandler.handle(it) }))
