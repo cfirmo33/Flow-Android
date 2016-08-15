@@ -1,5 +1,6 @@
 package com.yuyakaido.android.flow.infra.api.common
 
+import com.facebook.stetho.okhttp3.StethoInterceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 
@@ -14,7 +15,8 @@ object HttpClient {
         val logger = HttpLoggingInterceptor()
         logger.level = HttpLoggingInterceptor.Level.BASIC
         httpClient = OkHttpClient.Builder()
-                .addInterceptor(logger)
+                .addNetworkInterceptor(logger)
+                .addNetworkInterceptor(StethoInterceptor())
                 .build()
     }
 
