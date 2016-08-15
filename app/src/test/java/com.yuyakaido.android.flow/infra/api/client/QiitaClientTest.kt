@@ -2,9 +2,6 @@ package com.yuyakaido.android.flow.infra.api.client
 
 import com.taroid.knit.should
 import com.yuyakaido.android.flow.domain.entity.Article
-import com.yuyakaido.android.flow.domain.entity.QiitaCategory
-import com.yuyakaido.android.flow.infra.api.client.QiitaApi
-import com.yuyakaido.android.flow.infra.api.client.QiitaClient
 import com.yuyakaido.android.flow.infra.api.common.ApiClientGenerator
 import com.yuyakaido.android.flow.misc.FlowTest
 import com.yuyakaido.android.flow.util.ResponseUtil
@@ -25,12 +22,11 @@ class QiitaClientTest : FlowTest() {
         server.enqueue(ResponseUtil.createMockResponse(file))
         server.start()
 
-        val category = QiitaCategory("android")
         val api = ApiClientGenerator.createJsonClient(QiitaApi::class.java, server.url("").toString())
         val client = QiitaClient(api)
 
         val subscriber = TestSubscriber<List<Article>>()
-        client.getArticles(category, 0).subscribe(subscriber)
+        client.getArticles(0).subscribe(subscriber)
 
         subscriber.assertNoErrors()
         subscriber.onNextEvents.size.should be 1
