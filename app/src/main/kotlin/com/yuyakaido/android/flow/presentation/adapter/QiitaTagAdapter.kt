@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.CheckBox
 import android.widget.TextView
 import com.yuyakaido.android.flow.R
 import com.yuyakaido.android.flow.domain.entity.QiitaTag
@@ -28,15 +29,19 @@ class QiitaTagAdapter(context: Context, val tags: List<QiitaTag>) : ArrayAdapter
         val item = getItem(position)
 
         holder.name.text = item.name
+        holder.subscribed.isChecked = item.subscribed
+        holder.subscribed.tag = item
 
         return view
     }
 
     private class ViewHolder(view: View) {
         val name: TextView
+        val subscribed: CheckBox
 
         init {
             name = view.findViewById(R.id.item_qiita_tag_name) as TextView
+            subscribed = view.findViewById(R.id.item_qiita_tag_subscribed) as CheckBox
         }
     }
 

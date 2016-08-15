@@ -1,7 +1,9 @@
 package com.yuyakaido.android.flow.presentation.presenter
 
 import com.yuyakaido.android.flow.app.Flow
+import com.yuyakaido.android.flow.domain.entity.QiitaTag
 import com.yuyakaido.android.flow.domain.usecase.GetQiitaTagUseCase
+import com.yuyakaido.android.flow.domain.usecase.PutQiitaTagUseCase
 import com.yuyakaido.android.flow.presentation.fragment.QiitaTagFragment
 import com.yuyakaido.android.flow.util.ErrorHandler
 import rx.android.schedulers.AndroidSchedulers
@@ -18,6 +20,9 @@ class QiitaTagPresenter(private val fragment: QiitaTagFragment) : Presenter {
 
     @Inject
     lateinit var getQiitaTagUseCase: GetQiitaTagUseCase
+
+    @Inject
+    lateinit var putQiitaTagUseCase: PutQiitaTagUseCase
 
     init {
         Flow.getAppComponent(fragment.context)
@@ -36,11 +41,25 @@ class QiitaTagPresenter(private val fragment: QiitaTagFragment) : Presenter {
     }
 
     override fun refresh() {
-        subscriptions.add(getQiitaTagUseCase.getTags()
+        subscriptions.add(getQiitaTagUseCase.getQiitaTags()
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnSubscribe { fragment.showProgressBar() }
+                .doOnSuccess { fragment.hideProgressBar() }
+                .doOnError { fragment.hideProgressBar() }
+                .subscribe(
+                        { fragment.addQiitaTags(it) },
+                        { ErrorHandler.handle(it) }))
+    }
+
+    fun onCheckChanged(tag: QiitaTag) {
+        tag.subscribed = !tag.subscribed
+
+        subscriptions.add(putQiitaTagUseCase.putQiitaTag(tag)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
-                        { fragment.addTags(it) },
+                        { /* Do nothing */ },
                         { ErrorHandler.handle(it) }))
     }
 

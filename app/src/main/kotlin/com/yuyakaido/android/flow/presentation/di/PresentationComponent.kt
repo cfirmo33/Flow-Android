@@ -13,4 +13,5 @@ interface PresentationComponent {
     fun newCategoryPagerComponent(): CategoryPagerComponent
     fun newArticleListComponent(): ArticleListComponent
     fun newQiitaTagComponent(): QiitaTagComponent
+    fun newQiitaPostComponent(): QiitaPostComponent
 }

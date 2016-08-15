@@ -7,10 +7,10 @@ import rx.Single
 /**
  * Created by yuyakaido on 8/15/16.
  */
-class GetQiitaTagUseCase(private val repository: QiitaRepository) {
+class PutQiitaTagUseCase(private val repository: QiitaRepository) {
 
-    fun getQiitaTags(): Single<List<QiitaTag>> {
-        return repository.getTags()
+    fun putQiitaTag(tag: QiitaTag): Single<QiitaTag> {
+        return repository.putTag(tag)
     }
 
 }

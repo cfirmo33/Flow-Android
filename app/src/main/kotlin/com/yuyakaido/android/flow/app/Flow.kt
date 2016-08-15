@@ -8,6 +8,7 @@ import com.bumptech.glide.load.model.GlideUrl
 import com.facebook.stetho.Stetho
 import com.yuyakaido.android.flow.di.component.AppComponent
 import com.yuyakaido.android.flow.di.component.DaggerAppComponent
+import com.yuyakaido.android.flow.di.module.AppModule
 import com.yuyakaido.android.flow.infra.api.common.HttpClient
 import java.io.InputStream
 
@@ -33,7 +34,9 @@ open class Flow : Application() {
     }
 
     open fun initializeDagger() {
-        appComponent = DaggerAppComponent.builder().build()
+        appComponent = DaggerAppComponent.builder()
+                .appModule(AppModule(this))
+                .build()
     }
 
     open fun initializeStetho() {

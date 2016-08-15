@@ -17,7 +17,7 @@
         android:id="@+id/fragment_qiita_post_view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/fragment_category_pager_tab_layout">
+        android:layout_below="@+id/fragment_qiita_post_tab_layout">
     </android.support.v4.view.ViewPager>
 
     <ProgressBar
