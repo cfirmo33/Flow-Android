@@ -4,23 +4,21 @@ import android.content.Context
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.ImageView
 import android.widget.TextView
-import com.bumptech.glide.Glide
 import com.yuyakaido.android.flow.R
-import com.yuyakaido.android.flow.domain.entity.Article
+import com.yuyakaido.android.flow.domain.entity.QiitaTag
 
 /**
- * Created by yuyakaido on 6/25/16.
+ * Created by yuyakaido on 8/15/16.
  */
-class ArticleListAdapter(context: Context, val articles: List<Article>) : ArrayAdapter<Article>(context, 0, articles) {
+class QiitaTagAdapter(context: Context, val tags: List<QiitaTag>) : ArrayAdapter<QiitaTag>(context, 0, tags) {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View? {
         var view = convertView
         val holder: ViewHolder
 
         if (view == null) {
-            view = View.inflate(context, R.layout.item_article, null)
+            view = View.inflate(context, R.layout.item_qiita_tag, null)
             holder = ViewHolder(view)
             view.tag = holder
         } else {
@@ -29,19 +27,16 @@ class ArticleListAdapter(context: Context, val articles: List<Article>) : ArrayA
 
         val item = getItem(position)
 
-        holder.title.text = item.title()
-        Glide.with(context).load(item.thumbnail()).into(holder.thumbnail)
+        holder.name.text = item.name
 
         return view
     }
 
     private class ViewHolder(view: View) {
-        val title: TextView
-        val thumbnail: ImageView
+        val name: TextView
 
         init {
-            title = view.findViewById(R.id.item_article_title) as TextView
-            thumbnail = view.findViewById(R.id.item_article_thumbnail) as ImageView
+            name = view.findViewById(R.id.item_qiita_tag_name) as TextView
         }
     }
 

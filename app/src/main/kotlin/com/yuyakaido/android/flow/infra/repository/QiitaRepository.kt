@@ -1,7 +1,7 @@
 package com.yuyakaido.android.flow.infra.repository
 
 import com.yuyakaido.android.flow.domain.entity.Article
-import com.yuyakaido.android.flow.domain.entity.Category
+import com.yuyakaido.android.flow.domain.entity.QiitaTag
 import com.yuyakaido.android.flow.infra.api.client.QiitaClient
 import rx.Single
 
@@ -10,8 +10,12 @@ import rx.Single
  */
 open class QiitaRepository(private val client: QiitaClient) {
 
-    open fun getArticles(category: Category, page: Int): Single<List<Article>> {
-        return client.getArticles(category, page)
+    open fun getArticles(page: Int): Single<List<Article>> {
+        return client.getArticles(page)
+    }
+
+    open fun getTags(): Single<List<QiitaTag>> {
+        return client.getTags()
     }
 
 }

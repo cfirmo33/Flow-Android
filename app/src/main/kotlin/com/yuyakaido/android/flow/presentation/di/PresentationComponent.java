@@ -12,4 +12,5 @@ import dagger.Subcomponent;
 public interface PresentationComponent {
     CategoryPagerComponent newCategoryPagerComponent();
     ArticleListComponent newArticleListComponent();
+    QiitaTagComponent newQiitaTagComponent();
 }

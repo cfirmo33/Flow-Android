@@ -6,4 +6,7 @@
     <string name="common_menthas">Menthas</string>
     <string name="common_qiita">Qiita</string>
     <string name="common_hatena">Hatena</string>
+
+    <string name="qiita_post">Post</string>
+    <string name="qiita_tag">Tag</string>
 </resources>

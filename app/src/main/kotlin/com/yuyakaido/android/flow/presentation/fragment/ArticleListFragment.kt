@@ -41,11 +41,6 @@ class ArticleListFragment : BaseFragment() {
         }
     }
 
-    override fun onDestroy() {
-        presenter.onDestroy()
-        super.onDestroy()
-    }
-
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater?.inflate(R.layout.fragment_article_list, container, false)
     }
@@ -55,6 +50,11 @@ class ArticleListFragment : BaseFragment() {
 
         presenter = ArticleListPresenter(this, site, category)
         presenter.onCreate()
+    }
+
+    override fun onDestroy() {
+        presenter.onDestroy()
+        super.onDestroy()
     }
 
     fun initialize() {

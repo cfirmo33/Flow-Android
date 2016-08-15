@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/menu_qiita_post"
+            android:title="@string/qiita_post"/>
+
+        <item
+            android:id="@+id/menu_qiita_tag"
+            android:title="@string/qiita_tag"/>
+
+    </group>
+
+</menu>

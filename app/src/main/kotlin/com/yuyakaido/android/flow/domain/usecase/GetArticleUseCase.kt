@@ -20,7 +20,7 @@ class GetArticleUseCase(
     fun getArticleFetcher(site: Site, category: Category): () -> Observable<List<Article>> {
         return when (site) {
             Site.Menthas -> getMenthasArticleFetcher(category)
-            Site.Qiita -> getQiitaArticleFetcher(category)
+            Site.Qiita -> getQiitaArticleFetcher()
             Site.Hatena -> getHatenaArticleFetcher()
             else -> {
                 fun () = Observable.empty<List<Article>>()
@@ -28,13 +28,13 @@ class GetArticleUseCase(
         }
     }
 
-    fun getQiitaArticleFetcher(category: Category): () -> Observable<List<Article>> {
+    fun getQiitaArticleFetcher(): () -> Observable<List<Article>> {
         var isFetching = false
         var page = 1
         return fun () = Observable.just(isFetching)
                 .filter { !isFetching }
                 .doOnNext { isFetching = true }
-                .flatMap { qiitaRepository.getArticles(category, page).toObservable() }
+                .flatMap { qiitaRepository.getArticles(page).toObservable() }
                 .doOnNext { isFetching = false }
                 .doOnNext { page++ }
     }
