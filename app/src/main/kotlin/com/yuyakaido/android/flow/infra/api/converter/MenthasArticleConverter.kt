@@ -11,12 +11,10 @@ class MenthasArticleConverter {
 
     companion object {
 
-        fun convert(responseArticle: MenthasArticleListResponse): List<Article> {
-            val articles = mutableListOf<Article>()
-            responseArticle.items.forEach {
-                articles.add(MenthasArticle(it.page.title, it.page.url, it.page.thumbnail))
-            }
-            return articles
+        fun convert(response: MenthasArticleListResponse): List<Article> {
+            return response.items
+                    .map { MenthasArticle(it.page.title, it.page.url, it.page.thumbnail) }
+                    .toList()
         }
 
     }

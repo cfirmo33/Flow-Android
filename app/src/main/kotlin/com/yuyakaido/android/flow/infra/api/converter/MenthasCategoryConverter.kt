@@ -11,12 +11,10 @@ class MenthasCategoryConverter {
 
     companion object {
 
-        fun convert(listResponse: MenthasCategoryListResponse): List<Category> {
-            val categories = mutableListOf<Category>()
-            listResponse.category.categories.forEach {
-                categories.add(MenthasCategory(it))
-            }
-            return categories
+        fun convert(response: MenthasCategoryListResponse): List<Category> {
+            return response.category.categories
+                    .map { MenthasCategory(it) }
+                    .toList()
         }
 
     }

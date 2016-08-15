@@ -11,7 +11,9 @@ class QiitaTagConverter {
     companion object {
 
         fun convert(responses: List<QiitaTagResponse>): List<QiitaTag> {
-            return responses.map { QiitaTag(it.id, it.iconUrl) }.toList()
+            return responses
+                    .map { QiitaTag(it.id, it.iconUrl) }
+                    .toList()
         }
 
     }

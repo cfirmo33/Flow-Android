@@ -12,11 +12,9 @@ class QiitaArticleConverter {
     companion object {
 
         fun convert(responses: List<QiitaArticleResponse>): List<Article> {
-            val articles = mutableListOf<Article>()
-            responses.forEach {
-                articles.add(QiitaArticle(it.title, it.url))
-            }
-            return articles
+            return responses
+                    .map { QiitaArticle(it.title, it.url) }
+                    .toList()
         }
 
     }
