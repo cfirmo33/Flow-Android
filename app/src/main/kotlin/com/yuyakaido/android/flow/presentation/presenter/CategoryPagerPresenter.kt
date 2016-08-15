@@ -20,7 +20,7 @@ class CategoryPagerPresenter(val fragment: CategoryPagerFragment) : Presenter {
     lateinit var getCategoryUseCase: GetCategoryUseCase
 
     init {
-        Flow.getAppComponent(fragment.context)
+        Flow.getAppComponent()
                 .newPresentationComponent()
                 .newCategoryPagerComponent()
                 .inject(this)

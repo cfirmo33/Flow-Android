@@ -25,7 +25,7 @@ class QiitaTagPresenter(private val fragment: QiitaTagFragment) : Presenter {
     lateinit var putQiitaTagUseCase: PutQiitaTagUseCase
 
     init {
-        Flow.getAppComponent(fragment.context)
+        Flow.getAppComponent()
                 .newPresentationComponent()
                 .newQiitaTagComponent()
                 .inject(this)

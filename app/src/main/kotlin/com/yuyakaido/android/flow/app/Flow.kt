@@ -19,8 +19,14 @@ open class Flow : Application() {
 
     companion object {
 
-        fun getAppComponent(context: Context): AppComponent {
-            return (context.applicationContext as Flow).appComponent
+        private lateinit var application: Application
+
+        fun getAppComponent(): AppComponent {
+            return (application as Flow).appComponent
+        }
+
+        fun getContext(): Context {
+            return application.applicationContext
         }
 
     }
@@ -29,6 +35,7 @@ open class Flow : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        application = this
         initializeDagger()
         initializeStetho()
     }

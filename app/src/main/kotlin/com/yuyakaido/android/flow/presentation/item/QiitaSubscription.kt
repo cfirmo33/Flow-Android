@@ -1,6 +1,8 @@
 package com.yuyakaido.android.flow.presentation.item
 
 import android.support.v4.app.Fragment
+import com.yuyakaido.android.flow.R
+import com.yuyakaido.android.flow.app.Flow
 import com.yuyakaido.android.flow.domain.entity.QiitaCategory
 import com.yuyakaido.android.flow.domain.entity.QiitaTag
 import com.yuyakaido.android.flow.domain.entity.Site
@@ -13,7 +15,7 @@ class QiitaSubscription(val isAll: Boolean, val tag: QiitaTag?) {
 
     fun title(): String {
         return if (isAll) {
-            "All"
+            Flow.getContext().getString(R.string.qiita_all)
         } else {
             tag!!.name
         }

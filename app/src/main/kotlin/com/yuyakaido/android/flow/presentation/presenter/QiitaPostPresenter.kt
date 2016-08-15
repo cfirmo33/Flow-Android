@@ -20,7 +20,7 @@ class QiitaPostPresenter(val fragment: QiitaPostFragment) : Presenter {
     lateinit var getQiitaSubscriptionUseCase: GetQiitaSubscriptionUseCase
 
     init {
-        Flow.getAppComponent(fragment.context)
+        Flow.getAppComponent()
                 .newPresentationComponent()
                 .newQiitaPostComponent()
                 .inject(this)

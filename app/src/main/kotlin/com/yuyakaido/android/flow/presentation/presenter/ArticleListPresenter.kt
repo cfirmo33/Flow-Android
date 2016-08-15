@@ -30,7 +30,7 @@ class ArticleListPresenter(val fragment: ArticleListFragment, val site: Site, va
     lateinit var fetcher: () -> Observable<List<Article>>
 
     init {
-        Flow.getAppComponent(fragment.context)
+        Flow.getAppComponent()
                 .newPresentationComponent()
                 .newArticleListComponent()
                 .inject(this)
