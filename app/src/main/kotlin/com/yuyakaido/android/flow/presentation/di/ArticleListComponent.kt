@@ -1,23 +1,15 @@
 package com.yuyakaido.android.flow.presentation.di
 
 import com.yuyakaido.android.flow.di.module.GetArticleModule
-import com.yuyakaido.android.flow.di.module.HatenaModule
-import com.yuyakaido.android.flow.di.module.MenthasModule
-import com.yuyakaido.android.flow.di.module.QiitaModule
 import com.yuyakaido.android.flow.di.scope.PresentationScope
 import com.yuyakaido.android.flow.presentation.presenter.ArticleListPresenter
-
 import dagger.Subcomponent
 
 /**
  * Created by yuyakaido on 7/30/16.
  */
 @PresentationScope
-@Subcomponent(modules = arrayOf(
-        MenthasModule::class,
-        QiitaModule::class,
-        HatenaModule::class,
-        GetArticleModule::class))
+@Subcomponent(modules = arrayOf(GetArticleModule::class))
 interface ArticleListComponent {
     fun inject(articleListPresenter: ArticleListPresenter)
 }

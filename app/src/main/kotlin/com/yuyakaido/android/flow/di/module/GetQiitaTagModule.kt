@@ -9,7 +9,7 @@ import dagger.Provides
 /**
  * Created by yuyakaido on 8/15/16.
  */
-@Module
+@Module(includes = arrayOf(QiitaModule::class))
 class GetQiitaTagModule {
 
     @Provides

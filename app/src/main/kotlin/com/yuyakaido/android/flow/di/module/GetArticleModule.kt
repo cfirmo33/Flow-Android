@@ -11,7 +11,10 @@ import dagger.Provides
 /**
  * Created by yuyakaido on 8/3/16.
  */
-@Module
+@Module(includes = arrayOf(
+        MenthasModule::class,
+        QiitaModule::class,
+        HatenaModule::class))
 class GetArticleModule {
 
     @Provides
