@@ -3,7 +3,7 @@ package com.yuyakaido.android.flow.app
 import android.app.Application
 import android.content.Context
 import com.yuyakaido.android.flow.di.component.AppComponent
-import com.yuyakaido.android.flow.di.component.ComponentUtil
+import com.yuyakaido.android.flow.di.component.DaggerAppComponent
 
 /**
  * Created by yuyakaido on 7/30/16.
@@ -26,7 +26,7 @@ open class Flow : Application() {
     }
 
     open fun initializeDagger() {
-        appComponent = ComponentUtil.get()
+        appComponent = DaggerAppComponent.builder().build()
     }
 
 }
