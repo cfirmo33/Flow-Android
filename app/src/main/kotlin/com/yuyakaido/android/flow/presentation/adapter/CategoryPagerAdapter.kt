@@ -21,7 +21,7 @@ class CategoryPagerAdapter(fragmentManager: FragmentManager, val site: Site, val
     }
 
     override fun getItem(position: Int): Fragment? {
-        return ArticleListFragment.newInstance(site, categories[position])
+        return ArticleListFragment.newMenthasInstance(site, categories[position])
     }
 
 }

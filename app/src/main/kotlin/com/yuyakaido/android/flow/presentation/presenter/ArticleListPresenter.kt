@@ -4,8 +4,6 @@ import android.widget.ListView
 import com.jakewharton.rxbinding.widget.scrollEvents
 import com.yuyakaido.android.flow.app.Flow
 import com.yuyakaido.android.flow.domain.entity.Article
-import com.yuyakaido.android.flow.domain.entity.Category
-import com.yuyakaido.android.flow.domain.entity.Site
 import com.yuyakaido.android.flow.domain.usecase.GetArticleUseCase
 import com.yuyakaido.android.flow.presentation.fragment.ArticleListFragment
 import com.yuyakaido.android.flow.util.ErrorHandler
@@ -20,7 +18,7 @@ import javax.inject.Inject
 /**
  * Created by yuyakaido on 7/31/16.
  */
-class ArticleListPresenter(val fragment: ArticleListFragment, val site: Site, val category: Category) : Presenter {
+class ArticleListPresenter(val fragment: ArticleListFragment, val component: ArticleListFragment.Component) : Presenter {
 
     private val subscriptions = CompositeSubscription()
 
@@ -37,7 +35,7 @@ class ArticleListPresenter(val fragment: ArticleListFragment, val site: Site, va
     }
 
     override fun onCreate() {
-        fetcher = getArticleUseCase.getArticleFetcher(site, category)
+        fetcher = getArticleUseCase.getArticleFetcher(component)
         fragment.initialize()
         loadArticles(fetcher())
     }
@@ -47,7 +45,7 @@ class ArticleListPresenter(val fragment: ArticleListFragment, val site: Site, va
     }
 
     override fun refresh() {
-        fetcher = getArticleUseCase.getArticleFetcher(site, category)
+        fetcher = getArticleUseCase.getArticleFetcher(component)
         fragment.clearArticles()
 
         loadArticlesWithDelay()

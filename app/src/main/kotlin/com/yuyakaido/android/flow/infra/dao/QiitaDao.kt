@@ -16,7 +16,6 @@ class QiitaDao(private val orma: OrmaDatabase) {
     fun update(tag: QiitaTag) {
         orma.updateQiitaTag()
                 .where("name = ?", tag.name)
-                .icon(tag.icon)
                 .subscribed(tag.subscribed)
                 .execute()
     }

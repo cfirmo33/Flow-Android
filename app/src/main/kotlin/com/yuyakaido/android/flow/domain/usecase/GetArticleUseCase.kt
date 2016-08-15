@@ -1,12 +1,11 @@
 package com.yuyakaido.android.flow.domain.usecase
 
-import com.yuyakaido.android.flow.domain.entity.Article
-import com.yuyakaido.android.flow.domain.entity.Category
-import com.yuyakaido.android.flow.domain.entity.HatenaCategory
-import com.yuyakaido.android.flow.domain.entity.Site
+import com.yuyakaido.android.flow.domain.entity.*
 import com.yuyakaido.android.flow.infra.repository.HatenaRepository
 import com.yuyakaido.android.flow.infra.repository.MenthasRepository
 import com.yuyakaido.android.flow.infra.repository.QiitaRepository
+import com.yuyakaido.android.flow.presentation.fragment.ArticleListFragment
+import com.yuyakaido.android.flow.presentation.item.QiitaSubscription
 import rx.Observable
 
 /**
@@ -17,10 +16,10 @@ class GetArticleUseCase(
         private val qiitaRepository: QiitaRepository,
         private val hatenaRepository: HatenaRepository) {
 
-    fun getArticleFetcher(site: Site, category: Category): () -> Observable<List<Article>> {
-        return when (site) {
-            Site.Menthas -> getMenthasArticleFetcher(category)
-            Site.Qiita -> getQiitaArticleFetcher()
+    fun getArticleFetcher(component: ArticleListFragment.Component): () -> Observable<List<Article>> {
+        return when (component.site) {
+            Site.Menthas -> getMenthasArticleFetcher(component.category!!)
+            Site.Qiita -> getQiitaArticleFetcher(component.qiitaSubscription!!)
             Site.Hatena -> getHatenaArticleFetcher()
             else -> {
                 fun () = Observable.empty<List<Article>>()
@@ -28,13 +27,13 @@ class GetArticleUseCase(
         }
     }
 
-    fun getQiitaArticleFetcher(): () -> Observable<List<Article>> {
+    fun getQiitaArticleFetcher(qiitaSubscription: QiitaSubscription): () -> Observable<List<Article>> {
         var isFetching = false
         var page = 1
         return fun () = Observable.just(isFetching)
                 .filter { !isFetching }
                 .doOnNext { isFetching = true }
-                .flatMap { qiitaRepository.getArticles(page).toObservable() }
+                .flatMap { qiitaRepository.getArticles(qiitaSubscription, page).toObservable() }
                 .doOnNext { isFetching = false }
                 .doOnNext { page++ }
     }

@@ -15,7 +15,7 @@ interface QiitaApi {
     @GET("api/v2/items")
     fun items(@Query("page") page: Int): Single<List<QiitaArticleResponse>>
 
-    @GET("api/v2/{tag}/items")
+    @GET("api/v2/tags/{tag}/items")
     fun tagItems(@Path("tag") tag: String, @Query("page") page: Int): Single<List<QiitaArticleResponse>>
 
     @GET("api/v2/tags")

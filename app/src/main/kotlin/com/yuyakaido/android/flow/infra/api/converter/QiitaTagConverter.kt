@@ -12,7 +12,7 @@ class QiitaTagConverter {
 
         fun convert(responses: List<QiitaTagResponse>): List<QiitaTag> {
             return responses
-                    .map { QiitaTag(it.id, it.iconUrl) }
+                    .map { QiitaTag(it.id) }
                     .toList()
         }
 

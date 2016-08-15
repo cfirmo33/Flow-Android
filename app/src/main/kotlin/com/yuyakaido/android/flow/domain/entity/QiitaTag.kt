@@ -1,9 +1,9 @@
 package com.yuyakaido.android.flow.domain.entity
 
-import android.support.annotation.Nullable
 import com.github.gfx.android.orma.annotation.Column
 import com.github.gfx.android.orma.annotation.Setter
 import com.github.gfx.android.orma.annotation.Table
+import java.io.Serializable
 
 /**
  * Created by yuyakaido on 8/15/16.
@@ -14,11 +14,6 @@ data class QiitaTag constructor(
         @Setter("name")
         val name: String,
 
-        @Column(value = "icon")
-        @Setter("icon")
-        @Nullable
-        val icon: String?,
-
         @Column(value = "subscribed")
         @Setter("subscribed")
-        var subscribed: Boolean = false)
+        var subscribed: Boolean = false) : Serializable

@@ -3,15 +3,14 @@ package com.yuyakaido.android.flow.presentation.item
 import android.support.v4.app.Fragment
 import com.yuyakaido.android.flow.R
 import com.yuyakaido.android.flow.app.Flow
-import com.yuyakaido.android.flow.domain.entity.QiitaCategory
 import com.yuyakaido.android.flow.domain.entity.QiitaTag
-import com.yuyakaido.android.flow.domain.entity.Site
 import com.yuyakaido.android.flow.presentation.fragment.ArticleListFragment
+import java.io.Serializable
 
 /**
  * Created by yuyakaido on 8/15/16.
  */
-class QiitaSubscription(val isAll: Boolean, val tag: QiitaTag?) {
+class QiitaSubscription(val isAll: Boolean, val tag: QiitaTag?) : Serializable {
 
     fun title(): String {
         return if (isAll) {
@@ -22,11 +21,7 @@ class QiitaSubscription(val isAll: Boolean, val tag: QiitaTag?) {
     }
 
     fun fragment(): Fragment {
-        return if (isAll) {
-            ArticleListFragment.newInstance(Site.Qiita, QiitaCategory(""))
-        } else {
-            ArticleListFragment.newInstance(Site.Qiita, QiitaCategory(""))
-        }
+        return ArticleListFragment.newQiitaInstance(this)
     }
 
 }

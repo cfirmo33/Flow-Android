@@ -14,32 +14,44 @@ import com.yuyakaido.android.flow.domain.entity.Article
 import com.yuyakaido.android.flow.domain.entity.Category
 import com.yuyakaido.android.flow.domain.entity.Site
 import com.yuyakaido.android.flow.presentation.adapter.ArticleListAdapter
+import com.yuyakaido.android.flow.presentation.item.QiitaSubscription
 import com.yuyakaido.android.flow.presentation.presenter.ArticleListPresenter
+import java.io.Serializable
 
 /**
  * Created by yuyakaido on 6/20/16.
  */
 class ArticleListFragment : BaseFragment() {
 
-    private val site by lazy { arguments.getSerializable(ARGS_SITE) as Site }
-    private val category by lazy { arguments.getSerializable(ARGS_CATEGORY) as Category }
-
-    private lateinit var presenter: ArticleListPresenter
-    private lateinit var adapter: ArticleListAdapter
-
     companion object {
-        private val ARGS_SITE = "ARGS_SITE"
-        private val ARGS_CATEGORY = "ARGS_CATEGORY"
+        private val ARGS_COMPONENT = "ARGS_COMPONENT"
 
-        fun newInstance(site: Site, category: Category): Fragment {
+        fun newMenthasInstance(site: Site, category: Category): Fragment {
+            return newInstance(Component(site, category, null))
+        }
+
+        fun newQiitaInstance(qiitaSubscription: QiitaSubscription): Fragment {
+            return newInstance(Component(Site.Qiita, null, qiitaSubscription))
+        }
+
+        fun newInstance(component: Component): Fragment {
             val args = Bundle()
-            args.putSerializable(ARGS_SITE, site)
-            args.putSerializable(ARGS_CATEGORY, category)
+            args.putSerializable(ARGS_COMPONENT, component)
             val fragment = ArticleListFragment()
             fragment.arguments = args
             return fragment
         }
     }
+
+    class Component(
+            val site: Site,
+            val category: Category?,
+            val qiitaSubscription: QiitaSubscription?) : Serializable
+
+    private val component by lazy { arguments.getSerializable(ARGS_COMPONENT) as Component }
+
+    private lateinit var presenter: ArticleListPresenter
+    private lateinit var adapter: ArticleListAdapter
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater?.inflate(R.layout.fragment_article_list, container, false)
@@ -48,7 +60,7 @@ class ArticleListFragment : BaseFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        presenter = ArticleListPresenter(this, site, category)
+        presenter = ArticleListPresenter(this, component)
         presenter.onCreate()
     }
 
