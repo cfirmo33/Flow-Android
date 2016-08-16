@@ -99,7 +99,7 @@ class ArticleListFragment : BaseFragment() {
     }
 
     fun startWebBrowser(article: Article) {
-        val intent = CustomTabsIntent.Builder().build()
+        val intent = CustomTabsIntent.Builder().addDefaultShareMenuItem().build()
         intent.launchUrl(activity, Uri.parse(article.url()))
     }
 
