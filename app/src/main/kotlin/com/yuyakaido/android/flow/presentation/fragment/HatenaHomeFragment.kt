@@ -1,19 +1,18 @@
 package com.yuyakaido.android.flow.presentation.fragment
 
 import android.os.Bundle
+import android.support.design.widget.TabLayout
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.roughike.bottombar.BottomBar
-import com.roughike.bottombar.OnMenuTabClickListener
 import com.yuyakaido.android.flow.R
 import com.yuyakaido.android.flow.presentation.item.HatenaItem
 
 /**
  * Created by yuyakaido on 8/16/16.
  */
-class HatenaHomeFragment : BaseFragment(), OnMenuTabClickListener {
+class HatenaHomeFragment : BaseFragment(), TabLayout.OnTabSelectedListener {
 
     companion object {
 
@@ -30,15 +29,22 @@ class HatenaHomeFragment : BaseFragment(), OnMenuTabClickListener {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        val bottomBar = view?.findViewById(R.id.fragment_hatena_home_bottom_bar) as BottomBar
-        bottomBar.setItems(R.menu.menu_hatena)
-        bottomBar.setOnMenuTabClickListener(this)
+        val tabLayout = view?.findViewById(R.id.fragment_hatena_home_tab_layout) as TabLayout
+        tabLayout.addTab(tabLayout.newTab().setTag(HatenaItem.Hot).setText(HatenaItem.Hot.titleResId))
+        tabLayout.addTab(tabLayout.newTab().setTag(HatenaItem.New).setText(HatenaItem.New.titleResId))
+        tabLayout.addOnTabSelectedListener(this)
+
+        replaceFragment(HatenaItem.Hot)
     }
 
-    override fun onMenuTabReSelected(menuItemId: Int) { }
+    override fun onTabReselected(tab: TabLayout.Tab?) { }
 
-    override fun onMenuTabSelected(menuItemId: Int) {
-        replaceFragment(HatenaItem.fromMenuId(menuItemId))
+    override fun onTabUnselected(tab: TabLayout.Tab?) { }
+
+    override fun onTabSelected(tab: TabLayout.Tab?) {
+        tab?.let {
+            replaceFragment(tab.tag as HatenaItem)
+        }
     }
 
     fun replaceFragment(item: HatenaItem) {

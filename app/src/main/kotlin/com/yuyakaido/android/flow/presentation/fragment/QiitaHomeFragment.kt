@@ -30,8 +30,8 @@ class QiitaHomeFragment : BaseFragment(), TabLayout.OnTabSelectedListener {
         super.onActivityCreated(savedInstanceState)
 
         val tabLayout = view?.findViewById(R.id.fragment_qiita_home_tab_layout) as TabLayout
-        tabLayout.addTab(tabLayout.newTab().setTag(QiitaItem.Post).setText(QiitaItem.Post.stringResId))
-        tabLayout.addTab(tabLayout.newTab().setTag(QiitaItem.Tag).setText(QiitaItem.Tag.stringResId))
+        tabLayout.addTab(tabLayout.newTab().setTag(QiitaItem.Post).setText(QiitaItem.Post.titleResId))
+        tabLayout.addTab(tabLayout.newTab().setTag(QiitaItem.Tag).setText(QiitaItem.Tag.titleResId))
         tabLayout.addOnTabSelectedListener(this)
 
         replaceFragment(QiitaItem.Post)

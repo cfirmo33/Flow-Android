@@ -8,26 +8,13 @@ import com.yuyakaido.android.flow.presentation.fragment.QiitaTagFragment
 /**
  * Created by yuyakaido on 8/15/16.
  */
-enum class QiitaItem(val menuId: Int, val stringResId: Int) {
-    Post(R.id.menu_qiita_post, R.string.qiita_post) {
+enum class QiitaItem(val titleResId: Int) {
+    Post(R.string.qiita_post) {
         override fun fragment() = QiitaPostFragment.newInstance()
     },
-    Tag(R.id.menu_qiita_tag, R.string.qiita_tag) {
+    Tag(R.string.qiita_tag) {
         override fun fragment() = QiitaTagFragment.newInstance()
     };
 
     abstract fun fragment(): Fragment
-
-    companion object {
-        private val DEFAULT = Tag
-
-        fun fromMenuId(menuId: Int): QiitaItem {
-            for (item in QiitaItem.values()) {
-                if (item.menuId == menuId) {
-                    return item
-                }
-            }
-            return DEFAULT
-        }
-    }
 }
