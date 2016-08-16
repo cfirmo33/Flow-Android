@@ -14,9 +14,9 @@ dependencies:
     - echo y | android update sdk --no-ui --all --filter "build-tools-24.0.1"
 test:
   override:
-    - ./gradlew test
+    - ./gradlew clean test
 deployment:
   development:
     branch: master
     commands:
-      - ./gradlew assembleDebug
+      - ./gradlew clean assembleDebug
