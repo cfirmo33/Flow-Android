@@ -11,9 +11,9 @@ class MenthasCategoryTest : FlowTest() {
 
     @Test
     fun equalsTest() {
-        val java = MenthasCategory("java")
-        val kotlin = MenthasCategory("kotlin")
-        val altJava = MenthasCategory("java")
+        val java = MenthasCategory("java", "java")
+        val kotlin = MenthasCategory("kotlin", "kotlin")
+        val altJava = MenthasCategory("java", "java")
 
         java.equals(java).should be true
         java.equals(kotlin).should be false

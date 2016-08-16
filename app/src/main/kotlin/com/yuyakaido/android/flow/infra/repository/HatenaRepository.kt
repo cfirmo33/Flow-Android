@@ -9,7 +9,7 @@ import rx.Single
 /**
  * Created by yuyakaido on 8/2/16.
  */
-class HatenaRepository(private val client: HatenaClient) {
+open class HatenaRepository(private val client: HatenaClient) {
 
     fun getCategories(): Single<List<Category>> {
         val categories = mutableListOf<Category>()

@@ -19,7 +19,7 @@ class MenthasRepositoryTest : FlowTest() {
 
     @Test
     fun getCategoriesTest() {
-        val category = MenthasCategory("category")
+        val category = MenthasCategory("category", "category")
         val client = mock<MenthasClient>()
         client.getCategories().invoked.thenReturn(Single.just(arrayListOf()))
         client.getArticles(category, 0).invoked.thenReturn(Single.just(arrayListOf()))
