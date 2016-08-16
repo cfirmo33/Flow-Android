@@ -1,3 +1,6 @@
+general:
+  artifacts:
+    - "app/build/outputs/apk/"
 machine:
   java:
     version: oraclejdk8
@@ -12,3 +15,8 @@ dependencies:
 test:
   override:
     - ./gradlew test
+deployment:
+  development:
+    branch: master
+    commands:
+      - ./gradlew assembleDebug
