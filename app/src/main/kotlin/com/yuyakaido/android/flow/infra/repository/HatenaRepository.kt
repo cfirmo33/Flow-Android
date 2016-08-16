@@ -13,14 +13,14 @@ class HatenaRepository(private val client: HatenaClient) {
 
     fun getCategories(): Single<List<Category>> {
         val categories = mutableListOf<Category>()
-        categories.add(HatenaCategory("social.rss"))
-        categories.add(HatenaCategory("economics.rss"))
-        categories.add(HatenaCategory("life.rss"))
-        categories.add(HatenaCategory("knowledge.rss"))
-        categories.add(HatenaCategory("it.rss"))
-        categories.add(HatenaCategory("fun.rss"))
-        categories.add(HatenaCategory("entertainment.rss"))
-        categories.add(HatenaCategory("game.rss"))
+        categories.add(HatenaCategory("Social", "social.rss"))
+        categories.add(HatenaCategory("Economics", "economics.rss"))
+        categories.add(HatenaCategory("Life", "life.rss"))
+        categories.add(HatenaCategory("Knowledge", "knowledge.rss"))
+        categories.add(HatenaCategory("IT", "it.rss"))
+        categories.add(HatenaCategory("Fun", "fun.rss"))
+        categories.add(HatenaCategory("Entertainment", "entertainment.rss"))
+        categories.add(HatenaCategory("Game", "game.rss"))
         return Single.just(categories)
     }
 

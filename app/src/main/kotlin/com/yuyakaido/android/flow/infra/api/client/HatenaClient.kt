@@ -11,12 +11,12 @@ import rx.Single
 class HatenaClient(private val api: HatenaApi) {
 
     fun getHotArticles(category: Category): Single<List<Article>> {
-        return api.getHotEntries(category.name())
+        return api.getHotEntries(category.api())
                 .map { HatenaArticleConverter.convert(it) }
     }
 
     fun getNewArticles(category: Category): Single<List<Article>> {
-        return api.getNewEntries(category.name())
+        return api.getNewEntries(category.api())
                 .map { HatenaArticleConverter.convert(it) }
     }
 

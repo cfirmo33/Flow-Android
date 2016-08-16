@@ -7,4 +7,5 @@ import java.io.Serializable
  */
 interface Category : Serializable {
     fun name(): String
+    fun api(): String
 }

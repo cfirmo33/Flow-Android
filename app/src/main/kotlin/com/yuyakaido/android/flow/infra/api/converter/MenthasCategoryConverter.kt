@@ -13,7 +13,7 @@ class MenthasCategoryConverter {
 
         fun convert(response: MenthasCategoryListResponse): List<Category> {
             return response.category.categories
-                    .map { MenthasCategory(it) }
+                    .map { MenthasCategory(it, it) }
                     .toList()
         }
 
