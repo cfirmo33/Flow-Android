@@ -8,11 +8,11 @@ import com.yuyakaido.android.flow.presentation.fragment.QiitaTagFragment
 /**
  * Created by yuyakaido on 8/15/16.
  */
-enum class QiitaItem(private val menuId: Int) {
-    Post(R.id.menu_qiita_post) {
+enum class QiitaItem(val menuId: Int, val stringResId: Int) {
+    Post(R.id.menu_qiita_post, R.string.qiita_post) {
         override fun fragment() = QiitaPostFragment.newInstance()
     },
-    Tag(R.id.menu_qiita_tag) {
+    Tag(R.id.menu_qiita_tag, R.string.qiita_tag) {
         override fun fragment() = QiitaTagFragment.newInstance()
     };
 

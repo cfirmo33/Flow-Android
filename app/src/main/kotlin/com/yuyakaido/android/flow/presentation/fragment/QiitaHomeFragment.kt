@@ -1,19 +1,18 @@
 package com.yuyakaido.android.flow.presentation.fragment
 
 import android.os.Bundle
+import android.support.design.widget.TabLayout
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.roughike.bottombar.BottomBar
-import com.roughike.bottombar.OnMenuTabClickListener
 import com.yuyakaido.android.flow.R
 import com.yuyakaido.android.flow.presentation.item.QiitaItem
 
 /**
  * Created by yuyakaido on 8/15/16.
  */
-class QiitaHomeFragment : BaseFragment(), OnMenuTabClickListener {
+class QiitaHomeFragment : BaseFragment(), TabLayout.OnTabSelectedListener {
 
     companion object {
 
@@ -30,15 +29,22 @@ class QiitaHomeFragment : BaseFragment(), OnMenuTabClickListener {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        val bottomBar = view?.findViewById(R.id.fragment_qiita_home_bottom_bar) as BottomBar
-        bottomBar.setItems(R.menu.menu_qiita)
-        bottomBar.setOnMenuTabClickListener(this)
+        val tabLayout = view?.findViewById(R.id.fragment_qiita_home_tab_layout) as TabLayout
+        tabLayout.addTab(tabLayout.newTab().setTag(QiitaItem.Post).setText(QiitaItem.Post.stringResId))
+        tabLayout.addTab(tabLayout.newTab().setTag(QiitaItem.Tag).setText(QiitaItem.Tag.stringResId))
+        tabLayout.addOnTabSelectedListener(this)
+
+        replaceFragment(QiitaItem.Post)
     }
 
-    override fun onMenuTabReSelected(menuItemId: Int) { }
+    override fun onTabReselected(tab: TabLayout.Tab?) { }
 
-    override fun onMenuTabSelected(menuItemId: Int) {
-        replaceFragment(QiitaItem.fromMenuId(menuItemId))
+    override fun onTabUnselected(tab: TabLayout.Tab?) { }
+
+    override fun onTabSelected(tab: TabLayout.Tab?) {
+        tab?.let {
+            replaceFragment(tab.tag as QiitaItem)
+        }
     }
 
     fun replaceFragment(item: QiitaItem) {
