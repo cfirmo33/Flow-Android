@@ -85,9 +85,6 @@ dependencies {
     // I/O
     compile 'com.squareup.okio:okio:1.9.0'
 
-    // View
-    compile 'com.roughike:bottom-bar:1.4.0.1'
-
     // Dependency Injection
     compile "com.google.dagger:dagger:$daggerVersion"
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
