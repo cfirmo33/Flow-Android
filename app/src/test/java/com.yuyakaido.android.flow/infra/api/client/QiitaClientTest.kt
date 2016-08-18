@@ -17,7 +17,7 @@ class QiitaClientTest : FlowTest() {
 
     @Test
     fun getArticlesTest() {
-        val file = File("src/test/assets/json/qiita_article.json")
+        val file = File("src/test/assets/response/qiita_article.json")
         val server = MockWebServer()
         server.enqueue(ResponseUtil.createMockResponse(file))
         server.start()

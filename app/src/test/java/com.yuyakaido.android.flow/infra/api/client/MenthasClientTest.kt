@@ -2,8 +2,6 @@ package com.yuyakaido.android.flow.infra.api.client
 
 import com.taroid.knit.should
 import com.yuyakaido.android.flow.domain.entity.Category
-import com.yuyakaido.android.flow.infra.api.client.MenthasApi
-import com.yuyakaido.android.flow.infra.api.client.MenthasClient
 import com.yuyakaido.android.flow.infra.api.common.ApiClientGenerator
 import com.yuyakaido.android.flow.misc.FlowTest
 import com.yuyakaido.android.flow.util.ResponseUtil
@@ -19,7 +17,7 @@ class MenthasClientTest : FlowTest() {
 
     @Test
     fun getCategoriesTest() {
-        val file = File("src/test/assets/json/menthas_category.json")
+        val file = File("src/test/assets/response/menthas_category.json")
         val server = MockWebServer()
         server.enqueue(ResponseUtil.createMockResponse(file))
         server.start()
