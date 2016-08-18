@@ -41,9 +41,11 @@ class QiitaPostPresenter(val fragment: QiitaPostFragment) : Presenter {
                 .doOnSubscribe { fragment.showProgressBar() }
                 .doOnSuccess { fragment.hideProgressBar() }
                 .doOnError { fragment.hideProgressBar()}
-                .subscribe(
-                        { fragment.setQiitaSubscriptions(it) },
-                        { ErrorHandler.handle(it) }))
+                .subscribe({
+                    fragment.setQiitaSubscriptions(it)
+                }, {
+                    ErrorHandler.handle(it)
+                }))
     }
 
 }

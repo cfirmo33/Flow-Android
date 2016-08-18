@@ -47,9 +47,11 @@ class QiitaTagPresenter(private val fragment: QiitaTagFragment) : Presenter {
                 .doOnSubscribe { fragment.showProgressBar() }
                 .doOnSuccess { fragment.hideProgressBar() }
                 .doOnError { fragment.hideProgressBar() }
-                .subscribe(
-                        { fragment.addQiitaTags(it) },
-                        { ErrorHandler.handle(it) }))
+                .subscribe({
+                    fragment.addQiitaTags(it)
+                }, {
+                    ErrorHandler.handle(it)
+                }))
     }
 
     fun onCheckChanged(tag: QiitaTag) {
@@ -58,9 +60,11 @@ class QiitaTagPresenter(private val fragment: QiitaTagFragment) : Presenter {
         subscriptions.add(putQiitaTagUseCase.putQiitaTag(tag)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(
-                        { /* Do nothing */ },
-                        { ErrorHandler.handle(it) }))
+                .subscribe({
+                    // TODO Show notification
+                }, {
+                    ErrorHandler.handle(it)
+                }))
     }
 
 }

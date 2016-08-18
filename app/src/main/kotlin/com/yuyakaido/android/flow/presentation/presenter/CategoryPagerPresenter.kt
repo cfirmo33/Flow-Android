@@ -42,9 +42,11 @@ class CategoryPagerPresenter(val fragment: CategoryPagerFragment, val site: Site
                 .doOnSubscribe { fragment.showProgressBar() }
                 .doOnNext { fragment.hideProgressBar() }
                 .doOnError { fragment.hideProgressBar() }
-                .subscribe(
-                        { fragment.setCategories(it) },
-                        { ErrorHandler.handle(it) }))
+                .subscribe({
+                    fragment.setCategories(it)
+                }, {
+                    ErrorHandler.handle(it)
+                }))
     }
 
 }
