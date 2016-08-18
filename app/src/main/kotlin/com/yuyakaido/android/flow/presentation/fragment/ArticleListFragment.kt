@@ -83,8 +83,8 @@ class ArticleListFragment : BaseFragment(), ItemClickListener<Article> {
 
         val layoutManager = LinearLayoutManager(context)
         val recyclerView = view?.findViewById(R.id.fragment_article_list_recycler_view) as RecyclerView
-        recyclerView.adapter = adapter
         recyclerView.layoutManager = layoutManager
+        recyclerView.adapter = adapter
 
         presenter.registerPaginationTrigger(recyclerView, layoutManager)
     }

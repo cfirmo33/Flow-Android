@@ -2,22 +2,22 @@ package com.yuyakaido.android.flow.presentation.fragment
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.CheckBox
-import android.widget.ListView
 import android.widget.ProgressBar
 import com.yuyakaido.android.flow.R
 import com.yuyakaido.android.flow.domain.entity.QiitaTag
+import com.yuyakaido.android.flow.presentation.adapter.ItemClickListener
 import com.yuyakaido.android.flow.presentation.adapter.QiitaTagAdapter
 import com.yuyakaido.android.flow.presentation.presenter.QiitaTagPresenter
 
 /**
  * Created by yuyakaido on 8/15/16.
  */
-class QiitaTagFragment : BaseFragment(), AdapterView.OnItemClickListener {
+class QiitaTagFragment : BaseFragment(), ItemClickListener<QiitaTag> {
 
     companion object {
 
@@ -46,19 +46,16 @@ class QiitaTagFragment : BaseFragment(), AdapterView.OnItemClickListener {
         super.onDestroy()
     }
 
-    override fun onItemClick(adapterView: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        val checkBox = view?.findViewById(R.id.item_qiita_tag_subscribed) as CheckBox
-        checkBox.isChecked = !checkBox.isChecked
-
-        presenter.onCheckChanged(checkBox.tag as QiitaTag)
+    override fun onItemClick(item: QiitaTag) {
+        presenter.onCheckChanged(item)
     }
 
     fun initialize() {
-        adapter = QiitaTagAdapter(context, mutableListOf())
+        adapter = QiitaTagAdapter(context, mutableListOf(), this)
 
-        val listView = view?.findViewById(R.id.fragment_qiita_tag_list_view) as ListView
-        listView.adapter = adapter
-        listView.onItemClickListener = this
+        val recyclerView = view?.findViewById(R.id.fragment_qiita_tag_recycler_view) as RecyclerView
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.adapter = adapter
     }
 
     fun addQiitaTags(tags: List<QiitaTag>) {
