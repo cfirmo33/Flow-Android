@@ -1,0 +1,1590 @@
+{
+  "items": [
+    {
+      "_id": "57b58502f739a9e10c4fe87a",
+      "category": {
+        "_id": "567d889ab9b38cd2316439cb",
+        "name": "android",
+        "title": "Android",
+        "description": "Android関連",
+        "color": "#E50E50",
+        "__v": 0,
+        "curators": [
+          "petitviolet",
+          "t-kashima",
+          "yshrsmz",
+          "ytRino",
+          "KeithYokoma",
+          "HashiTakahiro",
+          "gfx",
+          "teracy_junk",
+          "b0to1d",
+          "craf",
+          "androidzaurus",
+          "AndroidestX",
+          "hatebu_android"
+        ],
+        "keywords": [
+          "android",
+          "Android"
+        ]
+      },
+      "page": {
+        "_id": "57b51705f739a9e10c4fe686",
+        "url": "http://jp.techcrunch.com/2016/08/18/20160815google-duo/",
+        "title": "Googleがローンチした「Duo」は、マルチOS対応だけが特徴のつまらないビデオ通話アプリ  |  TechCrunch Japan",
+        "description": "SNSで失敗したGoogleは、iOSとAndroidをつなぐビデオ通話アプリで起死回生できるだろうか。米国時間の8月15日にローンチされたDuoは、電話番号経由で1対1のビデオ通話を可能にするアプリだ。問題はアプリをダウンロードする必要があるうえに、最新のテクノロジーは何もついて来ない点だ。Google Chat..",
+        "thumbnail": "https://techcrunchjp.files.wordpress.com/2016/08/google-duo1.png?w=738",
+        "site_name": "TechCrunch Japan",
+        "__v": 0,
+        "timestamp": "2016-08-18T02:01:41.038Z",
+        "tags": [],
+        "hatebu": 26
+      },
+      "__v": 0,
+      "timestamp": "2016-08-18T09:50:58.276Z",
+      "picks": [
+        "hatebu_android"
+      ],
+      "score": 3
+    },
+    {
+      "_id": "57b58501f739a9e10c4fe879",
+      "category": {
+        "_id": "567d889ab9b38cd2316439cb",
+        "name": "android",
+        "title": "Android",
+        "description": "Android関連",
+        "color": "#E50E50",
+        "__v": 0,
+        "curators": [
+          "petitviolet",
+          "t-kashima",
+          "yshrsmz",
+          "ytRino",
+          "KeithYokoma",
+          "HashiTakahiro",
+          "gfx",
+          "teracy_junk",
+          "b0to1d",
+          "craf",
+          "androidzaurus",
+          "AndroidestX",
+          "hatebu_android"
+        ],
+        "keywords": [
+          "android",
+          "Android"
+        ]
+      },
+      "page": {
+        "_id": "57b584fff739a9e10c4fe876",
+        "url": "http://japan.zdnet.com/article/35087616/",
+        "title": "進化したAndroidマルウェア「Marcher」、セキュリティアップデート装う - ZDNet Japan",
+        "description": "「Android」のマルウェア「Marcher」が、Androidのファームウェアアップデートを装って新たに出現している例をZscalerのサイバーセキュリティ研究者が発見したという。",
+        "thumbnail": "http://japan.zdnet.com/storage/2016/08/17/c59903c7893921f881f78b286d37f6b5/istock-malware-warning_640x480.jpg",
+        "site_name": "ZDNet Japan",
+        "__v": 0,
+        "timestamp": "2016-08-18T09:50:55.999Z",
+        "tags": [],
+        "hatebu": 6
+      },
+      "__v": 0,
+      "timestamp": "2016-08-18T09:50:57.765Z",
+      "picks": [
+        "hatebu_android"
+      ],
+      "score": 3
+    },
+    {
+      "_id": "57b584e2f739a9e10c4fe873",
+      "category": {
+        "_id": "567d889ab9b38cd2316439cb",
+        "name": "android",
+        "title": "Android",
+        "description": "Android関連",
+        "color": "#E50E50",
+        "__v": 0,
+        "curators": [
+          "petitviolet",
+          "t-kashima",
+          "yshrsmz",
+          "ytRino",
+          "KeithYokoma",
+          "HashiTakahiro",
+          "gfx",
+          "teracy_junk",
+          "b0to1d",
+          "craf",
+          "androidzaurus",
+          "AndroidestX",
+          "hatebu_android"
+        ],
+        "keywords": [
+          "android",
+          "Android"
+        ]
+      },
+      "page": {
+        "_id": "57b584e0f739a9e10c4fe871",
+        "url": "http://qiita.com/ushi3_jp/items/39d719ec1c1206d4ef49",
+        "title": "IntentServiceをデバッグする - Qiita",
+        "description": "IntentServiceをデバッグしようと思って、ブレークポイントを貼ったけど何も起こらない…\n\nデバッグしたいコードより前に、以下を記述すればいいらしい。\n\n```java\nif (android.os.Debug.isDebug...",
+        "thumbnail": "http://cdn.qiita.com/assets/qiita-fb-f1d6559f13f7e8de7260c6cec4d3b8f9c2eab8322a69fd786baea877d220278b.png",
+        "site_name": "Qiita",
+        "__v": 0,
+        "timestamp": "2016-08-18T09:50:24.900Z",
+        "tags": [],
+        "hatebu": 1
+      },
+      "__v": 0,
+      "timestamp": "2016-08-18T09:50:26.656Z",
+      "picks": [
+        "craf"
+      ],
+      "score": 3
+    },
+    {
+      "_id": "57b584cdf739a9e10c4fe86a",
+      "category": {
+        "_id": "567d889ab9b38cd2316439cb",
+        "name": "android",
+        "title": "Android",
+        "description": "Android関連",
+        "color": "#E50E50",
+        "__v": 0,
+        "curators": [
+          "petitviolet",
+          "t-kashima",
+          "yshrsmz",
+          "ytRino",
+          "KeithYokoma",
+          "HashiTakahiro",
+          "gfx",
+          "teracy_junk",
+          "b0to1d",
+          "craf",
+          "androidzaurus",
+          "AndroidestX",
+          "hatebu_android"
+        ],
+        "keywords": [
+          "android",
+          "Android"
+        ]
+      },
+      "page": {
+        "_id": "57b584ccf739a9e10c4fe865",
+        "url": "http://qiita.com/endoidou/items/8da689aaa072a3dd7efb",
+        "title": "画像で探すView系Androidライブラリまとめ(2016/08) - Qiita",
+        "description": "最近のgithubのトレンド上位にあったView系のライブラリをまとめてみました。\nコメント等でいいものがあれば更新していく予定です。\n\n\n##ボタン\n* [SparkButton](https://github.com/varune...",
+        "thumbnail": "http://cdn.qiita.com/assets/qiita-fb-f1d6559f13f7e8de7260c6cec4d3b8f9c2eab8322a69fd786baea877d220278b.png",
+        "site_name": "Qiita",
+        "__v": 0,
+        "timestamp": "2016-08-18T09:50:04.006Z",
+        "tags": [],
+        "hatebu": 2
+      },
+      "__v": 0,
+      "timestamp": "2016-08-18T09:50:05.546Z",
+      "picks": [
+        "teracy_junk"
+      ],
+      "score": 3
+    },
+    {
+      "_id": "57b584b6f739a9e10c4fe85e",
+      "category": {
+        "_id": "567d889ab9b38cd2316439cb",
+        "name": "android",
+        "title": "Android",
+        "description": "Android関連",
+        "color": "#E50E50",
+        "__v": 0,
+        "curators": [
+          "petitviolet",
+          "t-kashima",
+          "yshrsmz",
+          "ytRino",
+          "KeithYokoma",
+          "HashiTakahiro",
+          "gfx",
+          "teracy_junk",
+          "b0to1d",
+          "craf",
+          "androidzaurus",
+          "AndroidestX",
+          "hatebu_android"
+        ],
+        "keywords": [
+          "android",
+          "Android"
+        ]
+      },
+      "page": {
+        "_id": "57b584b4f739a9e10c4fe85c",
+        "url": "http://googledevjp.blogspot.com/2016/08/android-add-ons.html",
+        "title": "\nGoogle Developers Japan: Docs と Sheets 用の Android アドオンのお知らせ\n",
+        "description": "Google Apps ScriptとAndroidアドオンで、Google Appsをもっと便利にすることができます。またアドオンを公開して他のGoogle Appsユーザに広く使ってもらうこともできます。",
+        "thumbnail": "https://4.bp.blogspot.com/-mSSeGwww_z4/V5o5Z1tqKPI/AAAAAAAAEyI/Qn9wNT83AmI8LD3MVhl0Zo1tYSZD1zfSgCEw/w1200-h630-p-nu/android-add-ons-2.png",
+        "site_name": "Google Developers Japan",
+        "__v": 0,
+        "timestamp": "2016-08-18T09:49:40.623Z",
+        "tags": [],
+        "hatebu": 6
+      },
+      "__v": 1,
+      "timestamp": "2016-08-18T09:49:42.189Z",
+      "picks": [
+        "HashiTakahiro",
+        "hatebu_android"
+      ],
+      "score": 4
+    },
+    {
+      "_id": "57b4a3d7f739a9e10c4fe1a6",
+      "category": {
+        "_id": "567d889ab9b38cd2316439cb",
+        "name": "android",
+        "title": "Android",
+        "description": "Android関連",
+        "color": "#E50E50",
+        "__v": 0,
+        "curators": [
+          "petitviolet",
+          "t-kashima",
+          "yshrsmz",
+          "ytRino",
+          "KeithYokoma",
+          "HashiTakahiro",
+          "gfx",
+          "teracy_junk",
+          "b0to1d",
+          "craf",
+          "androidzaurus",
+          "AndroidestX",
+          "hatebu_android"
+        ],
+        "keywords": [
+          "android",
+          "Android"
+        ]
+      },
+      "page": {
+        "_id": "57b4a3d5f739a9e10c4fe1a3",
+        "url": "http://bookmark.hatenastaff.com/entry/2016/08/17/100856",
+        "title": "Androidアプリでプロフィール画像を変更できるように　他にも多くのアップデート - はてなブックマーク開発ブログ",
+        "description": "本日、Androidアプリ「はてなブックマーク」のバージョン3.2.0をリリースしました。このアップデートで、設定画面からプロフィール画像を変更できるようになりました。自分のユーザーページにあるアイコンをタップすると、カメラで撮影したり画像を選択したりできます。▽ はてなブックマーク / ニュース・まとめを無料でブックマーク - Google Play の Android アプリ各カテゴリーに日間・週間・月間ランキングが見られるタブも追加しました。昨日のランキングはもちろん、今週や今月の人気話題も一目で分かります。さらにホーム画面からトピックが見られるようになったほか、各フィード機能をタブで切…",
+        "thumbnail": "http://img.f.hatena.ne.jp/images/fotolife/h/hatenabookmark/20160815/20160815175805.png",
+        "site_name": "はてなブックマーク開発ブログ",
+        "__v": 0,
+        "timestamp": "2016-08-17T17:50:13.387Z",
+        "tags": [],
+        "hatebu": 4
+      },
+      "__v": 1,
+      "timestamp": "2016-08-17T17:50:15.011Z",
+      "picks": [
+        "b0to1d",
+        "hatebu_android"
+      ],
+      "score": 4
+    },
+    {
+      "_id": "57b4a3d6f739a9e10c4fe1a5",
+      "category": {
+        "_id": "567d889ab9b38cd2316439cb",
+        "name": "android",
+        "title": "Android",
+        "description": "Android関連",
+        "color": "#E50E50",
+        "__v": 0,
+        "curators": [
+          "petitviolet",
+          "t-kashima",
+          "yshrsmz",
+          "ytRino",
+          "KeithYokoma",
+          "HashiTakahiro",
+          "gfx",
+          "teracy_junk",
+          "b0to1d",
+          "craf",
+          "androidzaurus",
+          "AndroidestX",
+          "hatebu_android"
+        ],
+        "keywords": [
+          "android",
+          "Android"
+        ]
+      },
+      "page": {
+        "_id": "57b3c5c3f739a9e10c4fdba5",
+        "url": "http://kizitora.jp/archives/android-app-sale-20160817.html",
+        "title": "2016年8月17日Androidアプリセール リアルタイム気象予報観測アプリ「GO天気予報」などが値下げ！ | キジトラ速報",
+        "description": "2016年8月17日Androidアプリセール リアルタイム気象予報観測アプリ「GO天気予報」などが値下げ！,2016年8月17日のAndroidアプリセール情報になります。 今日の安売アプリはリアルタイム気象予報観測アプリ「GO天気予報」、パチスロシミュレーションゲーム「パチスロ バイオハザード6」、ファンタジーアドベンチャーRPGゲーム「FINAL FANTASY VI」など。",
+        "__v": 0,
+        "timestamp": "2016-08-17T02:02:43.836Z",
+        "tags": [],
+        "hatebu": 3
+      },
+      "__v": 0,
+      "timestamp": "2016-08-17T17:50:14.480Z",
+      "picks": [
+        "b0to1d"
+      ],
+      "score": 3
+    },
+    {
+      "_id": "57b4a3d5f739a9e10c4fe1a4",
+      "category": {
+        "_id": "567d889ab9b38cd2316439cb",
+        "name": "android",
+        "title": "Android",
+        "description": "Android関連",
+        "color": "#E50E50",
+        "__v": 0,
+        "curators": [
+          "petitviolet",
+          "t-kashima",
+          "yshrsmz",
+          "ytRino",
+          "KeithYokoma",
+          "HashiTakahiro",
+          "gfx",
+          "teracy_junk",
+          "b0to1d",
+          "craf",
+          "androidzaurus",
+          "AndroidestX",
+          "hatebu_android"
+        ],
+        "keywords": [
+          "android",
+          "Android"
+        ]
+      },
+      "page": {
+        "_id": "57b4a3d3f739a9e10c4fe1a1",
+        "url": "http://gigazine.net/news/20160817-svpeng/",
+        "title": "Google AdSense経由で銀行口座情報を狙うマルウェアが拡散中とカスペルスキーが警告 - GIGAZINEGIGAZINE ホームTwitterFacebookGoogle+TwitterFacebookGoogle+YouTubeRSS 2.0検索",
+        "description": "セキュリティ対策企業のKaspersky(カスペルスキー)が、Googleの広告配信サービスAdSenseを経由してマルウェア「Svpeng」がAndroidスマートフォンに配信されていると報告し",
+        "thumbnail": "http://i.gzn.jp/img/2016/08/17/svpeng/00_m.jpg",
+        "site_name": "GIGAZINE",
+        "__v": 0,
+        "timestamp": "2016-08-17T17:50:11.371Z",
+        "tags": [],
+        "hatebu": 29
+      },
+      "__v": 1,
+      "timestamp": "2016-08-17T17:50:13.391Z",
+      "picks": [
+        "b0to1d",
+        "hatebu_android"
+      ],
+      "score": 4
+    },
+    {
+      "_id": "57b43385f739a9e10c4fddc7",
+      "category": {
+        "_id": "567d889ab9b38cd2316439cb",
+        "name": "android",
+        "title": "Android",
+        "description": "Android関連",
+        "color": "#E50E50",
+        "__v": 0,
+        "curators": [
+          "petitviolet",
+          "t-kashima",
+          "yshrsmz",
+          "ytRino",
+          "KeithYokoma",
+          "HashiTakahiro",
+          "gfx",
+          "teracy_junk",
+          "b0to1d",
+          "craf",
+          "androidzaurus",
+          "AndroidestX",
+          "hatebu_android"
+        ],
+        "keywords": [
+          "android",
+          "Android"
+        ]
+      },
+      "page": {
+        "_id": "57b4337ff739a9e10c4fddc6",
+        "url": "http://www.slideshare.net/JoaoOrui/localization-64774449",
+        "title": "はじめようlocalization",
+        "description": "Androidオールスターズ2016 2016年8月7日発表",
+        "thumbnail": "http://cdn.slidesharecdn.com/ss_thumbnails/android2016-localization-160807134007-thumbnail-4.jpg?cb=1470796092",
+        "__v": 0,
+        "timestamp": "2016-08-17T09:50:55.454Z",
+        "tags": [],
+        "hatebu": 10
+      },
+      "__v": 1,
+      "timestamp": "2016-08-17T09:51:01.778Z",
+      "picks": [
+        "hatebu_android",
+        "b0to1d"
+      ],
+      "score": 4
+    },
+    {
+      "_id": "57b43366f739a9e10c4fddc5",
+      "category": {
+        "_id": "567d889ab9b38cd2316439cb",
+        "name": "android",
+        "title": "Android",
+        "description": "Android関連",
+        "color": "#E50E50",
+        "__v": 0,
+        "curators": [
+          "petitviolet",
+          "t-kashima",
+          "yshrsmz",
+          "ytRino",
+          "KeithYokoma",
+          "HashiTakahiro",
+          "gfx",
+          "teracy_junk",
+          "b0to1d",
+          "craf",
+          "androidzaurus",
+          "AndroidestX",
+          "hatebu_android"
+        ],
+        "keywords": [
+          "android",
+          "Android"
+        ]
+      },
+      "page": {
+        "_id": "57b43360f739a9e10c4fddc2",
+        "url": "http://qiita.com/eggman/items/78d5baf5e09df6bec912",
+        "title": "Androidソースコードの一部をビルドする - Qiita",
+        "description": "Androidソースコードの一部をビルドする方法です。\n\n* Andoroidアプリでなく、AOSPで公開されているOSのソースコードについての話題です。\n\n# 手順\n* Androidのソースコードをbuildする環境を用意する。\n...",
+        "thumbnail": "http://cdn.qiita.com/assets/qiita-fb-f1d6559f13f7e8de7260c6cec4d3b8f9c2eab8322a69fd786baea877d220278b.png",
+        "site_name": "Qiita",
+        "__v": 0,
+        "timestamp": "2016-08-17T09:50:24.481Z",
+        "tags": [],
+        "hatebu": 1
+      },
+      "__v": 0,
+      "timestamp": "2016-08-17T09:50:30.190Z",
+      "picks": [
+        "craf"
+      ],
+      "score": 3
+    },
+    {
+      "_id": "57b43353f739a9e10c4fddc0",
+      "category": {
+        "_id": "567d889ab9b38cd2316439cb",
+        "name": "android",
+        "title": "Android",
+        "description": "Android関連",
+        "color": "#E50E50",
+        "__v": 0,
+        "curators": [
+          "petitviolet",
+          "t-kashima",
+          "yshrsmz",
+          "ytRino",
+          "KeithYokoma",
+          "HashiTakahiro",
+          "gfx",
+          "teracy_junk",
+          "b0to1d",
+          "craf",
+          "androidzaurus",
+          "AndroidestX",
+          "hatebu_android"
+        ],
+        "keywords": [
+          "android",
+          "Android"
+        ]
+      },
+      "page": {
+        "_id": "57b4334ff739a9e10c4fddb8",
+        "url": "http://qiita.com/issei_aoki/items/741157291e0413533cf6",
+        "title": "【Android】EventBus 3のドキュメントを読んでみた - Qiita",
+        "description": "EventBusのバージョンが3になりました。\n\n公式のドキュメントを読んでみたので、自分が分かった範囲で翻訳してまとめました。\n\n# インストール方法\n\n```\n compile &#39;org.greenrobot:eventbus:3...",
+        "thumbnail": "http://cdn.qiita.com/assets/qiita-fb-f1d6559f13f7e8de7260c6cec4d3b8f9c2eab8322a69fd786baea877d220278b.png",
+        "site_name": "Qiita",
+        "__v": 0,
+        "timestamp": "2016-08-17T09:50:07.230Z",
+        "tags": [],
+        "hatebu": 1
+      },
+      "__v": 0,
+      "timestamp": "2016-08-17T09:50:11.901Z",
+      "picks": [
+        "teracy_junk"
+      ],
+      "score": 3
+    },
+    {
+      "_id": "57b4334ff739a9e10c4fddba",
+      "category": {
+        "_id": "567d889ab9b38cd2316439cb",
+        "name": "android",
+        "title": "Android",
+        "description": "Android関連",
+        "color": "#E50E50",
+        "__v": 0,
+        "curators": [
+          "petitviolet",
+          "t-kashima",
+          "yshrsmz",
+          "ytRino",
+          "KeithYokoma",
+          "HashiTakahiro",
+          "gfx",
+          "teracy_junk",
+          "b0to1d",
+          "craf",
+          "androidzaurus",
+          "AndroidestX",
+          "hatebu_android"
+        ],
+        "keywords": [
+          "android",
+          "Android"
+        ]
+      },
+      "page": {
+        "_id": "57b4334af739a9e10c4fddb3",
+        "url": "http://nextdeveloper.hatenablog.com/entry/2014/06/18/145745",
+        "title": "Build Variants について - 株式会社ネクスト　エンジニアBlog",
+        "description": "こんにちは。菊地と申します。 今回は AndroidStudio で導入された Build Variants という仕組みについてです。 AndroidStudio がリリースされてだいぶ経ちますので、今更な感じはしなくもないですが、意外と知らない人も多いかな？と思ったのでまとめてみました。",
+        "thumbnail": "https://cdn.blog.st-hatena.com/images/theme/og-image-1500.png",
+        "site_name": "株式会社ネクスト　エンジニアBlog",
+        "__v": 0,
+        "timestamp": "2016-08-17T09:50:02.864Z",
+        "tags": [],
+        "hatebu": 19
+      },
+      "__v": 0,
+      "timestamp": "2016-08-17T09:50:07.899Z",
+      "picks": [
+        "teracy_junk"
+      ],
+      "score": 3
+    },
+    {
+      "_id": "57b4334ff739a9e10c4fddb9",
+      "category": {
+        "_id": "567d889ab9b38cd2316439cb",
+        "name": "android",
+        "title": "Android",
+        "description": "Android関連",
+        "color": "#E50E50",
+        "__v": 0,
+        "curators": [
+          "petitviolet",
+          "t-kashima",
+          "yshrsmz",
+          "ytRino",
+          "KeithYokoma",
+          "HashiTakahiro",
+          "gfx",
+          "teracy_junk",
+          "b0to1d",
+          "craf",
+          "androidzaurus",
+          "AndroidestX",
+          "hatebu_android"
+        ],
+        "keywords": [
+          "android",
+          "Android"
+        ]
+      },
+      "page": {
+        "_id": "57b4334af739a9e10c4fddb2",
+        "url": "http://blog.okazuki.jp/entry/2016/08/15/213254",
+        "title": "Androidで定期的に処理を実行したい - かずきのBlog@hatena",
+        "description": "そんなときはAlarmManagerを使います。 使い方はPendingIntentを作ってAlarmManagerを取得してsetRepeatingする感じ。 一回こっきりでいい場合は、setメソッドでもいいみたいですね。 詳細はAlarmManagerのドキュメントを見よう。 AlarmManager | Android Developers ということで、こんなコードを書いてやれば現在時間から1分間隔でIntentが投げられるようになります。今回の場合はサービスをキックしています。 Intent intent = new Intent(this, LogService.class); i…",
+        "thumbnail": "https://cdn.blog.st-hatena.com/images/theme/og-image-1500.png",
+        "site_name": "かずきのBlog@hatena",
+        "__v": 0,
+        "timestamp": "2016-08-17T09:50:02.657Z",
+        "tags": [],
+        "hatebu": 6
+      },
+      "__v": 2,
+      "timestamp": "2016-08-17T09:50:07.306Z",
+      "picks": [
+        "teracy_junk",
+        "b0to1d",
+        "hatebu_android"
+      ],
+      "score": 5
+    },
+    {
+      "_id": "57b4334ef739a9e10c4fddb7",
+      "category": {
+        "_id": "567d889ab9b38cd2316439cb",
+        "name": "android",
+        "title": "Android",
+        "description": "Android関連",
+        "color": "#E50E50",
+        "__v": 0,
+        "curators": [
+          "petitviolet",
+          "t-kashima",
+          "yshrsmz",
+          "ytRino",
+          "KeithYokoma",
+          "HashiTakahiro",
+          "gfx",
+          "teracy_junk",
+          "b0to1d",
+          "craf",
+          "androidzaurus",
+          "AndroidestX",
+          "hatebu_android"
+        ],
+        "keywords": [
+          "android",
+          "Android"
+        ]
+      },
+      "page": {
+        "_id": "57b43349f739a9e10c4fddb1",
+        "url": "http://santea.hateblo.jp/entry/2015/12/23/235158",
+        "title": "API Level 19以降でAlarmManagerが辛かった話 - ぴよぴよエンジニアの日記",
+        "description": "Androidの話です．API Level 19以降でAlamManager（AlarmManager | Android Developers）が辛かった話になります．先に自分なりの結論を示しておきます． set, setReapitingはAPI Level 19以降では不正確 setExactも秒単位の処理ではかなり微妙 java.util.Timerで秒単位の処理を一応実現できた 開発環境 IDE：Android Studio 1.3.1 デバッグ機：Nexus 5X（Android 6.0.1） SDK Version：22 作りたかったもの バスの発着時間をカウントダウンするウィジ…",
+        "thumbnail": "http://cdn-ak.f.st-hatena.com/images/fotolife/S/Santea/20151223/20151223201731.png",
+        "site_name": "ぴよぴよエンジニアの日記",
+        "__v": 0,
+        "timestamp": "2016-08-17T09:50:01.747Z",
+        "tags": [],
+        "hatebu": 3
+      },
+      "__v": 0,
+      "timestamp": "2016-08-17T09:50:06.746Z",
+      "picks": [
+        "teracy_junk"
+      ],
+      "score": 3
+    },
+    {
+      "_id": "57b43338f739a9e10c4fddaa",
+      "category": {
+        "_id": "567d889ab9b38cd2316439cb",
+        "name": "android",
+        "title": "Android",
+        "description": "Android関連",
+        "color": "#E50E50",
+        "__v": 0,
+        "curators": [
+          "petitviolet",
+          "t-kashima",
+          "yshrsmz",
+          "ytRino",
+          "KeithYokoma",
+          "HashiTakahiro",
+          "gfx",
+          "teracy_junk",
+          "b0to1d",
+          "craf",
+          "androidzaurus",
+          "AndroidestX",
+          "hatebu_android"
+        ],
+        "keywords": [
+          "android",
+          "Android"
+        ]
+      },
+      "page": {
+        "_id": "57b43335f739a9e10c4fdda7",
+        "url": "http://googledevjp.blogspot.com/2016/08/android-linux-kernel.html",
+        "title": "\nGoogle Developers Japan: Android の Linux カーネル保護の強化 \n",
+        "description": "Android において強固なセキュリティ モデルを実現するために Linux カーネルの機能がどのように活用されているかについてまとめました。",
+        "site_name": "Google Developers Japan",
+        "__v": 0,
+        "timestamp": "2016-08-17T09:49:41.954Z",
+        "tags": [],
+        "hatebu": 8
+      },
+      "__v": 2,
+      "timestamp": "2016-08-17T09:49:44.965Z",
+      "picks": [
+        "HashiTakahiro",
+        "hatebu_android",
+        "b0to1d"
+      ],
+      "score": 5
+    },
+    {
+      "_id": "57b3c304f739a9e10c4fdac6",
+      "category": {
+        "_id": "567d889ab9b38cd2316439cb",
+        "name": "android",
+        "title": "Android",
+        "description": "Android関連",
+        "color": "#E50E50",
+        "__v": 0,
+        "curators": [
+          "petitviolet",
+          "t-kashima",
+          "yshrsmz",
+          "ytRino",
+          "KeithYokoma",
+          "HashiTakahiro",
+          "gfx",
+          "teracy_junk",
+          "b0to1d",
+          "craf",
+          "androidzaurus",
+          "AndroidestX",
+          "hatebu_android"
+        ],
+        "keywords": [
+          "android",
+          "Android"
+        ]
+      },
+      "page": {
+        "_id": "57b3c300f739a9e10c4fdac2",
+        "url": "https://android.benigumo.com/20160816/gradle3-0-android-studio/",
+        "title": "75%速度向上という Gradle 3.0  を Android Studio で試す",
+        "__v": 0,
+        "timestamp": "2016-08-17T01:50:56.561Z",
+        "tags": [],
+        "hatebu": 5
+      },
+      "__v": 0,
+      "timestamp": "2016-08-17T01:51:00.363Z",
+      "picks": [
+        "hatebu_android"
+      ],
+      "score": 3
+    },
+    {
+      "_id": "57b3c303f739a9e10c4fdac4",
+      "category": {
+        "_id": "567d889ab9b38cd2316439cb",
+        "name": "android",
+        "title": "Android",
+        "description": "Android関連",
+        "color": "#E50E50",
+        "__v": 0,
+        "curators": [
+          "petitviolet",
+          "t-kashima",
+          "yshrsmz",
+          "ytRino",
+          "KeithYokoma",
+          "HashiTakahiro",
+          "gfx",
+          "teracy_junk",
+          "b0to1d",
+          "craf",
+          "androidzaurus",
+          "AndroidestX",
+          "hatebu_android"
+        ],
+        "keywords": [
+          "android",
+          "Android"
+        ]
+      },
+      "page": {
+        "_id": "57b3c2fef739a9e10c4fdac1",
+        "url": "http://monoist.atmarkit.co.jp/mn/articles/1608/16/news096.html",
+        "title": " Googleが新OS「Fuchsia」開発中、IoTデバイス向けRTOSか - MONOist（モノイスト）",
+        "description": "Googleが新OS「Fuchsia」の開発プロジェクトを開始したようだ。LinuxやAndroidではなくLKをベースにしており、RTOSとしての完成を意図しているようだ。",
+        "thumbnail": "http://image.itmedia.co.jp/mn/articles/1608/16/hi_go01.jpg",
+        "site_name": "MONOist",
+        "__v": 0,
+        "timestamp": "2016-08-17T01:50:54.986Z",
+        "tags": [],
+        "hatebu": 13
+      },
+      "__v": 0,
+      "timestamp": "2016-08-17T01:50:59.259Z",
+      "picks": [
+        "hatebu_android"
+      ],
+      "score": 3
+    },
+    {
+      "_id": "57b3c302f739a9e10c4fdac3",
+      "category": {
+        "_id": "567d889ab9b38cd2316439cb",
+        "name": "android",
+        "title": "Android",
+        "description": "Android関連",
+        "color": "#E50E50",
+        "__v": 0,
+        "curators": [
+          "petitviolet",
+          "t-kashima",
+          "yshrsmz",
+          "ytRino",
+          "KeithYokoma",
+          "HashiTakahiro",
+          "gfx",
+          "teracy_junk",
+          "b0to1d",
+          "craf",
+          "androidzaurus",
+          "AndroidestX",
+          "hatebu_android"
+        ],
+        "keywords": [
+          "android",
+          "Android"
+        ]
+      },
+      "page": {
+        "_id": "57b272baf739a9e10c4fd0fc",
+        "url": "http://gigazine.net/news/20160816-google-os-fuchsia/",
+        "title": "Googleの新OS「Fuchsia(フクシア)」はLinuxベースではないIoT向けの組み込み用OS - GIGAZINEGIGAZINE ホームTwitterFacebookGoogle+TwitterFacebookGoogle+YouTubeRSS 2.0検索",
+        "description": "GoogleがAndroidやChrome OSに続く新しいOS「Fuchsia(フクシア/フューシャ)」を開発していることが明らかになりました。フクシアとは花の名前で、まだ正式名称というわけで",
+        "thumbnail": "http://i.gzn.jp/img/2016/08/16/google-os-fuchsia/00.jpg",
+        "site_name": "GIGAZINE",
+        "__v": 0,
+        "timestamp": "2016-08-16T01:56:10.920Z",
+        "tags": [],
+        "hatebu": 45
+      },
+      "__v": 0,
+      "timestamp": "2016-08-17T01:50:58.751Z",
+      "picks": [
+        "hatebu_android"
+      ],
+      "score": 3
+    },
+    {
+      "_id": "57b35280f739a9e10c4fd72e",
+      "category": {
+        "_id": "567d889ab9b38cd2316439cb",
+        "name": "android",
+        "title": "Android",
+        "description": "Android関連",
+        "color": "#E50E50",
+        "__v": 0,
+        "curators": [
+          "petitviolet",
+          "t-kashima",
+          "yshrsmz",
+          "ytRino",
+          "KeithYokoma",
+          "HashiTakahiro",
+          "gfx",
+          "teracy_junk",
+          "b0to1d",
+          "craf",
+          "androidzaurus",
+          "AndroidestX",
+          "hatebu_android"
+        ],
+        "keywords": [
+          "android",
+          "Android"
+        ]
+      },
+      "page": {
+        "_id": "57b3527ef739a9e10c4fd72d",
+        "url": "http://pc.watch.impress.co.jp/docs/news/1015169.html",
+        "title": "ZenFone 2 Laserのマシュマロ化アップデートが配信 ～ZenPad 7.0向けにも - PC Watch",
+        "description": "　ASUSは、5型スマートフォン「ZenFone 2 Laser(ZE500KL)」と、7型タブレット「ZenPad 7.0(Z370KL)」のAndroid 6.0(Marshmallow)アップデートを8月17日の12時より配信すると発表した。",
+        "thumbnail": "http://pc.watch.impress.co.jp/img/pcw/list/1015/169/01.jpg",
+        "site_name": "PC Watch",
+        "__v": 0,
+        "timestamp": "2016-08-16T17:50:54.169Z",
+        "tags": [],
+        "hatebu": 7
+      },
+      "__v": 0,
+      "timestamp": "2016-08-16T17:50:56.072Z",
+      "picks": [
+        "hatebu_android"
+      ],
+      "score": 3
+    },
+    {
+      "_id": "57b35275f739a9e10c4fd72c",
+      "category": {
+        "_id": "567d889ab9b38cd2316439cb",
+        "name": "android",
+        "title": "Android",
+        "description": "Android関連",
+        "color": "#E50E50",
+        "__v": 0,
+        "curators": [
+          "petitviolet",
+          "t-kashima",
+          "yshrsmz",
+          "ytRino",
+          "KeithYokoma",
+          "HashiTakahiro",
+          "gfx",
+          "teracy_junk",
+          "b0to1d",
+          "craf",
+          "androidzaurus",
+          "AndroidestX",
+          "hatebu_android"
+        ],
+        "keywords": [
+          "android",
+          "Android"
+        ]
+      },
+      "page": {
+        "_id": "57b35273f739a9e10c4fd72b",
+        "url": "http://s-max.jp/archives/1699379.html",
+        "title": "ASUS JAPAN、SIMフリースマホ「ZenFone 2 Laser ZE500KL」とタブレット「ZenPad 7 Z370KL」にAndroid 6.0 MarshmallowへのOSバージョンアップを含むソフトウェア更新を提供開始 - S-MAX",
+        "description": "S-MAX : ASUS JAPAN、SIMフリースマホ「ZenFone 2 Laser ZE500KL」とタブレット「ZenPad 7 Z370KL」にAndroid 6.0 MarshmallowへのOSバージョンアップを含むソフトウェア更新を提供開始",
+        "__v": 0,
+        "timestamp": "2016-08-16T17:50:43.508Z",
+        "tags": [],
+        "hatebu": 3
+      },
+      "__v": 0,
+      "timestamp": "2016-08-16T17:50:45.670Z",
+      "picks": [
+        "AndroidestX"
+      ],
+      "score": 3
+    },
+    {
+      "_id": "57b35260f739a9e10c4fd72a",
+      "category": {
+        "_id": "567d889ab9b38cd2316439cb",
+        "name": "android",
+        "title": "Android",
+        "description": "Android関連",
+        "color": "#E50E50",
+        "__v": 0,
+        "curators": [
+          "petitviolet",
+          "t-kashima",
+          "yshrsmz",
+          "ytRino",
+          "KeithYokoma",
+          "HashiTakahiro",
+          "gfx",
+          "teracy_junk",
+          "b0to1d",
+          "craf",
+          "androidzaurus",
+          "AndroidestX",
+          "hatebu_android"
+        ],
+        "keywords": [
+          "android",
+          "Android"
+        ]
+      },
+      "page": {
+        "_id": "57b3525ff739a9e10c4fd729",
+        "url": "http://iot-watch.com/69",
+        "title": "ubuntu 16.04 で gnu-makeのv3.81を使う方法 | IoT Watch",
+        "description": "ubuntu16.04を使っていると gnu-make が v4.1 になってしまうせいで Android のビルドが失敗します。とりいそぎは v3.81 に戻すことで対策できます。 ubuntu14.04(Trusty)のリポジトリを追加して apt-get で入れてもいいのですが、v3",
+        "__v": 0,
+        "timestamp": "2016-08-16T17:50:23.094Z",
+        "tags": [],
+        "hatebu": 1
+      },
+      "__v": 0,
+      "timestamp": "2016-08-16T17:50:24.659Z",
+      "picks": [
+        "craf"
+      ],
+      "score": 3
+    },
+    {
+      "_id": "57b35255f739a9e10c4fd728",
+      "category": {
+        "_id": "567d889ab9b38cd2316439cb",
+        "name": "android",
+        "title": "Android",
+        "description": "Android関連",
+        "color": "#E50E50",
+        "__v": 0,
+        "curators": [
+          "petitviolet",
+          "t-kashima",
+          "yshrsmz",
+          "ytRino",
+          "KeithYokoma",
+          "HashiTakahiro",
+          "gfx",
+          "teracy_junk",
+          "b0to1d",
+          "craf",
+          "androidzaurus",
+          "AndroidestX",
+          "hatebu_android"
+        ],
+        "keywords": [
+          "android",
+          "Android"
+        ]
+      },
+      "page": {
+        "_id": "57b35253f739a9e10c4fd727",
+        "url": "http://netafull.net/iphone-app/053647.html",
+        "title": "[N] 「Google Duo」電話番号だけでビデオ通話できるアプリ（iOS/Android）",
+        "description": " Googleが、電話帳に登録している人とビデオ通話ができるアプリ「Google Duo」をリリースしました。必要なのは電話番号だけで、iO...",
+        "thumbnail": "http://netafull.net/images-2015/google-duo-1338.jpg",
+        "site_name": "[N]ネタフル",
+        "__v": 0,
+        "timestamp": "2016-08-16T17:50:11.759Z",
+        "tags": [],
+        "hatebu": 9
+      },
+      "__v": 1,
+      "timestamp": "2016-08-16T17:50:13.741Z",
+      "picks": [
+        "b0to1d",
+        "hatebu_android"
+      ],
+      "score": 4
+    },
+    {
+      "_id": "57b2e203f739a9e10c4fd351",
+      "category": {
+        "_id": "567d889ab9b38cd2316439cb",
+        "name": "android",
+        "title": "Android",
+        "description": "Android関連",
+        "color": "#E50E50",
+        "__v": 0,
+        "curators": [
+          "petitviolet",
+          "t-kashima",
+          "yshrsmz",
+          "ytRino",
+          "KeithYokoma",
+          "HashiTakahiro",
+          "gfx",
+          "teracy_junk",
+          "b0to1d",
+          "craf",
+          "androidzaurus",
+          "AndroidestX",
+          "hatebu_android"
+        ],
+        "keywords": [
+          "android",
+          "Android"
+        ]
+      },
+      "page": {
+        "_id": "57b193a2f739a9e10c4fcbb3",
+        "url": "http://japanese.engadget.com/2016/08/15/go-ar/",
+        "title": "ポケモンGOと同じ仕組みの「AR墓参り」サービスが日本初登場、故人が思い出の場所に出現 - Engadget Japanese",
+        "description": "『ポケモンGO』の登場により、ARとスマホの位置情報を活用したサービスが改めて注目を集めています。墓石や石材の販売を行っている良心石材が8月15日にリリースしたアプリ『Spot message』（Android版）は、なんと故人がスマホのARになって、思い出の場所に登場するという内容です。",
+        "thumbnail": "http://o.aolcdn.com/hss/storage/midas/d25eda87353408154a6af536ee0c7e25/204202519/haka1.jpg",
+        "site_name": "Engadget Japanese",
+        "__v": 0,
+        "timestamp": "2016-08-15T10:04:18.033Z",
+        "tags": [],
+        "hatebu": 262
+      },
+      "__v": 0,
+      "timestamp": "2016-08-16T09:50:59.959Z",
+      "picks": [
+        "hatebu_android"
+      ],
+      "score": 3
+    },
+    {
+      "_id": "57b2e203f739a9e10c4fd350",
+      "category": {
+        "_id": "567d889ab9b38cd2316439cb",
+        "name": "android",
+        "title": "Android",
+        "description": "Android関連",
+        "color": "#E50E50",
+        "__v": 0,
+        "curators": [
+          "petitviolet",
+          "t-kashima",
+          "yshrsmz",
+          "ytRino",
+          "KeithYokoma",
+          "HashiTakahiro",
+          "gfx",
+          "teracy_junk",
+          "b0to1d",
+          "craf",
+          "androidzaurus",
+          "AndroidestX",
+          "hatebu_android"
+        ],
+        "keywords": [
+          "android",
+          "Android"
+        ]
+      },
+      "page": {
+        "_id": "57b2e201f739a9e10c4fd34b",
+        "url": "http://japan.zdnet.com/article/35087501/",
+        "title": "LinuxカーネルのTCP脆弱性、「Android」端末の約80％に影響 - ZDNet Japan",
+        "description": "約80％もの「Android」端末が、先ごろ開示されたLinuxカーネルの脆弱性に対して無防備な状態にある。",
+        "thumbnail": "http://japan.zdnet.com/storage/2015/11/05/47354878be829002018d24b761b1a5e9/android-logo_640x480.jpg",
+        "site_name": "ZDNet Japan",
+        "__v": 0,
+        "timestamp": "2016-08-16T09:50:57.070Z",
+        "tags": [],
+        "hatebu": 36
+      },
+      "__v": 0,
+      "timestamp": "2016-08-16T09:50:59.299Z",
+      "picks": [
+        "hatebu_android"
+      ],
+      "score": 3
+    },
+    {
+      "_id": "57b2e201f739a9e10c4fd34d",
+      "category": {
+        "_id": "567d889ab9b38cd2316439cb",
+        "name": "android",
+        "title": "Android",
+        "description": "Android関連",
+        "color": "#E50E50",
+        "__v": 0,
+        "curators": [
+          "petitviolet",
+          "t-kashima",
+          "yshrsmz",
+          "ytRino",
+          "KeithYokoma",
+          "HashiTakahiro",
+          "gfx",
+          "teracy_junk",
+          "b0to1d",
+          "craf",
+          "androidzaurus",
+          "AndroidestX",
+          "hatebu_android"
+        ],
+        "keywords": [
+          "android",
+          "Android"
+        ]
+      },
+      "page": {
+        "_id": "57b2e1fef739a9e10c4fd348",
+        "url": "http://gigazine.net/news/20160816-linux-flaw-hijack-android/",
+        "title": "14億台ものAndroid端末に通信が傍受される脆弱性が存在することが明らかに - GIGAZINEGIGAZINE ホームTwitterFacebookGoogle+TwitterFacebookGoogle+YouTubeRSS 2.0検索",
+        "description": "HTTPによる通信をより安全にするため、通信データをSSL(TLS)を用いて暗号化するのが「HTTPS」ですが、その普及率はまだ完全とは言い難い状況です。そんな中、Android端末の80％に暗",
+        "thumbnail": "http://i.gzn.jp/img/2016/08/16/linux-flaw-hijack-android/00_m.jpg",
+        "site_name": "GIGAZINE",
+        "__v": 0,
+        "timestamp": "2016-08-16T09:50:54.944Z",
+        "tags": [],
+        "hatebu": 36
+      },
+      "__v": 1,
+      "timestamp": "2016-08-16T09:50:57.689Z",
+      "picks": [
+        "hatebu_android",
+        "b0to1d"
+      ],
+      "score": 4
+    },
+    {
+      "_id": "57b2e201f739a9e10c4fd34c",
+      "category": {
+        "_id": "567d889ab9b38cd2316439cb",
+        "name": "android",
+        "title": "Android",
+        "description": "Android関連",
+        "color": "#E50E50",
+        "__v": 0,
+        "curators": [
+          "petitviolet",
+          "t-kashima",
+          "yshrsmz",
+          "ytRino",
+          "KeithYokoma",
+          "HashiTakahiro",
+          "gfx",
+          "teracy_junk",
+          "b0to1d",
+          "craf",
+          "androidzaurus",
+          "AndroidestX",
+          "hatebu_android"
+        ],
+        "keywords": [
+          "android",
+          "Android"
+        ]
+      },
+      "page": {
+        "_id": "57b2e1fdf739a9e10c4fd347",
+        "url": "http://internet.watch.impress.co.jp/docs/news/1015198.html",
+        "title": "Linux TCPスタック実装の脆弱性、Android 4.4以降の14億台の端末に影響 -INTERNET Watch",
+        "description": "　Red Hat Enterprise Linuxから7月12日に公表されていたLinuxカーネルにおけるTCPスタック実装の脆弱性「CVE-2016-5696」が、Android 4.4以降の14億台の端末に影響するとして、米Lookoutが8月15日付けの同社公式ブログで注意を喚起している。",
+        "thumbnail": "http://internet.watch.impress.co.jp/img/iw/list/1015/198/lookout1.png",
+        "site_name": "INTERNET Watch",
+        "__v": 0,
+        "timestamp": "2016-08-16T09:50:53.943Z",
+        "tags": [],
+        "hatebu": 63
+      },
+      "__v": 1,
+      "timestamp": "2016-08-16T09:50:57.134Z",
+      "picks": [
+        "hatebu_android",
+        "b0to1d"
+      ],
+      "score": 4
+    },
+    {
+      "_id": "57b2e1b7f739a9e10c4fd331",
+      "category": {
+        "_id": "567d889ab9b38cd2316439cb",
+        "name": "android",
+        "title": "Android",
+        "description": "Android関連",
+        "color": "#E50E50",
+        "__v": 0,
+        "curators": [
+          "petitviolet",
+          "t-kashima",
+          "yshrsmz",
+          "ytRino",
+          "KeithYokoma",
+          "HashiTakahiro",
+          "gfx",
+          "teracy_junk",
+          "b0to1d",
+          "craf",
+          "androidzaurus",
+          "AndroidestX",
+          "hatebu_android"
+        ],
+        "keywords": [
+          "android",
+          "Android"
+        ]
+      },
+      "page": {
+        "_id": "57b2e1b5f739a9e10c4fd32f",
+        "url": "http://googledevjp.blogspot.com/2016/08/io-eddystone-google.html",
+        "title": "\nGoogle Developers Japan: I/O セッション: 位置情報と近隣情報の実力: Eddystone + Google ビーコン プラットフォーム\n",
+        "description": "Google I/O のセッションから Eddystone + Google ビーコン プラットフォームについての情報をまとめました。",
+        "thumbnail": "https://lh3.googleusercontent.com/K6x9FKjtgDMai_4WzmO2jBqDvR_LzjmnTV20HlLNzfSbbofkqLPl1hu2Z_hZtfPnH09z9TvZqKSJVUuP7pzyJLJUfOrAUsSUo7POl9YPrYMXVigY5q4YFZGBWGOkja2vY5aKhOKj=w1200-h630-p-nu",
+        "site_name": "Google Developers Japan",
+        "__v": 0,
+        "timestamp": "2016-08-16T09:49:41.802Z",
+        "tags": [],
+        "hatebu": 7
+      },
+      "__v": 2,
+      "timestamp": "2016-08-16T09:50:56.614Z",
+      "picks": [
+        "HashiTakahiro",
+        "craf",
+        "hatebu_android"
+      ],
+      "score": 3
+    },
+    {
+      "_id": "57b2e1f7f739a9e10c4fd346",
+      "category": {
+        "_id": "567d889ab9b38cd2316439cb",
+        "name": "android",
+        "title": "Android",
+        "description": "Android関連",
+        "color": "#E50E50",
+        "__v": 0,
+        "curators": [
+          "petitviolet",
+          "t-kashima",
+          "yshrsmz",
+          "ytRino",
+          "KeithYokoma",
+          "HashiTakahiro",
+          "gfx",
+          "teracy_junk",
+          "b0to1d",
+          "craf",
+          "androidzaurus",
+          "AndroidestX",
+          "hatebu_android"
+        ],
+        "keywords": [
+          "android",
+          "Android"
+        ]
+      },
+      "page": {
+        "_id": "57b2e1f4f739a9e10c4fd344",
+        "url": "http://japan.cnet.com/news/service/35087501/",
+        "title": "LinuxカーネルのTCP脆弱性、「Android」端末の約80％に影響 - CNET Japan",
+        "description": "約80％もの「Android」端末が、先ごろ開示されたLinuxカーネルの脆弱性に対して無防備な状態にある。",
+        "thumbnail": "http://japan.cnet.com/storage/2015/11/05/47354878be829002018d24b761b1a5e9/t/640/480/d/android-logo_640x480.jpg",
+        "site_name": "CNET Japan",
+        "__v": 0,
+        "timestamp": "2016-08-16T09:50:44.478Z",
+        "tags": [],
+        "hatebu": 9
+      },
+      "__v": 0,
+      "timestamp": "2016-08-16T09:50:47.075Z",
+      "picks": [
+        "AndroidestX"
+      ],
+      "score": 3
+    },
+    {
+      "_id": "57b2e1cdf739a9e10c4fd340",
+      "category": {
+        "_id": "567d889ab9b38cd2316439cb",
+        "name": "android",
+        "title": "Android",
+        "description": "Android関連",
+        "color": "#E50E50",
+        "__v": 0,
+        "curators": [
+          "petitviolet",
+          "t-kashima",
+          "yshrsmz",
+          "ytRino",
+          "KeithYokoma",
+          "HashiTakahiro",
+          "gfx",
+          "teracy_junk",
+          "b0to1d",
+          "craf",
+          "androidzaurus",
+          "AndroidestX",
+          "hatebu_android"
+        ],
+        "keywords": [
+          "android",
+          "Android"
+        ]
+      },
+      "page": {
+        "_id": "57b2e1cbf739a9e10c4fd33b",
+        "url": "http://ria10.hatenablog.com/entry/20121223/1356278059",
+        "title": "Weak Referencesから学ぶJavaにおけるオブジェクトの4種類の参照 - リア充爆発日記",
+        "description": "各種ドキュメント等を見ていたらWeakReferenceクラスなるものを見つけた。 http://developer.android.com/reference/java/lang/ref/WeakReference.htmlこれを読んでも英語力のせいか何を言っているのかよくわからなかったけど、メモリ消費の話に繋がることはわかったので、Androidアプリには重要なはずや！と思ってもっと調べて見ることにした。ちなみに現時点での総Java歴1年そこそこの僕のJavaの「参照」の認識としては&quot;GC絡みで出てくる話で、そのオブジェクトが別のどのオブジェクトからも参照されなくなったらGCの対象になる&quot;…",
+        "thumbnail": "https://cdn.blog.st-hatena.com/images/theme/og-image-1500.png",
+        "site_name": "リア充爆発日記",
+        "__v": 0,
+        "timestamp": "2016-08-16T09:50:03.111Z",
+        "tags": [],
+        "hatebu": 6
+      },
+      "__v": 0,
+      "timestamp": "2016-08-16T09:50:05.214Z",
+      "picks": [
+        "teracy_junk"
+      ],
+      "score": 3
+    },
+    {
+      "_id": "57b2e1ccf739a9e10c4fd33e",
+      "category": {
+        "_id": "567d889ab9b38cd2316439cb",
+        "name": "android",
+        "title": "Android",
+        "description": "Android関連",
+        "color": "#E50E50",
+        "__v": 0,
+        "curators": [
+          "petitviolet",
+          "t-kashima",
+          "yshrsmz",
+          "ytRino",
+          "KeithYokoma",
+          "HashiTakahiro",
+          "gfx",
+          "teracy_junk",
+          "b0to1d",
+          "craf",
+          "androidzaurus",
+          "AndroidestX",
+          "hatebu_android"
+        ],
+        "keywords": [
+          "android",
+          "Android"
+        ]
+      },
+      "page": {
+        "_id": "57b2e1caf739a9e10c4fd33a",
+        "url": "http://qiita.com/takahirom/items/9411cb6e4a6d74fcd038",
+        "title": "Androidの最新情報を追いかけるリンクメモ - Qiita",
+        "description": "本当にメモです。\n基本的にはTwitterとかでGoogleのDeveloperなどをフォローして手に入れる情報が多いです。\nあとRSSにAndroid系のブログを登録しておいて、たくさん登録しておいて時々流し見します。\nただ、本当に...",
+        "thumbnail": "http://cdn.qiita.com/assets/qiita-fb-f1d6559f13f7e8de7260c6cec4d3b8f9c2eab8322a69fd786baea877d220278b.png",
+        "site_name": "Qiita",
+        "__v": 0,
+        "timestamp": "2016-08-16T09:50:02.438Z",
+        "tags": [],
+        "hatebu": 3
+      },
+      "__v": 1,
+      "timestamp": "2016-08-16T09:50:04.641Z",
+      "picks": [
+        "teracy_junk",
+        "craf"
+      ],
+      "score": 4
+    },
+    {
+      "_id": "57b2e1ccf739a9e10c4fd33d",
+      "category": {
+        "_id": "567d889ab9b38cd2316439cb",
+        "name": "android",
+        "title": "Android",
+        "description": "Android関連",
+        "color": "#E50E50",
+        "__v": 0,
+        "curators": [
+          "petitviolet",
+          "t-kashima",
+          "yshrsmz",
+          "ytRino",
+          "KeithYokoma",
+          "HashiTakahiro",
+          "gfx",
+          "teracy_junk",
+          "b0to1d",
+          "craf",
+          "androidzaurus",
+          "AndroidestX",
+          "hatebu_android"
+        ],
+        "keywords": [
+          "android",
+          "Android"
+        ]
+      },
+      "page": {
+        "_id": "57b2e1c9f739a9e10c4fd339",
+        "url": "http://blog.techium.jp/entry/2016/06/06/090000",
+        "title": "JackでDagger2が使えるようになった - techium",
+        "description": "先日、JackでDagger2が使えないという記事を書きましたが、なんとJackでもDagger2が使えるようになりました！ Dagger2だけじゃなくannotation processingが使えるようになりましたので、他のツールも動くようになりました。 なぜ動くようになったかというとGoogle I/O 2016にてAndroid Studio 2.2 preview 2の発表と合わせてJackで可能になったという発表がありました。 そこで早速試してみました。",
+        "thumbnail": "https://cdn.blog.st-hatena.com/images/theme/og-image-1500.png",
+        "site_name": "techium",
+        "__v": 0,
+        "timestamp": "2016-08-16T09:50:01.986Z",
+        "tags": [],
+        "hatebu": 6
+      },
+      "__v": 0,
+      "timestamp": "2016-08-16T09:50:04.126Z",
+      "picks": [
+        "teracy_junk"
+      ],
+      "score": 3
+    },
+    {
+      "_id": "57b27164f739a9e10c4fd083",
+      "category": {
+        "_id": "567d889ab9b38cd2316439cb",
+        "name": "android",
+        "title": "Android",
+        "description": "Android関連",
+        "color": "#E50E50",
+        "__v": 0,
+        "curators": [
+          "petitviolet",
+          "t-kashima",
+          "yshrsmz",
+          "ytRino",
+          "KeithYokoma",
+          "HashiTakahiro",
+          "gfx",
+          "teracy_junk",
+          "b0to1d",
+          "craf",
+          "androidzaurus",
+          "AndroidestX",
+          "hatebu_android"
+        ],
+        "keywords": [
+          "android",
+          "Android"
+        ]
+      },
+      "page": {
+        "_id": "57b27162f739a9e10c4fd07f",
+        "url": "https://github.com/konifar/android-strings-search-plugin",
+        "title": "GitHub - konifar/android-strings-search-plugin: This plugin makes it easy to search text in strings resources.",
+        "description": "android-strings-search-plugin - This plugin makes it easy to search text in strings resources.",
+        "thumbnail": "https://avatars3.githubusercontent.com/u/1269214?v=3&amp;s=400",
+        "site_name": "GitHub",
+        "__v": 0,
+        "timestamp": "2016-08-16T01:50:26.227Z",
+        "tags": [],
+        "hatebu": 1
+      },
+      "__v": 0,
+      "timestamp": "2016-08-16T01:50:28.497Z",
+      "picks": [
+        "craf"
+      ],
+      "score": 3
+    },
+    {
+      "_id": "57b2714cf739a9e10c4fd07c",
+      "category": {
+        "_id": "567d889ab9b38cd2316439cb",
+        "name": "android",
+        "title": "Android",
+        "description": "Android関連",
+        "color": "#E50E50",
+        "__v": 0,
+        "curators": [
+          "petitviolet",
+          "t-kashima",
+          "yshrsmz",
+          "ytRino",
+          "KeithYokoma",
+          "HashiTakahiro",
+          "gfx",
+          "teracy_junk",
+          "b0to1d",
+          "craf",
+          "androidzaurus",
+          "AndroidestX",
+          "hatebu_android"
+        ],
+        "keywords": [
+          "android",
+          "Android"
+        ]
+      },
+      "page": {
+        "_id": "57b2714af739a9e10c4fd07a",
+        "url": "http://stackoverflow.com/questions/1109022/close-hide-the-android-soft-keyboard",
+        "title": "Close/hide the Android Soft Keyboard - Stack Overflow",
+        "description": "I have an EditText and a Button in my layout. After writing in the edit field and clicking on the Button, I want to hide the virtual keyboard. I assume that there&#39;s a simple, one or two-liner to make ",
+        "thumbnail": "http://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon@2.png?v=73d79a89bded&a",
+        "__v": 0,
+        "timestamp": "2016-08-16T01:50:02.160Z",
+        "tags": [],
+        "hatebu": 4
+      },
+      "__v": 0,
+      "timestamp": "2016-08-16T01:50:04.437Z",
+      "picks": [
+        "teracy_junk"
+      ],
+      "score": 3
+    }
+  ]
+}
