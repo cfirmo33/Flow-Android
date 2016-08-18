@@ -6,10 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ListView
-        android:id="@+id/fragment_article_list_list_view"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/fragment_article_list_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    </ListView>
+    </android.support.v7.widget.RecyclerView>
 
 </android.support.v4.widget.SwipeRefreshLayout>

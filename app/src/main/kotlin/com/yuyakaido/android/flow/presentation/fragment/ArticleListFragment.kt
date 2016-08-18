@@ -5,15 +5,17 @@ import android.os.Bundle
 import android.support.customtabs.CustomTabsIntent
 import android.support.v4.app.Fragment
 import android.support.v4.widget.SwipeRefreshLayout
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ListView
 import com.yuyakaido.android.flow.R
 import com.yuyakaido.android.flow.domain.entity.Article
 import com.yuyakaido.android.flow.domain.entity.Category
 import com.yuyakaido.android.flow.domain.entity.Site
 import com.yuyakaido.android.flow.presentation.adapter.ArticleListAdapter
+import com.yuyakaido.android.flow.presentation.adapter.ItemClickListener
 import com.yuyakaido.android.flow.presentation.item.QiitaSubscription
 import com.yuyakaido.android.flow.presentation.presenter.ArticleListPresenter
 import java.io.Serializable
@@ -21,7 +23,7 @@ import java.io.Serializable
 /**
  * Created by yuyakaido on 6/20/16.
  */
-class ArticleListFragment : BaseFragment() {
+class ArticleListFragment : BaseFragment(), ItemClickListener<Article> {
 
     companion object {
         private val ARGS_COMPONENT = "ARGS_COMPONENT"
@@ -32,10 +34,6 @@ class ArticleListFragment : BaseFragment() {
 
         fun newQiitaInstance(qiitaSubscription: QiitaSubscription): Fragment {
             return newInstance(Component(Site.Qiita, null, qiitaSubscription))
-        }
-
-        fun newHatenaInstance(site: Site, category: Category): Fragment {
-            return newInstance(Component(site, category, null))
         }
 
         fun newInstance(component: Component): Fragment {
@@ -73,19 +71,22 @@ class ArticleListFragment : BaseFragment() {
         super.onDestroy()
     }
 
+    override fun onItemClick(item: Article) {
+        startWebBrowser(item)
+    }
+
     fun initialize() {
-        adapter = ArticleListAdapter(context, mutableListOf())
+        adapter = ArticleListAdapter(context, mutableListOf(), this)
 
         val swipeRefreshLayout = view?.findViewById(R.id.fragment_article_list_swipe_refresh_layout) as SwipeRefreshLayout
         swipeRefreshLayout.setOnRefreshListener { presenter.refresh() }
 
-        val listView = view?.findViewById(R.id.fragment_article_list_list_view) as ListView
-        listView.adapter = adapter
-        listView.setOnItemClickListener {
-            adapterView, view, i, l -> startWebBrowser(adapter.getItem(i))
-        }
+        val layoutManager = LinearLayoutManager(context)
+        val recyclerView = view?.findViewById(R.id.fragment_article_list_recycler_view) as RecyclerView
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = layoutManager
 
-        presenter.registerScrollEvent(listView)
+        presenter.registerPaginationTrigger(recyclerView, layoutManager)
     }
 
     fun clearArticles() {

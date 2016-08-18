@@ -1,13 +1,13 @@
 package com.yuyakaido.android.flow.presentation.presenter
 
-import android.widget.ListView
-import com.jakewharton.rxbinding.widget.scrollEvents
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import com.yuyakaido.android.flow.app.Flow
 import com.yuyakaido.android.flow.domain.entity.Article
 import com.yuyakaido.android.flow.domain.usecase.GetArticleUseCase
 import com.yuyakaido.android.flow.presentation.fragment.ArticleListFragment
+import com.yuyakaido.android.flow.presentation.misc.PaginationHandler
 import com.yuyakaido.android.flow.util.ErrorHandler
-import com.yuyakaido.android.flow.util.ListViewUtil
 import rx.Observable
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
@@ -20,12 +20,12 @@ import javax.inject.Inject
  */
 class ArticleListPresenter(val fragment: ArticleListFragment, val component: ArticleListFragment.Component) : Presenter {
 
-    private val subscriptions = CompositeSubscription()
-
     @Inject
     lateinit var getArticleUseCase: GetArticleUseCase
 
-    lateinit var fetcher: () -> Observable<List<Article>>
+    private val subscriptions = CompositeSubscription()
+    private lateinit var articleFetcher: () -> Observable<List<Article>>
+    private lateinit var paginationTrigger: PaginationHandler
 
     init {
         Flow.getAppComponent()
@@ -35,46 +35,51 @@ class ArticleListPresenter(val fragment: ArticleListFragment, val component: Art
     }
 
     override fun onCreate() {
-        fetcher = getArticleUseCase.getArticleFetcher(component)
+        articleFetcher = getArticleUseCase.getArticleFetcher(component)
         fragment.initialize()
-        loadArticles(fetcher())
+        loadArticles(articleFetcher())
     }
 
     override fun onDestroy() {
         subscriptions.unsubscribe()
+        paginationTrigger.unsubscribe()
     }
 
     override fun refresh() {
-        fetcher = getArticleUseCase.getArticleFetcher(component)
+        articleFetcher = getArticleUseCase.getArticleFetcher(component)
         fragment.clearArticles()
 
         loadArticlesWithDelay()
     }
 
-    fun registerScrollEvent(listView: ListView) {
-        subscriptions.add(listView.scrollEvents()
-                .filter(ListViewUtil.shouldPaginate())
-                .distinctUntilChanged { e1, e2 -> e1.totalItemCount() == e2.totalItemCount() }
-                .subscribe(
-                        { loadArticlesWithDelay() },
-                        { ErrorHandler.handle(it) }))
+    fun registerPaginationTrigger(recyclerView: RecyclerView, manager: LinearLayoutManager) {
+        paginationTrigger = PaginationHandler(recyclerView, manager)
+        subscriptions.add(paginationTrigger.trigger().subscribe { loadArticles(articleFetcher()) })
     }
 
     fun loadArticles(observable: Observable<List<Article>>) {
         subscriptions.add(observable
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnSubscribe { fragment.showProgressBar() }
-                .doAfterTerminate { fragment.hideProgressBar() }
-                .subscribe(
-                        { fragment.addArticles(it) },
-                        { ErrorHandler.handle(it) }))
+                .doOnSubscribe {
+                    fragment.showProgressBar()
+                    paginationTrigger.unsubscribe()
+                }
+                .doAfterTerminate {
+                    fragment.hideProgressBar()
+                    paginationTrigger.subscribe()
+                }
+                .subscribe({
+                    fragment.addArticles(it)
+                }, {
+                    ErrorHandler.handle(it)
+                }))
     }
 
     fun loadArticlesWithDelay() {
         val observable = Observable.zip(
                 Observable.timer(500, TimeUnit.MILLISECONDS),
-                fetcher(),
+                articleFetcher(),
                 { delayMs, articles -> articles })
 
         loadArticles(observable)
