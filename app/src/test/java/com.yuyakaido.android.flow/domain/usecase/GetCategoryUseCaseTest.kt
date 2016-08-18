@@ -7,6 +7,7 @@ import com.yuyakaido.android.flow.domain.entity.Category
 import com.yuyakaido.android.flow.domain.entity.Site
 import com.yuyakaido.android.flow.infra.repository.HatenaRepository
 import com.yuyakaido.android.flow.infra.repository.MenthasRepository
+import com.yuyakaido.android.flow.misc.FlowTest
 import org.junit.Test
 import rx.Single
 import rx.observers.TestSubscriber
@@ -14,7 +15,7 @@ import rx.observers.TestSubscriber
 /**
  * Created by yuyakaido on 7/31/16.
  */
-class GetCategoryUseCaseTest {
+class GetCategoryUseCaseTest : FlowTest() {
 
     @Test
     fun getCategoriesTest() {
