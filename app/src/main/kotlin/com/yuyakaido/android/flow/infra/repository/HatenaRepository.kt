@@ -11,7 +11,7 @@ import rx.Single
  */
 open class HatenaRepository(private val client: HatenaClient) {
 
-    fun getCategories(): Single<List<Category>> {
+    open fun getCategories(): Single<List<Category>> {
         val categories = mutableListOf<Category>()
         categories.add(HatenaCategory("Social", "social.rss"))
         categories.add(HatenaCategory("Economics", "economics.rss"))
@@ -24,11 +24,11 @@ open class HatenaRepository(private val client: HatenaClient) {
         return Single.just(categories)
     }
 
-    fun getHotArticles(category: Category): Single<List<Article>> {
+    open fun getHotArticles(category: Category): Single<List<Article>> {
         return client.getHotArticles(category)
     }
 
-    fun getNewArticles(category: Category): Single<List<Article>> {
+    open fun getNewArticles(category: Category): Single<List<Article>> {
         return client.getNewArticles(category)
     }
 
