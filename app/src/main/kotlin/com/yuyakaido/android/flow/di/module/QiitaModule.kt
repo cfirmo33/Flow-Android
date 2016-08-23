@@ -1,11 +1,10 @@
 package com.yuyakaido.android.flow.di.module
 
-import android.content.Context
-import com.yuyakaido.android.flow.app.OrmaHolder
 import com.yuyakaido.android.flow.infra.api.client.QiitaApi
 import com.yuyakaido.android.flow.infra.api.client.QiitaClient
 import com.yuyakaido.android.flow.infra.api.common.ApiClientGenerator
 import com.yuyakaido.android.flow.infra.constant.InfraConst
+import com.yuyakaido.android.flow.infra.dao.OrmaBridge
 import com.yuyakaido.android.flow.infra.dao.QiitaDao
 import com.yuyakaido.android.flow.infra.repository.QiitaRepository
 import dagger.Module
@@ -33,8 +32,8 @@ class QiitaModule {
     }
 
     @Provides
-    fun provideQiitaDao(context: Context): QiitaDao {
-        return QiitaDao(OrmaHolder.getInstance(context))
+    fun provideQiitaDao(ormaBridge: OrmaBridge): QiitaDao {
+        return QiitaDao(ormaBridge.orma)
     }
 
 }
