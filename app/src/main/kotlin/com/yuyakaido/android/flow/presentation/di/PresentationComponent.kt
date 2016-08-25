@@ -1,6 +1,10 @@
 package com.yuyakaido.android.flow.presentation.di
 
 import com.yuyakaido.android.flow.di.scope.PresentationScope
+import com.yuyakaido.android.flow.presentation.presenter.ArticleListPresenter
+import com.yuyakaido.android.flow.presentation.presenter.CategoryPagerPresenter
+import com.yuyakaido.android.flow.presentation.presenter.QiitaPostPresenter
+import com.yuyakaido.android.flow.presentation.presenter.QiitaTagPresenter
 
 import dagger.Subcomponent
 
@@ -10,8 +14,8 @@ import dagger.Subcomponent
 @PresentationScope
 @Subcomponent
 interface PresentationComponent {
-    fun newCategoryPagerComponent(): CategoryPagerComponent
-    fun newArticleListComponent(): ArticleListComponent
-    fun newQiitaTagComponent(): QiitaTagComponent
-    fun newQiitaPostComponent(): QiitaPostComponent
+    fun inject(articleListPresenter: ArticleListPresenter)
+    fun inject(categoryPagerPresenter: CategoryPagerPresenter)
+    fun inject(qiitaPostPresenter: QiitaPostPresenter)
+    fun inject(qiitaTagPresenter: QiitaTagPresenter)
 }

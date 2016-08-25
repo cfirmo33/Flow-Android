@@ -28,10 +28,7 @@ class ArticleListPresenter(val fragment: ArticleListFragment, val component: Art
     private lateinit var paginationTrigger: PaginationHandler
 
     init {
-        Flow.getAppComponent()
-                .newPresentationComponent()
-                .newArticleListComponent()
-                .inject(this)
+        Flow.getAppComponent().newPresentationComponent().inject(this)
     }
 
     override fun onCreate() {

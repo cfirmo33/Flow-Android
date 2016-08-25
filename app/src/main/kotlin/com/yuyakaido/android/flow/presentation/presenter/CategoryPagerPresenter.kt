@@ -21,10 +21,7 @@ class CategoryPagerPresenter(val fragment: CategoryPagerFragment, val site: Site
     lateinit var getCategoryUseCase: GetCategoryUseCase
 
     init {
-        Flow.getAppComponent()
-                .newPresentationComponent()
-                .newCategoryPagerComponent()
-                .inject(this)
+        Flow.getAppComponent().newPresentationComponent().inject(this)
     }
 
     override fun onCreate() {

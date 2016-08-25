@@ -11,7 +11,10 @@ import dagger.Provides
 /**
  * Created by yuyakaido on 7/30/16.
  */
-@Module
+@Module(includes = arrayOf(
+        MenthasModule::class,
+        QiitaModule::class,
+        HatenaModule::class))
 class AppModule(private val application: Application) {
 
     @Provides

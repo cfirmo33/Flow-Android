@@ -9,11 +9,12 @@ import com.yuyakaido.android.flow.infra.repository.QiitaRepository
 import com.yuyakaido.android.flow.presentation.fragment.ArticleListFragment
 import com.yuyakaido.android.flow.presentation.item.QiitaSubscription
 import rx.Observable
+import javax.inject.Inject
 
 /**
  * Created by yuyakaido on 7/30/16.
  */
-class GetArticleUseCase(
+class GetArticleUseCase @Inject constructor(
         private val menthasRepository: MenthasRepository,
         private val qiitaRepository: QiitaRepository,
         private val hatenaRepository: HatenaRepository) {

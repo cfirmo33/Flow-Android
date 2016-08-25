@@ -5,11 +5,12 @@ import com.yuyakaido.android.flow.domain.entity.Site
 import com.yuyakaido.android.flow.infra.repository.HatenaRepository
 import com.yuyakaido.android.flow.infra.repository.MenthasRepository
 import rx.Observable
+import javax.inject.Inject
 
 /**
  * Created by yuyakaido on 7/30/16.
  */
-class GetCategoryUseCase(
+class GetCategoryUseCase @Inject constructor(
         private val menthasRepository: MenthasRepository,
         private val hatenaRepository: HatenaRepository) {
 
