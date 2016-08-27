@@ -1,4 +1,4 @@
-package com.yuyakaido.android.flow.presentation.di
+package com.yuyakaido.android.flow.di.component
 
 import com.yuyakaido.android.flow.di.scope.PresentationScope
 import com.yuyakaido.android.flow.presentation.presenter.ArticleListPresenter

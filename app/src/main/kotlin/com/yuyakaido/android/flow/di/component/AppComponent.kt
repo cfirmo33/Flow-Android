@@ -1,7 +1,6 @@
 package com.yuyakaido.android.flow.di.component
 
 import com.yuyakaido.android.flow.di.module.AppModule
-import com.yuyakaido.android.flow.presentation.di.PresentationComponent
 import dagger.Component
 import javax.inject.Singleton
 
