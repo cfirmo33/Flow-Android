@@ -97,7 +97,7 @@ dependencies {
     // Testing
     testCompile 'junit:junit:4.12'
     testCompile 'com.taroid.knit:knit:0.1.2'
-    testCompile 'com.github.sys1yagi:kmockito:0.1.1'
+    testCompile 'com.github.sys1yagi:kmockito:0.1.2'
     testCompile "com.squareup.okhttp3:mockwebserver:$okhttpVersion"
     testCompile 'org.robolectric:robolectric:3.1.2'
 }
