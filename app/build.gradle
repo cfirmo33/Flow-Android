@@ -33,7 +33,7 @@ ext {
     supportLibVersion = '24.2.0'
     retrofitVersion = '2.1.0'
     okhttpVersion = '3.4.1'
-    daggerVersion = '2.6'
+    daggerVersion = '2.6.1'
     ormaVersion = '2.5.2'
 }
 
