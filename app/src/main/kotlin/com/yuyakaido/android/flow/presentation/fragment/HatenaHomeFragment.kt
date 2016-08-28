@@ -1,18 +1,20 @@
 package com.yuyakaido.android.flow.presentation.fragment
 
 import android.os.Bundle
-import android.support.design.widget.TabLayout
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import com.yuyakaido.android.flow.R
 import com.yuyakaido.android.flow.presentation.item.HatenaItem
 
 /**
  * Created by yuyakaido on 8/16/16.
  */
-class HatenaHomeFragment : BaseFragment(), TabLayout.OnTabSelectedListener {
+class HatenaHomeFragment : BaseFragment(), AdapterView.OnItemSelectedListener {
 
     companion object {
 
@@ -26,24 +28,35 @@ class HatenaHomeFragment : BaseFragment(), TabLayout.OnTabSelectedListener {
         return inflater?.inflate(R.layout.fragment_hatena_home, container, false)
     }
 
+    override fun onDestroyView() {
+        val spinner = activity.findViewById(R.id.spinner) as Spinner?
+        spinner?.let {
+            spinner.visibility = View.GONE
+        }
+        super.onDestroyView()
+    }
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
-        val tabLayout = view?.findViewById(R.id.fragment_hatena_home_tab_layout) as TabLayout
-        tabLayout.addTab(tabLayout.newTab().setTag(HatenaItem.Hot).setText(HatenaItem.Hot.titleResId))
-        tabLayout.addTab(tabLayout.newTab().setTag(HatenaItem.New).setText(HatenaItem.New.titleResId))
-        tabLayout.addOnTabSelectedListener(this)
-
+        initializeSpinner()
         replaceFragment(HatenaItem.Hot)
     }
 
-    override fun onTabReselected(tab: TabLayout.Tab?) { }
+    override fun onItemSelected(adapterView: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        replaceFragment(HatenaItem.fromPosition(position))
+    }
 
-    override fun onTabUnselected(tab: TabLayout.Tab?) { }
+    override fun onNothingSelected(adapterView: AdapterView<*>?) {}
 
-    override fun onTabSelected(tab: TabLayout.Tab?) {
-        tab?.let {
-            replaceFragment(tab.tag as HatenaItem)
+    fun initializeSpinner() {
+        val spinner = activity.findViewById(R.id.spinner) as Spinner?
+        spinner?.let {
+            spinner.visibility = View.VISIBLE
+            spinner.onItemSelectedListener = this
+            spinner.adapter = ArrayAdapter.createFromResource(
+                    context,
+                    R.array.hatena_tabs,
+                    android.R.layout.simple_spinner_dropdown_item)
         }
     }
 

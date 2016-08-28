@@ -1,18 +1,17 @@
 package com.yuyakaido.android.flow.presentation.item
 
 import android.support.v4.app.Fragment
-import com.yuyakaido.android.flow.R
 import com.yuyakaido.android.flow.presentation.fragment.QiitaPostFragment
 import com.yuyakaido.android.flow.presentation.fragment.QiitaTagFragment
 
 /**
  * Created by yuyakaido on 8/15/16.
  */
-enum class QiitaItem(val titleResId: Int) {
-    Post(R.string.qiita_post) {
+enum class QiitaItem() {
+    Post() {
         override fun fragment() = QiitaPostFragment.newInstance()
     },
-    Tag(R.string.qiita_tag) {
+    Tag() {
         override fun fragment() = QiitaTagFragment.newInstance()
     };
 

@@ -7,10 +7,5 @@
     <string name="common_qiita">Qiita</string>
     <string name="common_hatena">Hatena</string>
 
-    <string name="qiita_post">Post</string>
-    <string name="qiita_tag">Tag</string>
     <string name="qiita_all">All</string>
-
-    <string name="hatena_hot">Hot</string>
-    <string name="hatena_new">New</string>
 </resources>

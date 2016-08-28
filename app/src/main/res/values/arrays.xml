@@ -7,4 +7,9 @@
         <item>Tag</item>
     </string-array>
 
+    <string-array name="hatena_tabs">
+        <item>Hot</item>
+        <item>New</item>
+    </string-array>
+
 </resources>
