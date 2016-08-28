@@ -1,18 +1,20 @@
 package com.yuyakaido.android.flow.presentation.fragment
 
 import android.os.Bundle
-import android.support.design.widget.TabLayout
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import com.yuyakaido.android.flow.R
 import com.yuyakaido.android.flow.presentation.item.QiitaItem
 
 /**
  * Created by yuyakaido on 8/15/16.
  */
-class QiitaHomeFragment : BaseFragment(), TabLayout.OnTabSelectedListener {
+class QiitaHomeFragment : BaseFragment(), AdapterView.OnItemSelectedListener {
 
     companion object {
 
@@ -26,24 +28,35 @@ class QiitaHomeFragment : BaseFragment(), TabLayout.OnTabSelectedListener {
         return inflater?.inflate(R.layout.fragment_qiita_home, container, false)
     }
 
+    override fun onDestroyView() {
+        val spinner = activity.findViewById(R.id.spinner) as Spinner?
+        spinner?.let {
+            spinner.visibility = View.GONE
+        }
+        super.onDestroyView()
+    }
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
-        val tabLayout = view?.findViewById(R.id.fragment_qiita_home_tab_layout) as TabLayout
-        tabLayout.addTab(tabLayout.newTab().setTag(QiitaItem.Post).setText(QiitaItem.Post.titleResId))
-        tabLayout.addTab(tabLayout.newTab().setTag(QiitaItem.Tag).setText(QiitaItem.Tag.titleResId))
-        tabLayout.addOnTabSelectedListener(this)
-
+        initializeSpinner()
         replaceFragment(QiitaItem.Post)
     }
 
-    override fun onTabReselected(tab: TabLayout.Tab?) { }
+    override fun onItemSelected(adapterView: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        replaceFragment(QiitaItem.fromPosition(position))
+    }
 
-    override fun onTabUnselected(tab: TabLayout.Tab?) { }
+    override fun onNothingSelected(adapterView: AdapterView<*>?) {}
 
-    override fun onTabSelected(tab: TabLayout.Tab?) {
-        tab?.let {
-            replaceFragment(tab.tag as QiitaItem)
+    fun initializeSpinner() {
+        val spinner = activity.findViewById(R.id.spinner) as Spinner?
+        spinner?.let {
+            spinner.visibility = View.VISIBLE
+            spinner.onItemSelectedListener = this
+            spinner.adapter = ArrayAdapter.createFromResource(
+                    context,
+                    R.array.qiita_tabs,
+                    android.R.layout.simple_spinner_dropdown_item)
         }
     }
 

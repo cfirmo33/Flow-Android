@@ -2,21 +2,7 @@
 
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment_qiita_home_fragment_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <RelativeLayout
-        android:id="@+id/fragment_qiita_home_fragment_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/fragment_qiita_home_tab_layout">
-    </RelativeLayout>
-
-    <android.support.design.widget.TabLayout
-        android:id="@+id/fragment_qiita_home_tab_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
-    </android.support.design.widget.TabLayout>
-
 </RelativeLayout>

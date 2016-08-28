@@ -17,4 +17,17 @@ enum class QiitaItem(val titleResId: Int) {
     };
 
     abstract fun fragment(): Fragment
+
+    companion object {
+        private val DEFAULT = QiitaItem.Post
+
+        fun fromPosition(position: Int): QiitaItem {
+            for (item in QiitaItem.values()) {
+                if (item.ordinal == position) {
+                    return item
+                }
+            }
+            return DEFAULT
+        }
+    }
 }
