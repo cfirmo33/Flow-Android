@@ -33,6 +33,7 @@ ext {
     supportLibVersion = '24.2.0'
     retrofitVersion = '2.1.0'
     okhttpVersion = '3.4.1'
+    okioVersion = '1.10.0'
     daggerVersion = '2.6.1'
     ormaVersion = '2.5.2'
 }
@@ -45,6 +46,7 @@ dependencies {
     configurations.all {
         resolutionStrategy {
             force "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+            force "com.squareup.okio:okio:$okioVersion"
         }
     }
 
@@ -84,7 +86,7 @@ dependencies {
     compile "com.github.gfx.android.orma:orma:$ormaVersion"
 
     // I/O
-    compile 'com.squareup.okio:okio:1.9.0'
+    compile "com.squareup.okio:okio:$okioVersion"
 
     // Dependency Injection
     compile "com.google.dagger:dagger:$daggerVersion"
