@@ -6,6 +6,15 @@
     <string name="common_menthas">Menthas</string>
     <string name="common_qiita">Qiita</string>
     <string name="common_hatena">Hatena</string>
+    <string name="common_setting">Setting</string>
 
     <string name="qiita_all">All</string>
+
+    <string name="overall_setting">Overall setting</string>
+    <string name="overall_setting_site_setting">Site</string>
+
+    <string name="individual_setting">Individual setting</string>
+    <string name="individual_setting_menthas_setting">Menthas</string>
+    <string name="individual_setting_qiita_setting">Qiita</string>
+    <string name="individual_setting_hatena_setting">Hatena</string>
 </resources>

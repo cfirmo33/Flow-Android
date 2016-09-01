@@ -18,6 +18,10 @@
             android:id="@+id/menu_main_hatena"
             android:title="@string/common_hatena"/>
 
+        <item
+            android:id="@+id/menu_main_setting"
+            android:title="@string/common_setting"/>
+
     </group>
 
 </menu>

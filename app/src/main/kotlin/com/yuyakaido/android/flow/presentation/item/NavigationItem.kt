@@ -3,6 +3,7 @@ package com.yuyakaido.android.flow.presentation.item
 import android.support.v4.app.Fragment
 import com.yuyakaido.android.flow.R
 import com.yuyakaido.android.flow.domain.entity.Site
+import com.yuyakaido.android.flow.presentation.fragment.SettingFragment
 import com.yuyakaido.android.flow.presentation.fragment.CategoryPagerFragment
 import com.yuyakaido.android.flow.presentation.fragment.HatenaHomeFragment
 import com.yuyakaido.android.flow.presentation.fragment.QiitaHomeFragment
@@ -19,6 +20,9 @@ enum class NavigationItem(val menuId: Int, val titleResId: Int) {
     },
     Hatena(R.id.menu_main_hatena, R.string.common_hatena) {
         override fun fragment() = HatenaHomeFragment.newInstance()
+    },
+    Setting(R.id.menu_main_setting, R.string.common_setting) {
+        override fun fragment() = SettingFragment.newInstance()
     };
 
     abstract fun fragment(): Fragment

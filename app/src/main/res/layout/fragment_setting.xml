@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/fragment_setting_overall_setting_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/medium"
+        android:text="@string/overall_setting"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/fragment_setting_overall_setting_site_setting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/large"
+        android:text="@string/overall_setting_site_setting"/>
+
+    <TextView
+        android:id="@+id/fragment_setting_individual_setting_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/medium"
+        android:text="@string/individual_setting"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/fragment_setting_individual_setting_menthas_setting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/large"
+        android:text="@string/individual_setting_menthas_setting"/>
+
+    <TextView
+        android:id="@+id/fragment_setting_individual_setting_qiita_setting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/large"
+        android:text="@string/individual_setting_qiita_setting"/>
+
+    <TextView
+        android:id="@+id/fragment_setting_individual_setting_hatena_setting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/large"
+        android:text="@string/individual_setting_hatena_setting"/>
+
+</LinearLayout>
