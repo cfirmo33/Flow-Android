@@ -8,6 +8,7 @@ import com.yuyakaido.android.flow.infra.repository.HatenaRepository
 
 import dagger.Module
 import dagger.Provides
+import javax.inject.Singleton
 
 /**
  * Created by yuyakaido on 8/2/16.
@@ -15,16 +16,19 @@ import dagger.Provides
 @Module
 class HatenaModule {
 
+    @Singleton
     @Provides
     fun provideHatenaRepository(client: HatenaClient): HatenaRepository {
         return HatenaRepository(client)
     }
 
+    @Singleton
     @Provides
     fun provideHatenaClient(api: HatenaApi): HatenaClient {
         return HatenaClient(api)
     }
 
+    @Singleton
     @Provides
     fun provideHatenaApi(): HatenaApi {
         return ApiClientGenerator.createXmlClient(HatenaApi::class.java, InfraConst.HATENA_BASE_URL)

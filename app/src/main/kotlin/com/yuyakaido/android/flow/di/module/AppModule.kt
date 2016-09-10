@@ -7,6 +7,7 @@ import com.yuyakaido.android.flow.domain.entity.OrmaDatabase
 import com.yuyakaido.android.flow.infra.dao.OrmaBridge
 import dagger.Module
 import dagger.Provides
+import javax.inject.Singleton
 
 /**
  * Created by yuyakaido on 7/30/16.
@@ -22,6 +23,7 @@ class AppModule(private val application: Application) {
         return application.applicationContext
     }
 
+    @Singleton
     @Provides
     fun provideOrmaBridge(context: Context): OrmaBridge {
         return OrmaBridge(OrmaDatabase.builder(context)
