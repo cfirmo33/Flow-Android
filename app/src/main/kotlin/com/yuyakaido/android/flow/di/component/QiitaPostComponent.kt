@@ -1,7 +1,7 @@
 package com.yuyakaido.android.flow.di.component
 
 import com.yuyakaido.android.flow.di.scope.ViewModelScope
-import com.yuyakaido.android.flow.presentation.fragment.QiitaTagFragment
+import com.yuyakaido.android.flow.presentation.fragment.QiitaPostFragment
 import dagger.Subcomponent
 
 /**
@@ -9,6 +9,6 @@ import dagger.Subcomponent
  */
 @ViewModelScope
 @Subcomponent
-interface QiitaTabComponent {
-    fun inject(fragment: QiitaTagFragment)
+interface QiitaPostComponent {
+    fun inject(fragment: QiitaPostFragment)
 }

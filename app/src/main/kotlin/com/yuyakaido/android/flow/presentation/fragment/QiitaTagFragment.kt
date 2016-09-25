@@ -17,6 +17,7 @@ import com.yuyakaido.android.flow.presentation.viewmodel.QiitaTagViewModel
 import com.yuyakaido.android.flow.util.ErrorHandler
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
+import rx.subscriptions.CompositeSubscription
 import javax.inject.Inject
 
 /**
@@ -24,16 +25,18 @@ import javax.inject.Inject
  */
 class QiitaTagFragment : BaseFragment(), ItemClickListener<QiitaTag> {
 
+    @Inject
+    lateinit var viewModel: QiitaTagViewModel
+
+    private lateinit var adapter: QiitaTagAdapter
+
+    private val subscriptions = CompositeSubscription()
+
     companion object {
         fun newInstance(): Fragment {
             return QiitaTagFragment()
         }
     }
-
-    private lateinit var adapter: QiitaTagAdapter
-
-    @Inject
-    lateinit var viewModel: QiitaTagViewModel
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater?.inflate(R.layout.fragment_qiita_tag, container, false)
@@ -45,7 +48,7 @@ class QiitaTagFragment : BaseFragment(), ItemClickListener<QiitaTag> {
 
         initialize()
 
-        viewModel.tags
+        subscriptions.add(viewModel.tags
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe { showProgressBar() }
@@ -54,7 +57,12 @@ class QiitaTagFragment : BaseFragment(), ItemClickListener<QiitaTag> {
                     addQiitaTags(it)
                 }, {
                     ErrorHandler.handle(it)
-                })
+                }))
+    }
+
+    override fun onDestroyView() {
+        subscriptions.unsubscribe()
+        super.onDestroyView()
     }
 
     override fun onItemClick(item: QiitaTag) {

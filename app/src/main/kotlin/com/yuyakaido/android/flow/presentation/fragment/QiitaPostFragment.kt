@@ -9,24 +9,31 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import com.yuyakaido.android.flow.R
+import com.yuyakaido.android.flow.app.Flow
 import com.yuyakaido.android.flow.presentation.adapter.QiitaPagerAdapter
 import com.yuyakaido.android.flow.presentation.item.QiitaSubscription
-import com.yuyakaido.android.flow.presentation.presenter.QiitaPostPresenter
+import com.yuyakaido.android.flow.presentation.viewmodel.QiitaPostViewModel
+import com.yuyakaido.android.flow.util.ErrorHandler
+import rx.android.schedulers.AndroidSchedulers
+import rx.schedulers.Schedulers
+import rx.subscriptions.CompositeSubscription
+import javax.inject.Inject
 
 /**
  * Created by yuyakaido on 8/15/16.
  */
 class QiitaPostFragment : BaseFragment() {
 
-    companion object {
+    @Inject
+    lateinit var viewModel: QiitaPostViewModel
 
+    private val subscriptions = CompositeSubscription()
+
+    companion object {
         fun newInstance(): Fragment {
             return QiitaPostFragment()
         }
-
     }
-
-    lateinit var presenter: QiitaPostPresenter
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater?.inflate(R.layout.fragment_qiita_post, container, false)
@@ -34,14 +41,23 @@ class QiitaPostFragment : BaseFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        Flow.getAppComponent().newQiitaPostComponent().inject(this)
 
-        presenter = QiitaPostPresenter(this)
-        presenter.onCreate()
+        subscriptions.add(viewModel.qiitaSubscriptions
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnSubscribe { showProgressBar() }
+                .doOnUnsubscribe { hideProgressBar() }
+                .subscribe({
+                    setQiitaSubscriptions(it)
+                }, {
+                    ErrorHandler.handle(it)
+                }))
     }
 
-    override fun onDestroy() {
-        presenter.onDestroy()
-        super.onDestroy()
+    override fun onDestroyView() {
+        subscriptions.unsubscribe()
+        super.onDestroyView()
     }
 
     fun setQiitaSubscriptions(subscriptions: List<QiitaSubscription>) {
