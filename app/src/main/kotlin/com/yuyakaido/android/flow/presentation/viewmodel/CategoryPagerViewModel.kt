@@ -13,4 +13,16 @@ class CategoryPagerViewModel @Inject constructor(
 
     val categories = getCategoryUseCase.getCategories(site)
 
+    override fun onCreate() {
+        // Do nothing
+    }
+
+    override fun onDestroy() {
+        // Do nothing
+    }
+
+    override fun onRefresh() {
+        // Do nothing
+    }
+
 }

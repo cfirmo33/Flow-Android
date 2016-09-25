@@ -33,4 +33,16 @@ class QiitaTagViewModel @Inject constructor(
                 })
     }
 
+    override fun onCreate() {
+        // Do nothing
+    }
+
+    override fun onDestroy() {
+        // Do nothing
+    }
+
+    override fun onRefresh() {
+        // Do nothing
+    }
+
 }

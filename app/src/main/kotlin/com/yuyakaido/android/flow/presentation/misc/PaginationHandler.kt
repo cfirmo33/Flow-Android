@@ -2,7 +2,6 @@ package com.yuyakaido.android.flow.presentation.misc
 
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import com.jakewharton.rxbinding.support.v7.widget.RecyclerViewScrollEvent
 import com.jakewharton.rxbinding.support.v7.widget.scrollEvents
 import com.yuyakaido.android.flow.util.ErrorHandler
 import com.yuyakaido.android.flow.util.RecyclerViewUtil
@@ -17,18 +16,20 @@ class PaginationHandler(
         private val recyclerView: RecyclerView,
         private val linearLayoutManager: LinearLayoutManager) {
 
-    private val trigger = PublishSubject.create<RecyclerViewScrollEvent>()
+    private val trigger = PublishSubject.create<Void>()
     private var subscription: Subscription? = null
 
-    fun trigger(): PublishSubject<RecyclerViewScrollEvent> = trigger
+    fun trigger(): PublishSubject<Void> = trigger
 
     fun subscribe() {
         subscription?.unsubscribe()
         subscription = recyclerView.scrollEvents()
                 .filter(RecyclerViewUtil.shouldPaginate(linearLayoutManager))
-                .subscribe(
-                        { trigger.onNext(it) },
-                        { ErrorHandler.handle(it) })
+                .subscribe({
+                    trigger.onNext(null)
+                }, {
+                    ErrorHandler.handle(it)
+                })
     }
 
     fun unsubscribe() {

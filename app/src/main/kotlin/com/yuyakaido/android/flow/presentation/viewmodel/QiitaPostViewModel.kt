@@ -11,4 +11,16 @@ class QiitaPostViewModel @Inject constructor(
 
     val qiitaSubscriptions = getQiitaSubscriptionUseCase.getQiitaSubscriptions()
 
+    override fun onCreate() {
+        // Do nothing
+    }
+
+    override fun onDestroy() {
+        // Do nothing
+    }
+
+    override fun onRefresh() {
+        // Do nothing
+    }
+
 }
