@@ -13,11 +13,11 @@ class QiitaDao(private val orma: OrmaDatabase) {
         orma.prepareInsertIntoQiitaTag().executeAll(tags)
     }
 
-    fun update(tag: QiitaTag) {
-        orma.updateQiitaTag()
+    fun update(tag: QiitaTag): Single<Int> {
+        return orma.updateQiitaTag()
                 .where("name = ?", tag.name)
                 .subscribed(tag.subscribed)
-                .execute()
+                .executeAsObservable()
     }
 
     fun findAll(): Single<List<QiitaTag>> {

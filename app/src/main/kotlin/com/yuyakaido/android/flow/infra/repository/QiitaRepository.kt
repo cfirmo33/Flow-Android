@@ -27,10 +27,7 @@ open class QiitaRepository(private val client: QiitaClient, private val dao: Qii
     }
 
     open fun putTag(tag: QiitaTag): Single<QiitaTag> {
-        return Single.create {
-            dao.update(tag)
-            it.onSuccess(tag)
-        }
+        return dao.update(tag).map { tag }
     }
 
     open fun getSubscribedTags(): Single<List<QiitaTag>> {

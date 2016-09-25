@@ -9,10 +9,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import com.yuyakaido.android.flow.R
+import com.yuyakaido.android.flow.app.Flow
 import com.yuyakaido.android.flow.domain.entity.QiitaTag
 import com.yuyakaido.android.flow.presentation.adapter.ItemClickListener
 import com.yuyakaido.android.flow.presentation.adapter.QiitaTagAdapter
-import com.yuyakaido.android.flow.presentation.presenter.QiitaTagPresenter
+import com.yuyakaido.android.flow.presentation.viewmodel.QiitaTagViewModel
+import com.yuyakaido.android.flow.util.ErrorHandler
+import rx.android.schedulers.AndroidSchedulers
+import rx.schedulers.Schedulers
+import javax.inject.Inject
 
 /**
  * Created by yuyakaido on 8/15/16.
@@ -20,15 +25,15 @@ import com.yuyakaido.android.flow.presentation.presenter.QiitaTagPresenter
 class QiitaTagFragment : BaseFragment(), ItemClickListener<QiitaTag> {
 
     companion object {
-
         fun newInstance(): Fragment {
             return QiitaTagFragment()
         }
-
     }
 
-    private lateinit var presenter: QiitaTagPresenter
     private lateinit var adapter: QiitaTagAdapter
+
+    @Inject
+    lateinit var viewModel: QiitaTagViewModel
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater?.inflate(R.layout.fragment_qiita_tag, container, false)
@@ -36,18 +41,24 @@ class QiitaTagFragment : BaseFragment(), ItemClickListener<QiitaTag> {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        Flow.getAppComponent().newQiitaTagComponent().inject(this)
 
-        presenter = QiitaTagPresenter(this)
-        presenter.onCreate()
-    }
+        initialize()
 
-    override fun onDestroy() {
-        presenter.onDestroy()
-        super.onDestroy()
+        viewModel.tags
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnSubscribe { showProgressBar() }
+                .doOnUnsubscribe { hideProgressBar() }
+                .subscribe({
+                    addQiitaTags(it)
+                }, {
+                    ErrorHandler.handle(it)
+                })
     }
 
     override fun onItemClick(item: QiitaTag) {
-        presenter.onCheckChanged(item)
+        viewModel.putTrigger.onNext(item)
     }
 
     fun initialize() {

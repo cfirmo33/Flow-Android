@@ -45,23 +45,6 @@ class QiitaDaoTest : DaoTest() {
     }
 
     @Test
-    fun updateTest() {
-        val notSubscribedTag = QiitaTag("Android", false)
-        val subscribedTag = QiitaTag("Android", true)
-        orma.prepareInsertIntoQiitaTag().execute(notSubscribedTag)
-
-        val before = orma.selectFromQiitaTag().value()
-        before.name.should be "Android"
-        before.subscribed.should be false
-
-        dao.update(subscribedTag)
-
-        val after = orma.selectFromQiitaTag().value()
-        after.name.should be "Android"
-        after.subscribed.should be true
-    }
-
-    @Test
     fun findAllTest() {
         orma.selectFromQiitaTag().toList().size.should be 0
 

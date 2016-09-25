@@ -14,4 +14,5 @@ interface AppComponent {
     fun newPresentationComponent(): PresentationComponent
 
     fun newCategoryPagerComponent(module: GetCategoryModule): CategoryPagerComponent
+    fun newQiitaTagComponent(): QiitaTabComponent
 }
