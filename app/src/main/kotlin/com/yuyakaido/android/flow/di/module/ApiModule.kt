@@ -1,31 +1,30 @@
 package com.yuyakaido.android.flow.di.module
 
 import com.yuyakaido.android.flow.infra.api.client.HatenaApi
-import com.yuyakaido.android.flow.infra.api.client.HatenaClient
+import com.yuyakaido.android.flow.infra.api.client.MenthasApi
+import com.yuyakaido.android.flow.infra.api.client.QiitaApi
 import com.yuyakaido.android.flow.infra.api.common.ApiClientGenerator
 import com.yuyakaido.android.flow.infra.constant.InfraConst
-import com.yuyakaido.android.flow.infra.repository.HatenaRepository
-
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
 
 /**
- * Created by yuyakaido on 8/2/16.
+ * Created by yuyakaido on 9/24/16.
  */
 @Module
-class HatenaModule {
+class ApiModule {
 
     @Singleton
     @Provides
-    fun provideHatenaRepository(client: HatenaClient): HatenaRepository {
-        return HatenaRepository(client)
+    fun provideMenthasApi(): MenthasApi {
+        return ApiClientGenerator.createJsonClient(MenthasApi::class.java, InfraConst.MENTHAS_BASE_URL)
     }
 
     @Singleton
     @Provides
-    fun provideHatenaClient(api: HatenaApi): HatenaClient {
-        return HatenaClient(api)
+    fun provideQiitaApi(): QiitaApi {
+        return ApiClientGenerator.createJsonClient(QiitaApi::class.java, InfraConst.QIITA_BASE_URL)
     }
 
     @Singleton

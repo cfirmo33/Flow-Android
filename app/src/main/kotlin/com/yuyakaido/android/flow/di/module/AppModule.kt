@@ -13,9 +13,11 @@ import javax.inject.Singleton
  * Created by yuyakaido on 7/30/16.
  */
 @Module(includes = arrayOf(
-        MenthasModule::class,
-        QiitaModule::class,
-        HatenaModule::class))
+        UseCaseModule::class,
+        RepositoryModule::class,
+        DaoModule::class,
+        ClientModule::class,
+        ApiModule::class))
 class AppModule(private val application: Application) {
 
     @Provides

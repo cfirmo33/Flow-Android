@@ -9,10 +9,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import com.yuyakaido.android.flow.R
+import com.yuyakaido.android.flow.app.Flow
+import com.yuyakaido.android.flow.di.module.GetCategoryModule
 import com.yuyakaido.android.flow.domain.entity.Category
 import com.yuyakaido.android.flow.domain.entity.Site
 import com.yuyakaido.android.flow.presentation.adapter.CategoryPagerAdapter
-import com.yuyakaido.android.flow.presentation.presenter.CategoryPagerPresenter
+import com.yuyakaido.android.flow.presentation.viewmodel.CategoryPagerViewModel
+import com.yuyakaido.android.flow.util.ErrorHandler
+import rx.android.schedulers.AndroidSchedulers
+import rx.schedulers.Schedulers
+import rx.subscriptions.CompositeSubscription
+import javax.inject.Inject
 
 /**
  * Created by yuyakaido on 7/23/16.
@@ -34,8 +41,10 @@ class CategoryPagerFragment : BaseFragment() {
     }
 
     private val site by lazy { arguments.getSerializable(ARGS_SITE) as Site }
+    private val subscriptions = CompositeSubscription()
 
-    lateinit var presenter: CategoryPagerPresenter
+    @Inject
+    lateinit var viewModel: CategoryPagerViewModel
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater?.inflate(R.layout.fragment_category_pager, container, false)
@@ -44,13 +53,23 @@ class CategoryPagerFragment : BaseFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        presenter = CategoryPagerPresenter(this, site)
-        presenter.onCreate()
+        Flow.getAppComponent().newCategoryPagerComponent(GetCategoryModule(site)).inject(this)
+
+        subscriptions.add(viewModel.categories
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnSubscribe { showProgressBar() }
+                .doOnUnsubscribe { hideProgressBar() }
+                .subscribe({
+                    setCategories(it)
+                }, {
+                    ErrorHandler.handle(it)
+                }))
     }
 
-    override fun onDestroy() {
-        presenter.onDestroy()
-        super.onDestroy()
+    override fun onDestroyView() {
+        subscriptions.unsubscribe()
+        super.onDestroyView()
     }
 
     fun setCategories(categories: List<Category>) {

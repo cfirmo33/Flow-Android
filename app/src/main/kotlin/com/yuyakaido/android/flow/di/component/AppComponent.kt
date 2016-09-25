@@ -1,6 +1,7 @@
 package com.yuyakaido.android.flow.di.component
 
 import com.yuyakaido.android.flow.di.module.AppModule
+import com.yuyakaido.android.flow.di.module.GetCategoryModule
 import dagger.Component
 import javax.inject.Singleton
 
@@ -11,4 +12,6 @@ import javax.inject.Singleton
 @Component(modules = arrayOf(AppModule::class))
 interface AppComponent {
     fun newPresentationComponent(): PresentationComponent
+
+    fun newCategoryPagerComponent(module: GetCategoryModule): CategoryPagerComponent
 }
