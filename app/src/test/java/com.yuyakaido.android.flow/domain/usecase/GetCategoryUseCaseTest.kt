@@ -157,10 +157,9 @@ class GetCategoryUseCaseTest : FlowTest() {
 
         val subscriber = TestSubscriber<List<Category>>()
         useCase.getCategories(Site.Qiita).subscribe(subscriber)
-
-        subscriber.assertNoErrors()
-        subscriber.onNextEvents.size.should be 0
-        subscriber.assertCompleted()
+        
+        subscriber.assertError(IllegalArgumentException::class.java)
+        subscriber.assertTerminalEvent()
     }
 
 }
