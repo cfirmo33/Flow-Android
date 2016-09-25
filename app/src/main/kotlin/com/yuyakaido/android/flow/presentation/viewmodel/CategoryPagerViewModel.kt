@@ -8,8 +8,9 @@ import javax.inject.Inject
  * Created by yuyakaido on 9/24/16.
  */
 class CategoryPagerViewModel @Inject constructor(
-        getCategoryUseCase: GetCategoryUseCase) : ViewModel {
+        getCategoryUseCase: GetCategoryUseCase,
+        site: Site) : ViewModel {
 
-    val categories = getCategoryUseCase.getCategories(Site.Menthas)
+    val categories = getCategoryUseCase.getCategories(site)
 
 }
