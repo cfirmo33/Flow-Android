@@ -11,6 +11,7 @@ import com.yuyakaido.android.flow.util.RecyclerViewUtil
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
 import rx.subjects.BehaviorSubject
+import rx.subjects.PublishSubject
 import rx.subscriptions.CompositeSubscription
 import javax.inject.Inject
 
@@ -22,16 +23,35 @@ class ArticleListViewModel @Inject constructor(
         private val component: ArticleListFragment.Component) : ViewModel {
 
     private val subscriptions = CompositeSubscription()
-
     private var fetcher = getArticleUseCase.getArticleFetcher(component)
+    private val initializationTrigger = BehaviorSubject.create<Void>()
+    private val paginationTrigger = PublishSubject.create<Void>()
 
     val articles = BehaviorSubject.create<List<Article>>()
-    val trigger = BehaviorSubject.create<Boolean>(true)
+    val showProgressBar = PublishSubject.create<Boolean>()
+    val refreshTrigger = PublishSubject.create<Void>()
 
     init {
-        subscriptions.add(trigger
+        initializationTrigger.onNext(null)
+
+        subscriptions.add(initializationTrigger
                 .subscribe({
                     loadArticles()
+                }, {
+                    ErrorHandler.handle(it)
+                }))
+
+        subscriptions.add(paginationTrigger
+                .subscribe({
+                    loadArticles()
+                }, {
+                    ErrorHandler.handle(it)
+                }))
+
+        subscriptions.add(refreshTrigger
+                .subscribe({
+                    fetcher = getArticleUseCase.getArticleFetcher(component)
+                    initializationTrigger.onNext(null)
                 }, {
                     ErrorHandler.handle(it)
                 }))
@@ -46,14 +66,15 @@ class ArticleListViewModel @Inject constructor(
     }
 
     override fun onRefresh() {
-        fetcher = getArticleUseCase.getArticleFetcher(component)
-        loadArticles()
+        // Do nothing
     }
 
     fun loadArticles() {
         subscriptions.add(fetcher()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
+                .doOnSubscribe { showProgressBar.onNext(true) }
+                .doOnUnsubscribe { showProgressBar.onNext(false) }
                 .subscribe({
                     articles.onNext(it)
                 }, {
@@ -65,7 +86,7 @@ class ArticleListViewModel @Inject constructor(
         subscriptions.add(recyclerView.scrollEvents()
                 .filter(RecyclerViewUtil.shouldPaginate(layoutManager))
                 .subscribe({
-                    trigger.onNext(true)
+                    paginationTrigger.onNext(null)
                 }, {
                     ErrorHandler.handle(it)
                 }))

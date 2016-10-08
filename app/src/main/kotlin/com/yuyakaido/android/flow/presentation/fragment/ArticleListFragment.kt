@@ -85,6 +85,13 @@ class ArticleListFragment : BaseFragment(), ItemClickListener<Article> {
                 }, {
                     ErrorHandler.handle(it)
                 }))
+        subscriptions.add(viewModel.showProgressBar
+                .subscribe({
+                    val swipeRefreshLayout = view?.findViewById(R.id.fragment_article_list_swipe_refresh_layout) as SwipeRefreshLayout
+                    swipeRefreshLayout.isRefreshing = it
+                }, {
+                    ErrorHandler.handle(it)
+                }))
     }
 
     override fun onDestroyView() {
@@ -103,7 +110,7 @@ class ArticleListFragment : BaseFragment(), ItemClickListener<Article> {
         val swipeRefreshLayout = view?.findViewById(R.id.fragment_article_list_swipe_refresh_layout) as SwipeRefreshLayout
         swipeRefreshLayout.setOnRefreshListener {
             clearArticles()
-            viewModel.onRefresh()
+            viewModel.refreshTrigger.onNext(null)
         }
 
         val layoutManager = LinearLayoutManager(context)
@@ -127,16 +134,6 @@ class ArticleListFragment : BaseFragment(), ItemClickListener<Article> {
     fun startWebBrowser(article: Article) {
         val intent = CustomTabsIntent.Builder().addDefaultShareMenuItem().build()
         intent.launchUrl(activity, Uri.parse(article.url()))
-    }
-
-    fun showProgressBar() {
-        val swipeRefreshLayout = view?.findViewById(R.id.fragment_article_list_swipe_refresh_layout) as SwipeRefreshLayout
-        swipeRefreshLayout.isRefreshing = true
-    }
-
-    fun hideProgressBar() {
-        val swipeRefreshLayout = view?.findViewById(R.id.fragment_article_list_swipe_refresh_layout) as SwipeRefreshLayout
-        swipeRefreshLayout.isRefreshing = false
     }
 
 }
