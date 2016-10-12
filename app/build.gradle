@@ -33,7 +33,7 @@ ext {
     supportLibVersion = '24.2.1'
     retrofitVersion = '2.1.0'
     okhttpVersion = '3.4.1'
-    okioVersion = '1.10.0'
+    okioVersion = '1.11.0'
     daggerVersion = '2.7'
     ormaVersion = '3.0.0-rc2'
 }
