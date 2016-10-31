@@ -30,7 +30,7 @@ repositories {
 }
 
 ext {
-    supportLibVersion = '24.2.1'
+    supportLibVersion = '25.0.0'
     retrofitVersion = '2.1.0'
     okhttpVersion = '3.4.1'
     okioVersion = '1.11.0'
