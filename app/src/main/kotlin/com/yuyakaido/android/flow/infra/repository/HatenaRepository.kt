@@ -5,11 +5,13 @@ import com.yuyakaido.android.flow.domain.entity.Category
 import com.yuyakaido.android.flow.domain.entity.HatenaCategory
 import com.yuyakaido.android.flow.infra.api.client.HatenaClient
 import rx.Single
+import javax.inject.Inject
 
 /**
  * Created by yuyakaido on 8/2/16.
  */
-open class HatenaRepository(private val client: HatenaClient) {
+open class HatenaRepository @Inject constructor(
+        private val client: HatenaClient) {
 
     open fun getCategories(): Single<List<Category>> {
         val categories = mutableListOf<Category>()

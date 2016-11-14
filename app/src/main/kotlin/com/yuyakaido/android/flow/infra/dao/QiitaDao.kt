@@ -3,11 +3,18 @@ package com.yuyakaido.android.flow.infra.dao
 import com.yuyakaido.android.flow.domain.entity.OrmaDatabase
 import com.yuyakaido.android.flow.domain.entity.QiitaTag
 import rx.Single
+import javax.inject.Inject
 
 /**
  * Created by yuyakaido on 8/15/16.
  */
-class QiitaDao(private val orma: OrmaDatabase) {
+class QiitaDao @Inject constructor(bridge: OrmaBridge) {
+
+    private val orma: OrmaDatabase
+
+    init {
+        orma = bridge.orma
+    }
 
     fun insertAll(tags: List<QiitaTag>) {
         orma.prepareInsertIntoQiitaTag().executeAll(tags)

@@ -6,11 +6,14 @@ import com.yuyakaido.android.flow.infra.api.client.QiitaClient
 import com.yuyakaido.android.flow.infra.dao.QiitaDao
 import com.yuyakaido.android.flow.presentation.item.QiitaSubscription
 import rx.Single
+import javax.inject.Inject
 
 /**
  * Created by yuyakaido on 7/23/16.
  */
-open class QiitaRepository(private val client: QiitaClient, private val dao: QiitaDao) {
+open class QiitaRepository @Inject constructor(
+        private val client: QiitaClient,
+        private val dao: QiitaDao) {
 
     open fun getArticles(qiitaSubscription: QiitaSubscription, page: Int): Single<List<Article>> {
         return if (qiitaSubscription.isAll) {

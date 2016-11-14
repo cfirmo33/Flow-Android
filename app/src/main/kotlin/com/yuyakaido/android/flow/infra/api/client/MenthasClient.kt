@@ -5,11 +5,13 @@ import com.yuyakaido.android.flow.domain.entity.Category
 import com.yuyakaido.android.flow.infra.api.converter.MenthasArticleConverter
 import com.yuyakaido.android.flow.infra.api.converter.MenthasCategoryConverter
 import rx.Single
+import javax.inject.Inject
 
 /**
  * Created by yuyakaido on 6/25/16.
  */
-open class MenthasClient(private val api: MenthasApi) {
+open class MenthasClient @Inject constructor(
+        private val api: MenthasApi) {
 
     open fun getCategories(): Single<List<Category>> {
         return api.categories().map { MenthasCategoryConverter.convert(it) }

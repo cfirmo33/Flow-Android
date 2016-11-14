@@ -5,11 +5,13 @@ import com.yuyakaido.android.flow.domain.entity.QiitaTag
 import com.yuyakaido.android.flow.infra.api.converter.QiitaArticleConverter
 import com.yuyakaido.android.flow.infra.api.converter.QiitaTagConverter
 import rx.Single
+import javax.inject.Inject
 
 /**
  * Created by yuyakaido on 7/23/16.
  */
-open class QiitaClient(private val api: QiitaApi) {
+open class QiitaClient @Inject constructor(
+        private val api: QiitaApi) {
 
     open fun getArticles(page: Int): Single<List<Article>> {
         return api.items(page).map { QiitaArticleConverter.convert(it) }
