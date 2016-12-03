@@ -35,7 +35,7 @@ ext {
     okhttpVersion = '3.5.0'
     okioVersion = '1.11.0'
     daggerVersion = '2.7'
-    ormaVersion = '3.0.0'
+    ormaVersion = '3.2.1'
 }
 
 kapt {
