@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.yuyakaido.android.flow.databinding.ItemArticleBinding
 import com.yuyakaido.android.flow.domain.entity.Article
-import com.yuyakaido.android.flow.presentation.binder.CustomBinder
 
 /**
  * Created by yuyakaido on 6/25/16.
@@ -17,7 +16,7 @@ class ArticleListAdapter(
         private val listener: ItemClickListener<Article>) : RecyclerView.Adapter<ArticleListAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
-        return ViewHolder(ItemArticleBinding.inflate(LayoutInflater.from(context), CustomBinder()))
+        return ViewHolder(ItemArticleBinding.inflate(LayoutInflater.from(context)))
     }
 
     override fun getItemCount(): Int {
