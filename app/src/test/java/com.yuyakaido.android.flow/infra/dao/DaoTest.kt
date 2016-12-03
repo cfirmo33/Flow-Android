@@ -11,14 +11,16 @@ import org.junit.Ignore
 @Ignore
 open class DaoTest : FlowTest() {
 
+    lateinit var bridge: OrmaBridge
     lateinit var orma: OrmaDatabase
 
     @Before
     override fun setUp() {
         super.setUp()
-        orma = OrmaDatabase.builder(getContext())
+        bridge = OrmaBridge(OrmaDatabase.builder(getContext())
                 .name(null)
-                .build()
+                .build())
+        orma = bridge.orma
     }
 
 }

@@ -16,7 +16,7 @@ class QiitaDaoTest : DaoTest() {
     @Before
     override fun setUp() {
         super.setUp()
-        dao = QiitaDao(orma)
+        dao = QiitaDao(bridge)
     }
 
     @Test
