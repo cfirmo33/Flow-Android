@@ -1,26 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="10dp">
+<layout>
 
-    <ImageView
-        android:id="@+id/item_article_thumbnail"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:scaleType="centerCrop"/>
+    <data>
+        <variable
+            name="article"
+            type="com.yuyakaido.android.flow.domain.entity.Article"/>
+    </data>
 
-    <TextView
-        android:id="@+id/item_article_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_toRightOf="@+id/item_article_thumbnail"
-        android:layout_toEndOf="@+id/item_article_thumbnail"
-        android:layout_centerVertical="true"/>
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
 
-</RelativeLayout>
+        <ImageView
+            android:id="@+id/item_article_thumbnail"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            app:imageUrl="@{article.thumbnail()}"/>
+
+        <TextView
+            android:id="@+id/item_article_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_toRightOf="@+id/item_article_thumbnail"
+            android:layout_toEndOf="@+id/item_article_thumbnail"
+            android:layout_centerVertical="true"
+            android:text="@{article.title()}"/>
+
+    </RelativeLayout>
+
+</layout>

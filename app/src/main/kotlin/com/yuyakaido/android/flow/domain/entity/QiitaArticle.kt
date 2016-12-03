@@ -4,8 +4,8 @@ package com.yuyakaido.android.flow.domain.entity
  * Created by yuyakaido on 7/23/16.
  */
 data class QiitaArticle(
-        val title: String,
-        val url: String) : Article {
+        private val title: String,
+        private val url: String) : Article {
 
     override fun title(): String {
         return title
