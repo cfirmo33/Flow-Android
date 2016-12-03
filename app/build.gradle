@@ -32,7 +32,7 @@ repositories {
 ext {
     supportLibVersion = '25.0.1'
     retrofitVersion = '2.1.0'
-    okhttpVersion = '3.4.1'
+    okhttpVersion = '3.5.0'
     okioVersion = '1.11.0'
     daggerVersion = '2.7'
     ormaVersion = '3.0.0'
